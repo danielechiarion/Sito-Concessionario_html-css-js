@@ -1,3 +1,7 @@
 ***********************************************************
 DATE		HOUR	AUTHOR			DESCRIPTION
 ***********************************************************
+25/04/2025	10:40	Daniele Chiarion	Create folders to separate the parts of the project
+25/04/2025	10:55	Daniele Chiarion	Create a _custom-variables.scss file where to put the variables used for the style of the website
+25/04/2025	11:00	Daniele Chiarion	Test structure.scss and style.scss compiled in index.html
+25/04/2025	17:55	Daniele Chiarion	Completed navbar for mobile device. Possible graphic effects and icon could be added later. 

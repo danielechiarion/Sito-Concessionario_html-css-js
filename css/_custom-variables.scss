@@ -1,0 +1,36 @@
+/* override of Bootstrap default variables */
+$primary: #ffffff;
+$secondary: #ff0000;
+$text-color: #000000;
+$headings-colors: #000000;
+
+@font-face {
+    font-family: 'Faster One';
+    src: url('../font/Faster_One/FasterOne-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jockey One';
+    src: url('../font/Jockey_One/JockeyOne-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Audiowide';
+    src: url('../font/Audiowide/Audiowide-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* add variables for the default font */
+$main-title_font: 'Faster One';
+$main-title_size: 40;
+$second-title_font: 'Audiowide';
+$second-title_size: 30;
+$nav-text_font: 'Jockey One';
+$nav-text_size: 40;
+
+$default-font: "sans-serif";
