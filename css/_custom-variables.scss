@@ -1,26 +1,48 @@
 /* override of Bootstrap default variables */
-$primary: #ffffff;
+$primary: #000000;
 $secondary: #ff0000;
 $text-color: #000000;
 $headings-colors: #000000;
+$bg-color: #ffffff;
 
 @font-face {
     font-family: 'Faster One';
-    src: url('../font/Faster_One/FasterOne-Regular.ttf') format('ttf');
+    src: url('../font/Faster_One/FasterOne-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Jockey One';
-    src: url('../font/Jockey_One/JockeyOne-Regular.ttf') format('ttf');
+    src: url('../font/Jockey_One/JockeyOne-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Audiowide';
-    src: url('../font/Audiowide/Audiowide-Regular.ttf') format('ttf');
+    src: url('../font/Audiowide/Audiowide-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url("../font/Roboto/static/Roboto-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto ExtraBold 800';
+    src: url("../font/Roboto/static/Roboto-ExtraBold.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Medium 500';
+    src: url("../font/Roboto/static/Roboto-Medium.ttf") format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -29,8 +51,13 @@ $headings-colors: #000000;
 $main-title_font: 'Faster One';
 $main-title_size: 40;
 $second-title_font: 'Audiowide';
-$second-title_size: 30;
+$second-title_size: 3vw;
 $nav-text_font: 'Jockey One';
-$nav-text_size: 40;
+$nav-text_size: 25;
+$nav-text-subtitle_size: 20;
+$normal-text_font: 'Roboto';
+$price_font: 'Roboto ExtraBold 800';
+$price_size: 30;
+$small-subtitle_font: 'Roboto Medium 500';
 
 $default-font: "sans-serif";

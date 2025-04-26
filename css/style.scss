@@ -35,17 +35,31 @@ input:checked + .slider:before {
 }
 
 /* Navbar section */
-h4{
+.nav-link-mobile, .nav-link-desktop, .nav-link-desktop-sub{
     font-family: $nav-text_font;
-    font-size: $nav-text_size;
-}
-
-.nav-link{
+    display: inline-block;
+    position: relative;
     text-decoration: none;
+    transition: all 1.0s ease;
     
     &:hover{
         text-decoration: underline;
+        text-decoration-thickness: 4px;
     }
+}
+
+.nav-link-desktop, .nav-link-mobile{
+    font-size: #{$nav-text_size}px;
+}
+
+.nav-link-mobile{
+    &:hover{
+        transform: translateX(20px);
+    }
+}
+
+.nav-link-desktop-sub{
+    font-size: #{$nav-text-subtitle_size}px;
 }
 
 .collapse-mobile{
@@ -55,4 +69,91 @@ h4{
     right: 0;
     top: 0;
     height: 100vh;
+}
+
+.btn-outline-success{
+    border-color: $secondary;
+    color: $secondary;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    
+    &:hover{
+        background-color: $secondary;
+        color: white;
+        border-color: $secondary;
+    }
+}
+
+.car-carousel{
+    background-color: black;
+}
+
+h1{
+    font-family: $main-title_font;
+    font-size: $main-title_size;
+}
+
+.carousel-title{
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* second title,
+used for home sections
+and for the title of other pages */
+h2{
+    text-align: left;
+    font-family: $second-title_font;
+    font-size: $second-title_size;
+    color: $primary;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5vw;
+    text-decoration-color: $secondary;
+    text-underline-offset: 7px;
+}
+
+.card-ul{
+    list-style:none;
+    padding: 0;
+    margin: 0;
+}
+
+.card{
+    font-family: $normal-text_font;
+}
+
+.btn-secondary{
+    color: white;
+    border-radius: 10px;
+
+    &:hover{
+        background-color: white;
+        color: $secondary;
+        transition-duration: 0.3s;
+    }
+}
+
+.price{
+    font-family: $price_font;
+    font-size: #{$price_size}px;
+}
+
+h5{
+    font-family: $small-subtitle_font;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.card-descriptor{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.card-zoom{
+    transform-origin: top left;
+
+    &:hover{
+        transform: scale(1.2);
+        transition-duration: 0.5s;
+    }
 }
