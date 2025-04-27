@@ -62,14 +62,6 @@ input:checked + .slider:before {
     font-size: #{$nav-text-subtitle_size}px;
 }
 
-.collapse-mobile{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 100vh;
-}
 
 .btn-outline-success{
     border-color: $secondary;
@@ -107,7 +99,7 @@ h2{
     font-size: $second-title_size;
     color: $primary;
     text-decoration: underline;
-    text-decoration-thickness: 0.5vw;
+    text-decoration-thickness: 5px;
     text-decoration-color: $secondary;
     text-underline-offset: 7px;
 }
@@ -155,5 +147,18 @@ h5{
     &:hover{
         transform: scale(1.2);
         transition-duration: 0.5s;
+    }
+}
+
+.shopping-cart-button{
+    border-radius: 20px;
+    border-color: $secondary;
+    border-width: 5px;
+
+    &:hover{
+        background-color: $secondary;
+        .shopping-cart-icon{
+            filter: invert(1);
+        }
     }
 }

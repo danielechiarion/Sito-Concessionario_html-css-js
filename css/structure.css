@@ -11958,6 +11958,23 @@ textarea.form-control-lg {
   margin-left: 2px;
 }
 
+.collapse-mobile {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.3s ease;
+}
+.collapse-mobile.show {
+  max-height: 300px; /* o quanto vuoi */
+  pointer-events: auto; /* ora prende i click */
+  z-index: 1080;
+}
+
 /* car carousel */
 .car-carousel {
   width: 100vw;
@@ -12003,6 +12020,22 @@ titles and cards */
 .btn-card-details {
   display: block;
   float: right !important;
+}
+
+.shopping-cart-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.shopping-cart-button {
+  float: right;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    transform: scale(0.8) !important;
+  }
 }
 
 /*# sourceMappingURL=structure.css.map */
