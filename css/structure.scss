@@ -151,8 +151,17 @@ titles and cards */
     margin-right: 10px;
 }
 
+.card{
+    min-width: 18rem !important;
+}
+
 @media(max-width: 768px){
     .card{
         transform: scale(0.8) !important;
     }
+}
+
+.brand-card{
+    transform: scale(0.7) !important;
+    transform-origin: top left;
 }

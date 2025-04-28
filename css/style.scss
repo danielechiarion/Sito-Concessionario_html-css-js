@@ -145,8 +145,9 @@ h5{
     transform-origin: top left;
 
     &:hover{
-        transform: scale(1.2);
+        transform: scale(1.1);
         transition-duration: 0.5s;
+        z-index: 20;
     }
 }
 
@@ -160,5 +161,15 @@ h5{
         .shopping-cart-icon{
             filter: invert(1);
         }
+    }
+}
+
+.brand-card{
+    transform-origin: top left;
+
+    &:hover{
+        transform: scale(0.8) !important;
+        transition-duration: 0.5s;
+        z-index:20;
     }
 }
