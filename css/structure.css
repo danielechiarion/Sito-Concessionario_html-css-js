@@ -11959,7 +11959,7 @@ textarea.form-control-lg {
 }
 
 .collapse-mobile {
-  position: absolute;
+  position: fixed;
   bottom: 60px;
   left: 0;
   width: 100%;
@@ -11971,6 +11971,23 @@ textarea.form-control-lg {
 }
 .collapse-mobile.show {
   max-height: 300px; /* o quanto vuoi */
+  pointer-events: auto; /* ora prende i click */
+  z-index: 1080;
+}
+
+.collapse-tablet {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.3s ease;
+}
+.collapse-tablet.show {
+  max-height: 400px;
   pointer-events: auto; /* ora prende i click */
   z-index: 1080;
 }
@@ -12015,6 +12032,8 @@ textarea.form-control-lg {
 titles and cards */
 .home-section {
   margin-left: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 4vw;
 }
 
 .btn-card-details {
@@ -12040,10 +12059,30 @@ titles and cards */
   .card {
     transform: scale(0.8) !important;
   }
+  .home-section {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+  }
 }
 .brand-card {
   transform: scale(0.7) !important;
   transform-origin: top left;
+}
+
+/* footer */
+footer {
+  padding-top: 20px;
+}
+
+.footer-column {
+  padding-bottom: 30px;
+}
+
+/* card for the access to 
+other pages */
+.pagelink-card {
+  width: 100px;
+  height: auto;
 }
 
 /*# sourceMappingURL=structure.css.map */

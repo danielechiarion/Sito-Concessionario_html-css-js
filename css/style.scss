@@ -175,6 +175,18 @@ h5{
     }
 }
 
+@media(max-width: 768px){
+    .card:hover{
+        transform: scale(0.9) !important;
+    }
+}
+
+.card-sitelink-header{
+    background-color: $secondary;
+    color: white;
+    text-align: center;
+}
+
 /* normal text definition */
 .normal-text{
     font-family: $normal-text_font;
@@ -183,9 +195,15 @@ h5{
 /* footer settings */
 .unordered-list_no-pointed{
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 footer{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.773);
+    color: white;
+}
+
+.footer-link{
     color: white;
 }

@@ -11983,6 +11983,7 @@ h2, .h2 {
   text-underline-offset: 7px;
 }
 
+/* cards for the cars */
 .card-ul {
   list-style: none;
   padding: 0;
@@ -12023,7 +12024,7 @@ h5, .h5 {
   transform-origin: top left;
 }
 .card-zoom:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
   transition-duration: 0.5s;
   z-index: 20;
 }
@@ -12047,6 +12048,38 @@ h5, .h5 {
   transform: scale(0.8) !important;
   transition-duration: 0.5s;
   z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .card:hover {
+    transform: scale(0.9) !important;
+  }
+}
+.card-sitelink-header {
+  background-color: #ff0000;
+  color: white;
+  text-align: center;
+}
+
+/* normal text definition */
+.normal-text {
+  font-family: "Roboto";
+}
+
+/* footer settings */
+.unordered-list_no-pointed {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: white;
+}
+
+.footer-link {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
