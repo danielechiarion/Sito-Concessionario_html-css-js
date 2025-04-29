@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-          <nav class="navbar navbar-light bg-light fixed-bottom d-block d-md-none">
+          <nav class="navbar navbar-light bg-light fixed-bottom d-block d-sm-none">
             <div class="container-fluid d-flex justify-content-between align-items-center">
               <!-- Home icon -->
               <a href="index.html" class="navbar-brand m-0 p-0">
@@ -72,7 +72,7 @@
                   </ul>
                 </li>
               </ul>
-              <div class="collapse navbar-collapse nav-item-right-desktop" id="navbarNavLightDropdown">
+              <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                     <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -102,6 +102,57 @@
             </div>
           </div>
       </nav>
+
+      <!-- NAVBAR FOR TABLET-->
+      <div class="collapse" id="hamburgerTablet" data-bs-theme="light">
+        <div class="bg-light p-4">
+          <h4><a class="nav-link-mobile" href="home.html">Home</a></h4>
+          <h4><a class="nav-link-mobile" href="car-configurator.html">Configuratore</a></h4>
+          <h4><a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a></h4>
+          <h4><a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a></h4>
+          <h4><a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a></h4>
+        </div>
+      </div>
+      <nav class="navbar navbar-light bg-light fixed-top d-none d-sm-block d-md-none">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburgerTablet" aria-controls="hamburgerTablet" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <!-- profile links -->
+          <div class="navbar-collapse nav-item-right-desktop d-flex align-items-center" id="profile-menu-dropdown_tablet">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="../../img/static/profile.svg" class="nav-icon-desktop" alt="Profile">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-light">
+                  <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
+                  <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
+                  <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-item-right-desktop">
+            <img src="../../img/static/light.svg" class="nav-icon-desktop">
+            <!-- Dark/Light switch -->
+            <label class="switch mb-0">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+            <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+          </div>
+          <!-- Search section -->
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+
 
     <br><br>
       <!-- CAROUSEL WITH THE CARS -->
@@ -168,7 +219,7 @@
             <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Fiat Panda</h5>
-              <p class="card-text">
+              <p class="card-text normal-text">
                 <ul class="card-ul">
                   <li><span class="card-descriptor">Motore: </span>Benzina</li>
                   <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
@@ -202,6 +253,21 @@
           </div>
         </div>
       </div>
+
+      <!-- Footer -->
+      <footer>
+        <row class="normal-text">
+          <div col="md-6 lg-3">
+            <h5>Autori</h5>
+            <ul class="unordered-list_no-pointed">
+              <li><a href="https://github.com/danielechiarion" target="_blank">Daniele Chiarion</a></li>
+              <li><a href="https://github.com/crepaldimattia" target="_blank">Mattia Crepaldi</a></li>
+              <li><a href="https://github.com/DavideFocalors79" target="_blank">Davide Laghi</a></li>
+            </ul>
+          </div>
+        </row>
+        <h1 align="center">Concessionario Laghi</h1>
+      </footer>
 
       <!-- Add .css style files -->
       <link rel="stylesheet" type="text/css" href="../../css/style.css">

@@ -11,3 +11,5 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 27/04/2025	11:00	Daniele Chiarion	Correct navbar z-index parameter in order to display the collapse menu over the page.
 27/04/2025	11:19	Daniele Chiarion	Completed card design and object for cars.
 28/04/2025	18:55	Daniele Chiarion	Added home sections and completed car brand card.
+29/04/2025	10:23	Daniele Chiarion	Start footer to be completed
+29/04/2025	11:19	Daniele Chiarion	Add new navbar for tablet to complete. Possible icons could be added later.

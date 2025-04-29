@@ -104,6 +104,7 @@ h2{
     text-underline-offset: 7px;
 }
 
+/* cards for the cars */
 .card-ul{
     list-style:none;
     padding: 0;
@@ -145,7 +146,7 @@ h5{
     transform-origin: top left;
 
     &:hover{
-        transform: scale(1.1);
+        transform: scale(1.1) !important;
         transition-duration: 0.5s;
         z-index: 20;
     }
@@ -172,4 +173,19 @@ h5{
         transition-duration: 0.5s;
         z-index:20;
     }
+}
+
+/* normal text definition */
+.normal-text{
+    font-family: $normal-text_font;
+}
+
+/* footer settings */
+.unordered-list_no-pointed{
+    list-style-type: none;
+}
+
+footer{
+    background-color: black;
+    color: white;
 }
