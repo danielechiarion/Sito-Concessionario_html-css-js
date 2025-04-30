@@ -16,3 +16,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 29/04/2025	17:15	Daniele Chiarion	Completed footer.
 29/04/2025	18:23	Daniele Chiarion	Completed navbar for tablet devices.
 29/04/2025	20:54	Daniele Chiarion	Add last links to the other pages of the site. Completed home-page sections.
+29/04/2025	11:12	Daniele Chiarion	Add logo in the 
