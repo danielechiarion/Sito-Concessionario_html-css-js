@@ -52,9 +52,10 @@ input:checked + .slider:before {
     font-size: #{$nav-text_size}px;
 }
 
-.nav-link-mobile{
+.link-group_navMobile{
     &:hover{
         transform: translateX(20px);
+        transition-duration: 0.8s;
     }
 }
 
@@ -76,6 +77,18 @@ input:checked + .slider:before {
     }
 }
 
+.car-icon_nav{
+   transform: scale(1.2);
+   margin-right: 5px;
+}
+
+.index-icon_nav{
+    transform: scale(1.1);
+    margin-right: 0;
+    padding-right: 0;
+}
+
+/* car-carousel */
 .car-carousel{
     background-color: black;
 }
@@ -206,4 +219,8 @@ footer{
 
 .footer-link{
     color: white;
+}
+
+.footer-icon{
+    filter: invert(1);
 }

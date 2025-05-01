@@ -11932,6 +11932,7 @@ textarea.form-control-lg {
   width: auto;
   padding-left: 5px;
   padding-right: 5px;
+  vertical-align: middle;
 }
 
 .nav-link-mobile, .nav-link-desktop, .nav-link-desktop-sub {
@@ -12076,6 +12077,11 @@ footer {
 
 .footer-column {
   padding-bottom: 30px;
+}
+
+.footer-icon {
+  height: 80;
+  width: 80;
 }
 
 /* card for the access to 

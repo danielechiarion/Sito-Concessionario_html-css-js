@@ -11935,8 +11935,9 @@ input:checked + .slider:before {
   font-size: 25px;
 }
 
-.nav-link-mobile:hover {
+.link-group_navMobile:hover {
   transform: translateX(20px);
+  transition-duration: 0.8s;
 }
 
 .nav-link-desktop-sub {
@@ -11955,6 +11956,18 @@ input:checked + .slider:before {
   border-color: #ff0000;
 }
 
+.car-icon_nav {
+  transform: scale(1.2);
+  margin-right: 5px;
+}
+
+.index-icon_nav {
+  transform: scale(1.1);
+  margin-right: 0;
+  padding-right: 0;
+}
+
+/* car-carousel */
 .car-carousel {
   background-color: black;
 }
@@ -12080,6 +12093,10 @@ footer {
 
 .footer-link {
   color: white;
+}
+
+.footer-icon {
+  filter: invert(1);
 }
 
 /*# sourceMappingURL=style.css.map */
