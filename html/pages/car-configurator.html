@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Configuratore auto</title>
+        <link rel="stylesheet" type="text/css" href="../../css/structure.css">
+        <link rel="icon" href="../../img/static/logo.svg">
+    </head>
+    <body>
+        <!-- NAVBAR FOR SMARTPHONE -->
+        <div id="accordionMenus">
+            <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
+            <div class="bg-light p-4">
+                <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
+                </li>
+                <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/gift.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
+                </li>
+                <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
+                </li>
+            </div>
+            </div>
+            <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
+            <div class="bg-light p-4">
+                <h4><a class="nav-link-mobile link-group_navMobile" href="profile.html">Il tuo profilo</a></h4>
+                <h4><a class="nav-link-mobile link-group_navMobile" href="login.html">Accedi / Logout</a></h4>
+                <h4><a class="nav-link-mobile link-group_navMobile" href="sign-up.html">Registrati</a></h4>
+            </div>
+            </div>
+        </div>
+            <nav class="navbar navbar-light bg-light fixed-bottom d-block d-sm-none">
+                <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Home icon -->
+                <a href="index.html" class="navbar-brand m-0 p-0">
+                    <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
+                </a>
+                <!-- Profile icon -->
+                <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
+                    <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
+                </a>
+                <!-- Hamburger with the site links-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Search - car configurator -->
+                <a href="car-configurator.html" class="navbar-brand m-0 p-0">
+                    <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
+                </a>
+                <!-- Dark/Light switch -->
+                <label class="switch mb-0">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                </div>
+            </nav>
+    
+            <!-- NAVBAR FOR PC -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item d-flex align-items-center">
+                    <img src="../../img/static/home.svg" class="nav-icon-desktop">
+                    <a class="nav-link-desktop" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                    <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+                    <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                    <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+                    <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
+                    </li>
+                    <li class="nav-item dropdown d-flex align-items-center">
+                    <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav">
+                    <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Per te
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
+                        <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
+                    <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-light">
+                        <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
+                        <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
+                        <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+                <div class="nav-item-right-desktop d-flex align-items-center">
+                    <img src="../../img/static/light.svg" class="nav-icon-desktop">
+                    <!-- Dark/Light switch -->
+                    <label class="switch mb-0">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                    </label>
+                    <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- NAVBAR FOR TABLET-->
+        <div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
+            <div class="bg-light p-4">
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/home.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="home.html">Home</a>
+            </li>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+                <a class="nav-link-mobile" href="car-configurator.html">Configuratore</a>
+            </li>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
+            </li>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/gift.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
+            </li>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
+            </li>
+    
+            <br>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="profile.html">Profilo personale</a>
+            </li>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="login.html">Accedi/Login</a>
+            </li>
+            <li class="d-flex align-items-center link-group_navMobile">
+                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                <a class="nav-link-mobile" href="sign-up.html">Registrati</a>
+            </li>
+            </div>
+        </div>
+        <nav class="navbar navbar-light bg-light fixed-top d-none d-sm-block d-md-none">
+            <div class="container-fluid d-flex justify-content-between align-items-center flex-nowrap">
+            <div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburgerTablet" aria-controls="hamburgerTablet" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="d-flex align-items-center flex-shrink-0">
+                <img src="../../img/static/light.svg" class="nav-icon-desktop">
+                <!-- Dark/Light switch -->
+                <label class="switch mb-0">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+                <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+            </div>
+            <!-- Search section -->
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+        </nav>
+
+        <br><br><br>
+
+        <!-- Data input part -->
+        <div class="container mb-5">
+            <div class="row mb-5">
+                <div class="col-12 mb-3">
+                    <h2>Inserisci i dati</h2>
+                </div>
+                <div class="col-md-6">
+                    <h5>Generalità macchina</h5>
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci la marca" aria-label="default input example">
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il modello" aria-label="default input example">
+
+                    <h5 class="form-input-section">Fascia</h5>
+                    <label for="customRange3" class="form-label form-input-item">Potenza minima</label>
+                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="customRange1">
+                    <label for="customRange3" class="form-label form-input-item">Potenza massima</label>
+                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="customRange2">
+                    <label for="customRange3" class="form-label form-input-item">Prezzo minimo</label>
+                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="customRange3">
+                    <label for="customRange3" class="form-label form-input-item">Prezzo massimo</label>
+                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="customRange4">
+
+                    <h5 class="form-input-section">Alimentazione</h5>
+                    <div class="input-group mb-3 form-input-item">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                          <option selected>Scegli il motore</option>
+                          <option value="1">Benzina</option>
+                          <option value="2">Diesel</option>
+                          <option value="3">Metano</option>
+                          <option value="5">GPL</option>
+                          <option value="6">Ibrido</option>
+                          <option value="7">Elettrico</option>
+                        </select>
+                    </div>
+                    <label for="customRange3" class="form-label form-input-item">Autonomia (km con un pieno)</label>
+                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="customRange4">
+                </div>    
+                <div class="col-md-6">
+                    <h5>Dettagli</h5>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#ff0000" title="Choose your color">
+                        <label for="exampleColorInput" class="form-label ms-3">Colore della macchina</label>
+                    </div>
+                    <label for="customRange3" class="form-label form-input-item">Numero posti</label>
+                    <input type="range" class="form-range form-input-item" min="1" max="10" step="1" id="customRange4">
+                    <label for="customRange3" class="form-label form-input-item">Porte</label>
+                    <input type="range" class="form-range form-input-item" min="1" max="7" step="1" id="customRange4">
+                    <label for="customRange3" class="form-label form-input-item">Lunghezza minima (cm)</label>
+                    <input type="range" class="form-range form-input-item" min="100" max="700" step="20" id="customRange4">
+                    <label for="customRange3" class="form-label form-input-item">Lunghezza massima (cm)</label>
+                    <input type="range" class="form-range form-input-item" min="100" max="700" step="20" id="customRange4">
+
+                    <h5 class="form-input-section">Optional</h5>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 1</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 2</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 3</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 4</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 5</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 6</label>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-secondary" type="button">Ricerca</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-5">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h2>Risultati ricerca</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex overflow-visible">
+                        <div class="card card-zoom me-3" style="width: 18rem;">
+                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Fiat Panda</h5>
+                            <p class="card-text">
+                              <ul class="card-ul">
+                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                                <li><span class="card-descriptor">Posti: </span>5</li>
+                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                              </ul>
+                            </p>
+                            <p class="price">€12.000,00</p>
+                            <div class="d-flex align-items-center justify-content-end gap-2">
+                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                              <button type="button" class="shopping-cart-button">
+                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex overflow-visible">
+                        <div class="card card-zoom me-3" style="width: 18rem;">
+                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Fiat Panda</h5>
+                            <p class="card-text">
+                              <ul class="card-ul">
+                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                                <li><span class="card-descriptor">Posti: </span>5</li>
+                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                              </ul>
+                            </p>
+                            <p class="price">€12.000,00</p>
+                            <div class="d-flex align-items-center justify-content-end gap-2">
+                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                              <button type="button" class="shopping-cart-button">
+                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex overflow-visible">
+                        <div class="card card-zoom me-3" style="width: 18rem;">
+                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Fiat Panda</h5>
+                            <p class="card-text">
+                              <ul class="card-ul">
+                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                                <li><span class="card-descriptor">Posti: </span>5</li>
+                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                              </ul>
+                            </p>
+                            <p class="price">€12.000,00</p>
+                            <div class="d-flex align-items-center justify-content-end gap-2">
+                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                              <button type="button" class="shopping-cart-button">
+                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex overflow-visible">
+                        <div class="card card-zoom me-3" style="width: 18rem;">
+                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Fiat Panda</h5>
+                            <p class="card-text">
+                              <ul class="card-ul">
+                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                                <li><span class="card-descriptor">Posti: </span>5</li>
+                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                              </ul>
+                            </p>
+                            <p class="price">€12.000,00</p>
+                            <div class="d-flex align-items-center justify-content-end gap-2">
+                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                              <button type="button" class="shopping-cart-button">
+                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <!-- Footer -->
+        <footer class="mt-5">
+            <div class="container">
+            <div class="row normal-text">
+                <div class="col-md-6 col-lg-3 footer-column">
+                <h5>Autori</h5>
+                <ul class="unordered-list_no-pointed">
+                    <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
+                    <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
+                    <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
+                </ul>
+                </div>
+                <div class="col-md-6 col-lg-6 footer-column">
+                <h5 align="center">La scuola</h5>
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-end">
+                    <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
+                    </div>
+                    <div class="col-9">
+                    <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+                    <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer-column">
+                <h5>I nostri servizi</h5>
+                <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
+                <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
+                <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
+                <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+                </div>
+            </div>
+            <div class="row normal-text">
+                <div class="col-12 gx-3 mb-3">
+                <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+                </div>
+            </div>
+            <div class="row normal-text">
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon">
+                </div>
+                <div class="col-8 d-flex justify-content-start align-items-center">
+                <h1 align="center">Concessionario Laghi</h1>
+                </div>
+            </div>
+            </div>
+        </footer>
+
+
+        <!-- Add .css style files -->
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
+        <!-- Add js scripts -->
+        <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -17,4 +17,9 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 29/04/2025	18:23	Daniele Chiarion	Completed navbar for tablet devices.
 29/04/2025	20:54	Daniele Chiarion	Add last links to the other pages of the site. Completed home-page sections.
 30/04/2025	11:12	Daniele Chiarion	Add logo in the head of the site. 
-01/05/2025	15:02	Daniele Chiarion	Add icons to the different navbars
+01/05/2025	15:02	Daniele Chiarion	Add icons to the different navbars.
+01/05/2025	15:21	Daniele Chiarion	Completed footer part. 
+01/05/2025	15:41	Daniele Chiarion	Add terms and conditions page. 
+01/05/2025	15:50	Daniele Chiarion	Starting with the car configurator page.
+01/05/2025	16:20	Daniele Chiarion	Change the color of the thumb in the range input. 
+01/05/2025	17:16	Daniele Chiarion	Completed car configurator page.

@@ -12079,16 +12079,20 @@ footer {
   padding-bottom: 30px;
 }
 
-.footer-icon {
-  height: 80;
-  width: 80;
-}
-
 /* card for the access to 
 other pages */
 .pagelink-card {
   width: 100px;
   height: auto;
+}
+
+/* form-input for constructor */
+.form-input-item {
+  margin-top: 7px;
+}
+
+.form-input-section {
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=structure.css.map */
