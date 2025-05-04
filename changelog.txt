@@ -23,3 +23,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 01/05/2025	15:50	Daniele Chiarion	Starting with the car configurator page.
 01/05/2025	16:20	Daniele Chiarion	Change the color of the thumb in the range input. 
 01/05/2025	17:16	Daniele Chiarion	Completed car configurator page.
+04/05/2025	19:59	Daniele Chiarion	Start car details page
