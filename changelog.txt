@@ -24,5 +24,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 01/05/2025	16:20	Daniele Chiarion	Change the color of the thumb in the range input. 
 01/05/2025	17:16	Daniele Chiarion	Completed car configurator page.
 04/05/2025	19:59	Daniele Chiarion	Start car details page
-05/05/2025	21:07	Daniele Chiarion	Completed table with car details
-05/05/2025	21:12	Daniele Chiarion	Completed page of the car details with the buttons and the responsive settings.
+05/05/2025	10:07	Daniele Chiarion	Completed table with car details
+05/05/2025	10:12	Daniele Chiarion	Completed page of the car details with the buttons and the responsive settings.
+05/05/2025	11:23	Daniele Chiarion	Completed content part of the login page. Style part is missing.
