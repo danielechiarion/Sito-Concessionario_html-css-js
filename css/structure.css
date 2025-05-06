@@ -12089,10 +12089,32 @@ other pages */
 /* form-input for constructor */
 .form-input-item {
   margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .form-input-section {
   margin-top: 15px;
+}
+
+.command-button-icon img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.command-button-icon {
+  height: 55px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* success or error messages */
+#errorContainer img,
+#successContainer img {
+  height: 40px;
+  width: 40px;
+  margin-right: 8px;
 }
 
 /*# sourceMappingURL=structure.css.map */

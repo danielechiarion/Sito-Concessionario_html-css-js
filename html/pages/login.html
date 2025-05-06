@@ -191,15 +191,27 @@
                 <h2>Login</h2>
             </div>
         </div>
+        <div class="row mb-2">
+            <div class="col-12 mb-3 d-flex align-items-center flex-column">
+                <input class="form-control form-input-item textInput-field" type="text" placeholder="Inserisci lo username" aria-label="default input example">
+                <input type="password" class="form-control form-input-item textInput-field" id="inputPassword" placeholder="Inserisci password">
+                <button type="button" class="btn btn-secondary command-button form-input-item">Accedi</button>
+            </div>
+        </div>
         <div class="row mb-5">
-            <div class="col-12 mb-3">
-                <input class="form-control form-input-item" type="text" placeholder="Inserisci lo username" aria-label="default input example">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Inserisci password">
-                <button type="button" class="btn btn-secondary command-button">Aggiungi al carrello</button><br>
-            </div>
-            <div class="col-12">
-                <p class="normal-text"><a href="sign-up.html">Non hai ancora un account? Registrati</a></p>
-            </div>
+          <div class="col-12 d-flex justify-content-center align-items-center" id="errorContainer">
+            <img src="../../img/static/alert.svg">
+            Username o password errati
+          </div>
+          <div class="col-12 d-flex justify-content-center align-items-center" id="successContainer">
+            <img src="../../img/static/tick.svg">
+             Logout avvenuto con successo
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-12">
+            <p class="normal-text" align="center"><a href="sign-up.html" class="simple-link">Non hai ancora un account? Registrati</a></p>
+          </div>
         </div>
     </div>
 

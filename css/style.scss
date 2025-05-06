@@ -304,8 +304,55 @@ input[type=range]::-moz-range-track {
     padding: 0;
 }
 
+/* form components */
+.textInput-field{
+    max-width: 500px;
+}
+
 .command-button{
     margin-bottom: 10px;
     align-items: center;
     width: 300px;
+    height:40px;
+}
+
+.simple-link{
+    color:blue;
+    &:hover{
+        color:$secondary;
+        transition-duration: 0.3s;
+    }
+}
+
+.command-button-icon{
+    font-size: 18px;
+    font-weight: bold;
+    &:active, &:hover{
+        & > img{
+            filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%); //red color
+        }
+    }
+}
+
+.command-button img{
+    filter: invert(1);
+}
+
+/* Error or success messages */
+#errorContainer{
+    font-family: $normal-text_font;
+    color: red;
+}
+
+#successContainer{
+    font-family: $normal-text_font;
+    color: green;
+}
+
+#errorContainer img{
+    filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%); //red color
+}
+
+#successContainer img{
+    filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(90deg) brightness(97%) contrast(101%);
 }

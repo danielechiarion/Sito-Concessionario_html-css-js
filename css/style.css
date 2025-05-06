@@ -12178,10 +12178,55 @@ input[type=range]::-moz-range-track {
   padding: 0;
 }
 
+/* form components */
+.textInput-field {
+  max-width: 500px;
+}
+
 .command-button {
   margin-bottom: 10px;
   align-items: center;
   width: 300px;
+  height: 40px;
+}
+
+.simple-link {
+  color: blue;
+}
+.simple-link:hover {
+  color: #ff0000;
+  transition-duration: 0.3s;
+}
+
+.command-button-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+.command-button-icon:active > img, .command-button-icon:hover > img {
+  filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%);
+}
+
+.command-button img {
+  filter: invert(1);
+}
+
+/* Error or success messages */
+#errorContainer {
+  font-family: "Roboto";
+  color: red;
+}
+
+#successContainer {
+  font-family: "Roboto";
+  color: green;
+}
+
+#errorContainer img {
+  filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%);
+}
+
+#successContainer img {
+  filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(90deg) brightness(97%) contrast(101%);
 }
 
 /*# sourceMappingURL=style.css.map */

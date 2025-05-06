@@ -27,3 +27,7 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 05/05/2025	10:07	Daniele Chiarion	Completed table with car details
 05/05/2025	10:12	Daniele Chiarion	Completed page of the car details with the buttons and the responsive settings.
 05/05/2025	11:23	Daniele Chiarion	Completed content part of the login page. Style part is missing.
+05/05/2025	16:31	Daniele Chiarion	Login part completed.
+05/05/2025	17:01	Daniele Chiarion	Change buttons in the car details page adding icons for each operation.
+05/05/2025	17:13	Daniele Chiarion	Completed sign up page. 
+05/05/2025	17:24	Daniele Chiarion	Add and define style for possible success or error messages.
