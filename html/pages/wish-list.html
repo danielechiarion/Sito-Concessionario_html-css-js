@@ -2,21 +2,168 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista dei desideri</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- Icone di Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/structure.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
 </head>
 <body>
-			<div class="container mt-5 pt-5 primary">
+    <!-- Barra di navigazione -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Lista dei Desideri</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contatti</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5 primary">
         <div class="purchase-list mt-4">
-		
-		<img src="C:\Users\Studente\Desktop\PROFILO-profile.svg" class="card-img-top"> <h2> Lista dei desideri </h2>
-		<h2 style="color: black;"> <span style="background-color: yellow; border: 1px solid blue; padding: 2px;">  MODIFICA DATI  </span>
-		
-		
-		
-		
-		
-		<h4 style="color: black;"> <span style="background-color: yellow; border: 1px solid blue; padding: 2px;">  RIMUOVI DALLA LISTA  </span>
+            <!-- Immagine del profilo -->
+            <img src="C:\Users\Studente\Desktop\PROFILO-profile.svg" class="card-img-top" alt="Immagine del profilo">
+            <h2>Lista dei desideri</h2>
+
+            <!-- Sezione modifica lista desideri -->
+            <h2 style="color: black;">
+                <span style="background-color: yellow; border: 1px solid blue; padding: 2px;">MODIFICA LISTA</span>
+            </h2>
+
+            <!-- Aggiungere un nuovo desiderio -->
+            <form action="/aggiungi-desiderio" method="POST">
+                <div class="mb-3">
+                    <label for="nuovo-desiderio" class="form-label">Aggiungi nuovo desiderio:</label>
+                    <input type="text" class="form-control" id="nuovo-desiderio" name="nuovo-desiderio" placeholder="Inserisci il tuo desiderio" required data-bs-toggle="tooltip" data-bs-placement="top" title="Inserisci il nome del tuo desiderio">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Aggiungi desiderio
+                    </button>
+                </div>
+            </form>
+
+            <!-- Lista dei desideri (vuota per ora) -->
+            <h3>Desideri attuali:</h3>
+            <div class="card">
+                <ul class="list-group list-group-flush" id="lista-desideri">
+                    <!-- Gli articoli della lista saranno aggiunti dinamicamente -->
+                </ul>
+            </div>
+
+            <!-- Rimuovere elemento dalla lista -->
+            <h4 style="color: black;">
+                <span style="background-color: yellow; border: 1px solid blue; padding: 2px;">RIMUOVI DALLA LISTA</span>
+            </h4>
+        </div>
+    </div>
+
+    <!-- Modal di conferma per la rimozione -->
+    <div class="modal fade" id="modalRimuovi" tabindex="-1" aria-labelledby="modalRimuoviLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalRimuoviLabel">Conferma Rimozione</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sei sicuro di voler rimuovere questo desiderio dalla lista?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-danger" id="btnRimuovi" data-bs-dismiss="modal">Rimuovi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast per confermare l'azione -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastAggiungi" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Operazione completata</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Il desiderio è stato aggiunto con successo!
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusione di JavaScript di Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+    <!-- Inizializzazione dei tooltips di Bootstrap -->
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+        // Variabili per gestire l'elemento da rimuovere
+        let elementoDaRimuovere = null;
+
+        // Funzione per mostrare il toast
+        function mostraToast() {
+            var toast = new bootstrap.Toast(document.getElementById('toastAggiungi'));
+            toast.show();
+        }
+
+        // Funzione per aggiungere un desiderio
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();  // Prevenire il comportamento di submit
+
+            var nuovoDesiderio = document.getElementById('nuovo-desiderio').value;
+            var lista = document.getElementById('lista-desideri');
+
+            // Aggiungere il nuovo desiderio alla lista
+            var item = document.createElement('li');
+            item.classList.add('list-group-item');
+            item.textContent = nuovoDesiderio;
+
+            // Aggiungere il pulsante di rimozione
+            var rimuoviBtn = document.createElement('button');
+            rimuoviBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'float-end', 'ms-2');
+            rimuoviBtn.innerHTML = '<i class="bi bi-trash"></i> Rimuovi';
+            rimuoviBtn.setAttribute('data-bs-toggle', 'modal');
+            rimuoviBtn.setAttribute('data-bs-target', '#modalRimuovi');
+
+            // Associare l'elemento da rimuovere al pulsante
+            rimuoviBtn.addEventListener('click', function() {
+                elementoDaRimuovere = item; // Memorizzare l'elemento da rimuovere
+            });
+
+            item.appendChild(rimuoviBtn);
+            lista.appendChild(item);
+
+            // Mostrare il toast di conferma
+            mostraToast();
+
+            // Resettare il campo del desiderio
+            document.getElementById('nuovo-desiderio').value = '';
+        });
+
+        // Funzione per rimuovere l'elemento
+        document.getElementById('btnRimuovi').addEventListener('click', function () {
+            if (elementoDaRimuovere) {
+                elementoDaRimuovere.remove();  // Rimuovere l'elemento dalla lista
+                elementoDaRimuovere = null; // Resettare l'elemento da rimuovere
+            }
+        });
+    </script>
 </body>
-<html>
+</html>
