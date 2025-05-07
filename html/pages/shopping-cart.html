@@ -7,9 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
 </head>
 <body>
-			<div class="container mt-5 pt-5 primary">
-        <h2>Carrello Acquisti</h2>
-        <div class="purchase-list mt-4">
+        
 		
 		
 		
@@ -109,27 +107,22 @@
           </div>
       </nav>
 
-            <!-- Esempio di acquisto -->
-         <div class="card card-zoom me-3" style="width: 18rem;">
-            <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Fiat Panda</h5>
-              <p class="card-text">
-                </p><ul class="card-ul">
-                  <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                  <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                  <li><span class="card-descriptor">Posti: </span>5</li>
-                  <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                </ul>
-              <p></p>
-              <p class="price">€12.000,00</p>
-              <div class="d-flex align-items-center justify-content-end gap-2">
-                <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-              </div>
-            </div>
+      
+      <div class="container mt-5 pt-5">
+        <div class="row d-flex justify-content-start">
+          <div class="col-12 text-start">
+            <h2>Carrello Acquisti</h2>
           </div>
+        </div>
+      </div>
+	  
+	  
+		<div class="container mb-4 mr-1 mx-5 mb-3">
 
- <!-- Esempio di acquisto -->
+  <div class="row">
+    <div class="col-4 mr-1 mb-1">
+      <div class="box">
+	   <!-- Esempio di acquisto -->
          <div class="card card-zoom me-3" style="width: 18rem;">
             <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
             <div class="card-body">
@@ -145,20 +138,131 @@
               <p class="price">€12.000,00</p>
               <div class="d-flex align-items-center justify-content-end gap-2">
                 <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+				<button type="button" class="shopping-cart-button">
+                  <img src="../../img/static/bin.svg" class="shopping-cart-icon">
+                </button>
               </div>
             </div>
           </div>
-            <!-- Altri acquisti (puoi duplicare e cambiare le informazioni) -->
-            <div class="purchase-toolbar bg-white text-dark px-4 py-3 d-flex justify-content-between align-items-center shadow">
-  <h5 class="m-0">Carrello Totale: 10000000000000000000$</h5>
-  <button class="shopping-cart-button" type="button">
-    Acquista Tutto
-  </button>
+	  </div>
+    </div>
+    <div class="col-4 mr-1 mb-1">
+      <div class="box"><!-- Esempio di acquisto -->
+         <div class="card card-zoom me-3" style="width: 18rem;">
+            <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Fiat Panda</h5>
+              <p class="card-text">
+                </p><ul class="card-ul">
+                  <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                  <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                  <li><span class="card-descriptor">Posti: </span>5</li>
+                  <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                </ul>
+              <p></p>
+              <p class="price">€12.000,00</p>
+              <div class="d-flex align-items-center justify-content-end gap-2">
+                <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+				<button type="button" class="shopping-cart-button">
+                  <img src="../../img/static/bin.svg" class="shopping-cart-icon">
+                </button>
+              </div>
+            </div>
+          </div></div>
+    </div>
+    <div class="col-4 mr-1 mb-1">
+      <div class="box">
+	   <div class="card card-zoom me-3" style="width: 18rem;">
+            <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Fiat Panda</h5>
+              <p class="card-text">
+                </p><ul class="card-ul">
+                  <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                  <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                  <li><span class="card-descriptor">Posti: </span>5</li>
+                  <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                </ul>
+              <p></p>
+              <p class="price">€12.000,00</p>
+              <div class="d-flex align-items-center justify-content-end gap-2">
+                <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+				<button type="button" class="shopping-cart-button">
+                  <img src="../../img/static/bin.svg" class="shopping-cart-icon">
+                </button>
+              </div>
+            </div>
+          </div>
+	  </div>
+    </div>
+  </div>
 </div>
 
-        </div>
-    </div>
 
-    <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+           
+		<div class="purchase-list mt-4">
+ 
+            <!-- Altri acquisti (puoi duplicare e cambiare le informazioni) -->
+            <div class="purchase-toolbar bg-white text-dark px-4 py-3 d-flex justify-content-between align-items-center shadow mb-5">
+				<h5 class="m-0">Carrello Totale: 10000000000000000000$</h5>
+					<button class="shopping-cart-button" type="button">
+					Acquista Tutto
+				</button>
+			</div>
+
+        </div>
+		
+		
+		<footer>
+        <div class="container">
+          <div class="row normal-text">
+            <div class="col-md-6 col-lg-3 footer-column">
+              <h5>Autori</h5>
+              <ul class="unordered-list_no-pointed">
+                <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
+                <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
+                <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-lg-6 footer-column">
+              <h5 align="center">La scuola</h5>
+              <div class="row">
+                <div class="col-3 d-flex justify-content-end align-items-center">
+                  <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
+                </div>
+                <div class="col-9">
+                  <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+                  <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 footer-column">
+              <h5>I nostri servizi</h5>
+              <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
+              <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
+              <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
+              <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+            </div>
+          </div>
+          <div class="row normal-text">
+            <div class="col-12 gx-3 mb-3">
+              <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+            </div>
+          </div>
+          <div class="row normal-text">
+            <div class="col-4 d-flex justify-content-end align-items-center">
+              <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon">
+            </div>
+            <div class="col-8 d-flex justify-content-start align-items-center">
+              <h1 align="center">Concessionario Laghi</h1>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+ <!-- Add .css style files -->
+      <link rel="stylesheet" type="text/css" href="../../css/style.css">
+      <!-- Add js scripts -->
+      <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
