@@ -192,6 +192,33 @@ titles and cards */
     transform-origin: top left;
 }
 
+.card-car-type {
+    width: 200px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.card-car-type .card-img-top {
+    width: 100%;
+    height: 150px; 
+    margin: 0 auto; 
+    display: block;
+}
+
+.card-car-type img{
+    object-fit: contain;
+}
+
+.card-car-type h5{
+    font-size: 20px;
+}
+
+.card-car-type .card-body {
+    padding-right: 0 !important;
+    margin: 0 !important;
+    text-align: center;
+}
+
 /* footer */
 footer{
     padding-top: 20px;
@@ -229,6 +256,19 @@ other pages */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.color-picker {
+    display: flex;
+    gap: 10px;
+}
+  
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ccc;
 }
 
 /* success or error messages */

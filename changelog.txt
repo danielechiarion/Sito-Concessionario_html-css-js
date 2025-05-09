@@ -32,3 +32,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 05/05/2025	17:13	Daniele Chiarion	Completed sign up page. 
 05/05/2025	17:24	Daniele Chiarion	Add and define style for possible success or error messages.
 07/05/2025	12:17	Daniele Chiarion	Add the admin part where to add the items of the site. 
+09/05/2025	20:52	Daniele Chiarion	Change the configurator dimensions and colors. Replacing max length with the car type (coupé, suv ecc.)

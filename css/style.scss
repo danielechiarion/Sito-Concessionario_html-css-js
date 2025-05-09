@@ -103,6 +103,15 @@ h1{
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #333; 
+
+  &:hover{
+    background-color: #555;
+  }
+}
+
 /* second title,
 used for home sections
 and for the title of other pages */
@@ -338,6 +347,11 @@ input[type=range]::-moz-range-track {
     filter: invert(1);
 }
 
+.btn-secondary-clicked{
+    background-color: white;
+    color: $secondary;
+}
+
 /* Error or success messages */
 #errorContainer{
     font-family: $normal-text_font;
@@ -355,4 +369,8 @@ input[type=range]::-moz-range-track {
 
 #successContainer img{
     filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(90deg) brightness(97%) contrast(101%);
+}
+
+.color-option:hover, .color-option-clicked{
+    border: 10px solid $secondary;
 }
