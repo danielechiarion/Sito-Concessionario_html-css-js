@@ -12,6 +12,7 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 27/04/2025	11:19	Daniele Chiarion	Completed card design and object for cars.
 28/04/2025	18:55	Daniele Chiarion	Added home sections and completed car brand card.
 29/04/2025	10:23	Daniele Chiarion	Start footer to be completed
+29/04/2025  10:43 Davide Laghi Finished designing the purchase-list and started designing the shopping cart.
 29/04/2025	11:19	Daniele Chiarion	Add new navbar for tablet to complete. Possible icons could be added later.
 29/04/2025	17:15	Daniele Chiarion	Completed footer.
 29/04/2025	18:23	Daniele Chiarion	Completed navbar for tablet devices.
@@ -31,5 +32,9 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 05/05/2025	17:01	Daniele Chiarion	Change buttons in the car details page adding icons for each operation.
 05/05/2025	17:13	Daniele Chiarion	Completed sign up page. 
 05/05/2025	17:24	Daniele Chiarion	Add and define style for possible success or error messages.
+07/05/2025  11:46 Davide Laghi Added and defined a new image to images.
+07/05/2025  11:58 Davide Laghi Added footer and made Card stay in different collums to the shopping cart.
 07/05/2025	12:17	Daniele Chiarion	Add the admin part where to add the items of the site. 
 09/05/2025	20:52	Daniele Chiarion	Change the configurator dimensions and colors. Replacing max length with the car type (coupé, suv ecc.)
+10/05/2025  10:52 Davide Laghi Added Footer to the purchase list.
+
