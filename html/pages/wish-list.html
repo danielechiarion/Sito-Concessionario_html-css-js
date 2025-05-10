@@ -26,7 +26,10 @@
             background-color: #343a40;
             color: white;
             padding: 40px 0;
-            margin-top: 40px;
+            margin-top: 20px;  /* Spazio sopra il footer (distanza dalla linea) */
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
         .footer-column h5 {
@@ -86,6 +89,16 @@
         /* Stile per il Toast */
         .toast-container {
             z-index: 1050;
+        }
+
+        /* Modifica per rimuovere lo spazio bianco sotto il footer */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        footer {
+            margin-bottom: 0 !important;  /* Rimuove lo spazio sotto il footer */
         }
     </style>
 </head>
@@ -181,24 +194,11 @@
 
             <!-- Sezione modifica lista desideri -->
             <h2>
-                <span>Modifica Lista</span>
+                <span>Desideri Attuali</span>
             </h2>
 
-            <!-- Aggiungere un nuovo desiderio -->
-            <form id="aggiungi-form">
-                <div class="mb-3">
-                    <label for="nuovo-desiderio" class="form-label">Aggiungi nuovo desiderio:</label>
-                    <input type="text" class="form-control" id="nuovo-desiderio" name="nuovo-desiderio" placeholder="Inserisci il tuo desiderio" required>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-secondary">
-                        <i class="bi bi-plus-circle"></i> Aggiungi Desiderio
-                    </button>
-                </div>
-            </form>
-
             <!-- Lista dei desideri -->
-            <h3>Desideri Attuali:</h3>
+            <h3>Desideri:</h3>
             <div class="card">
                 <ul class="list-group list-group-flush" id="lista-desideri">
                     <!-- Gli articoli della lista saranno aggiunti dinamicamente -->
@@ -243,85 +243,60 @@
     <footer>
         <div class="container">
             <div class="row normal-text">
+                <!-- Colonna Autori -->
                 <div class="col-md-6 col-lg-3 footer-column">
                     <h5>Autori</h5>
-                    <ul class="unordered-list_no-pointed">
+                    <ul class="list-unstyled">
                         <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
                         <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
                         <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
                     </ul>
                 </div>
+
+                <!-- Colonna Scuola -->
                 <div class="col-md-6 col-lg-6 footer-column">
-                    <h5 align="center">La scuola</h5>
+                    <h5 class="text-center">La scuola</h5>
                     <div class="row">
                         <div class="col-3 d-flex justify-content-end align-items-center">
-                            <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
+                            <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80" alt="Logo IIS Viola Marchesini">
                         </div>
                         <div class="col-9">
-                            <p><a href="https://iisviolamarchesini.edu.it" class="footer-link">Istituto d'Istruzione Superiore "Viola Marchesini" </a></p>
+                            <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+                            <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Colonna Servizi -->
+                <div class="col-md-6 col-lg-3 footer-column">
+                    <h5>I nostri servizi</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
+                        <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
+                        <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
+                        <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Colonna Termini e Condizioni -->
+            <div class="row normal-text">
+                <div class="col-12 gx-3 mb-3">
+                    <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row normal-text">
+                <div class="col-12 text-center">
+                    <p class="footer-link">© 2025 SistemaGestioneAuto.com | Sito web sviluppato dagli studenti dell'IIS Viola Marchesini di Rovigo.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
+    <!-- Script Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        // Gestisce l'aggiunta di un desiderio
-        document.getElementById('aggiungi-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Previene l'invio del form al server
-
-            var nuovoDesiderio = document.getElementById('nuovo-desiderio').value;
-            if (!nuovoDesiderio) return; // Se il campo è vuoto, non fa nulla
-
-            var lista = document.getElementById('lista-desideri'); // Ottieni la lista dei desideri
-
-            // Crea un nuovo elemento della lista
-            var item = document.createElement('li');
-            item.classList.add('list-group-item');
-            item.textContent = nuovoDesiderio;
-
-            // Crea il bottone per rimuovere il desiderio
-            var rimuoviBtn = document.createElement('button');
-            rimuoviBtn.classList.add('btn', 'btn-sm', 'float-end', 'ms-2');
-            rimuoviBtn.innerHTML = '<i class="bi bi-trash"></i> Rimuovi';
-            rimuoviBtn.setAttribute('data-bs-toggle', 'modal');
-            rimuoviBtn.setAttribute('data-bs-target', '#modalRimuovi');
-
-            // Gestisce l'azione di rimuovere il desiderio
-            rimuoviBtn.addEventListener('click', function () {
-                elementoDaRimuovere = item;
-            });
-
-            // Aggiungi il bottone al desiderio e il desiderio alla lista
-            item.appendChild(rimuoviBtn);
-            lista.appendChild(item);
-
-            // Mostra il toast di conferma
-            mostraToast();
-
-            // Pulisce il campo di input dopo l'aggiunta
-            document.getElementById('nuovo-desiderio').value = '';
-        });
-
-        // Funzione per mostrare il toast di conferma
-        function mostraToast() {
-            var toast = new bootstrap.Toast(document.getElementById('toastAggiungi'));
-            toast.show();
-        }
-
-        let elementoDaRimuovere = null;
-
-        // Gestisce la rimozione del desiderio quando si conferma la rimozione dal modal
-        document.getElementById('btnRimuovi').addEventListener('click', function () {
-            if (elementoDaRimuovere) {
-                elementoDaRimuovere.remove(); // Rimuove l'elemento dalla lista
-                elementoDaRimuovere = null; // Reset della variabile
-            }
-        });
-    </script>
 </body>
 </html>
