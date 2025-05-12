@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="it">
     <head>
         <title>Configuratore auto</title>
@@ -190,22 +190,22 @@
                 </div>
                 <div class="col-md-6">
                     <h5>Generalità macchina</h5>
-                    <input class="form-control form-input-item" type="text" placeholder="Inserisci la marca" aria-label="default input example">
-                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il modello" aria-label="default input example">
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci la marca" aria-label="default input example" id="input-brand">
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il modello" aria-label="default input example" id="input-model">
 
                     <h5 class="form-input-section">Fascia</h5>
                     <label for="customRange3" class="form-label form-input-item">Potenza minima</label>
-                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="customRange1">
+                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="inputMinPower">
                     <label for="customRange3" class="form-label form-input-item">Potenza massima</label>
-                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="customRange2">
+                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="inputMaxPower">
                     <label for="customRange3" class="form-label form-input-item">Prezzo minimo</label>
-                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="customRange3">
+                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="inputMinPrice">
                     <label for="customRange3" class="form-label form-input-item">Prezzo massimo</label>
-                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="customRange4">
+                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="inputMaxPrice">
 
                     <h5 class="form-input-section">Alimentazione</h5>
                     <div class="input-group mb-3 form-input-item">
-                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="inputEngine">
                           <option selected>Scegli il motore</option>
                           <option value="1">Benzina</option>
                           <option value="2">Diesel</option>
@@ -216,7 +216,7 @@
                         </select>
                     </div>
                     <label for="customRange3" class="form-label form-input-item">Autonomia (km con un pieno)</label>
-                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="customRange4">
+                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="inputDisplacement">
                 </div>    
                 <div class="col-md-6 mt-3">
                     <h5>Tipologia</h5>
@@ -384,7 +384,7 @@
                     <br>
                     <h5>Dettagli</h5>
                     <div class="input-group mb-3 form-input-item">
-                        <div class="color-picker">
+                        <div class="color-picker" id="inputColor">
                             <div class="color-option" style="background-color: #ffffff;" data-color="#ffffff"></div>
                             <div class="color-option" style="background-color: #000000;" data-color="#000000"></div>
                             <div class="color-option" style="background-color: #808080;" data-color="#808080"></div>
@@ -397,7 +397,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3 form-input-item">
-                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="inputSeats">
                           <option selected>Numero posti</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -408,7 +408,7 @@
                         </select>
                     </div>
                     <div class="input-group mb-3 form-input-item">
-                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="inputDoors">
                           <option selected>Numero porte</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -457,7 +457,7 @@
                     <h2>Risultati ricerca</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="resultSection">
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex overflow-visible">
                         <div class="card card-zoom me-3" style="width: 18rem;">
