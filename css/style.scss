@@ -187,7 +187,7 @@ h5{
     }
 }
 
-.brand-card{
+.brand-card-zoom{
     transform-origin: top left;
 
     &:hover{
@@ -352,25 +352,25 @@ input[type=range]::-moz-range-track {
     color: $secondary;
 }
 
+.color-option:hover, .color-option-clicked{
+    border: 5px solid $secondary;
+}
+
 /* Error or success messages */
-#errorContainer{
+.errorContainer{
     font-family: $normal-text_font;
     color: red;
 }
 
-#successContainer{
+.successContainer{
     font-family: $normal-text_font;
     color: green;
 }
 
-#errorContainer img{
+.errorContainer img{
     filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%); //red color
 }
 
-#successContainer img{
+.successContainer img{
     filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(90deg) brightness(97%) contrast(101%);
-}
-
-.color-option:hover, .color-option-clicked{
-    border: 10px solid $secondary;
 }

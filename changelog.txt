@@ -38,4 +38,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 09/05/2025	20:52	Daniele Chiarion	Change the configurator dimensions and colors. Replacing max length with the car type (coupé, suv ecc.)
 10/05/2025  	10:52 	Davide Laghi 		Added Footer to the purchase list.
 12/05/2025	17:14	Daniele Chiarion	Add id to the my pages for a future js implementation. 
-
+12/05/2025	19:52	Daniele Chiarion	Completed add-car part for the admin
+12/05/2025	20:12	Daniele Chiarion	Add car-brand section for admin
+12/05/2025	20:40	Daniele Chiarion	Add optional section for admin

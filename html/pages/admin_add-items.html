@@ -180,23 +180,329 @@
             </div>
         </nav>
 
+        <!-- Add new car -->
         <br><br><br>
-        <div class="container">
+        <div class="container mb-4">
             <div class="row mb-3">
                 <div class="col-12">
                     <h2>Aggiungi macchina</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <select class="form-select form-input-item" aria-label="Default select example">
+                <div class="col-md-6 mb-4">
+                    <h5 class="form-input-section">Generalità macchina</h5>
+                    <select class="form-select form-input-item" aria-label="Default select example" id="choiceBrand">
                         <option selected>Scegli la marca</option>
                         <option value="1">FIAT</option>
                         <option value="2">BMW</option>
                         <option value="3">Audi</option>
                     </select>
-                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il modello" aria-label="default input example">
-                    
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il modello" aria-label="default input example" id="inputModel">
+                    <h5 class="form-input-section">Fascia</h5>
+                    <label for="customRange3" class="form-label form-input-item">Potenza</label>
+                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="inputPower">
+                    <label for="customRange3" class="form-label form-input-item">Prezzo</label>
+                    <input type="range" class="form-range form-input-item" min="10000" max="200000" step="1000" id="inputPrice">
+                    <h5 class="form-input-section">Alimentazione</h5>
+                    <div class="input-group mb-3 form-input-item">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="inputEngine">
+                          <option selected>Scegli il motore</option>
+                          <option value="1">Benzina</option>
+                          <option value="2">Diesel</option>
+                          <option value="3">Metano</option>
+                          <option value="5">GPL</option>
+                          <option value="6">Ibrido</option>
+                          <option value="7">Elettrico</option>
+                        </select>
+                    </div>
+                    <label for="customRange3" class="form-label form-input-item">Autonomia (km con un pieno)</label>
+                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="inputDisplacement">
+                    <h5 class="form-input-section">Dettagli</h5>
+                    <div class="input-group mb-3 form-input-item">
+                        <div class="color-picker" id="inputColor">
+                            <div class="color-option" style="background-color: #ffffff;" data-color="#ffffff"></div>
+                            <div class="color-option" style="background-color: #000000;" data-color="#000000"></div>
+                            <div class="color-option" style="background-color: #808080;" data-color="#808080"></div>
+                            <div class="color-option" style="background-color: #ff0000;" data-color="#ff0000"></div>
+                            <div class="color-option" style="background-color: #f09b59;" data-color="#f09b59"></div>
+                            <div class="color-option" style="background-color: #fffd55;" data-color="#fffd55"></div>
+                            <div class="color-option" style="background-color: #000c7b;" data-color="#000c7b"></div>
+                            <div class="color-option" style="background-color: #73fbfd;" data-color="#73fbfd"></div>
+                            <div class="color-option" style="background-color: #377e47;" data-color="#377e47"></div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3 form-input-item">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="choiceSeats">
+                          <option selected>Numero posti</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3 form-input-item">
+                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="choiceDoors">
+                          <option selected>Numero porte</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="5">5</option>
+                          <option value="7">7</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Tipologia</h5>
+                    <!-- Card type slide for tablet and computers-->
+                    <div id="carouselExample" class="carousel slide d-none d-md-flex">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/city-car.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">City-car</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/sedan.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Berlina</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/suv.avif" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Suv</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/coupe.webp" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Coupé</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/station-wagon.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Station Wagon</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/van.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Commerciale</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                    <!-- Card type slide for smartphone-->
+                    <div id="carouselExample2" class="carousel slide d-block d-md-none">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/city-car.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">City-car</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/sedan.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Berlina</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 3 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/suv.avif" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Suv</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 4 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/coupe.webp" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Coupé</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 5 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/station-wagon.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Station Wagon</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 6 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/van.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Commerciale</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <h5 class="form-input-section">Optional</h5>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 1</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 2</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 3</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 4</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 5</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">Optional 6</label>
+                        </div>
+
+                        <h5 class="form-input-section">Immagini macchina</h5>
+                        <label for="formFileMultiple" class="form-label">Inserisci le immagini della macchina</label>
+                        <input class="form-control form-input-item" type="file" id="filePathCarImages" accept="image/*" multiple>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 errorContainer" id="addCarError">
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new brand -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Aggiungi marchio</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="form-input-section">Inserimento dati</h5>
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome del marchio" aria-label="default input example" id="inputBrandName">
+                    <br>
+                    <label for="formFile" class="form-label form-input-item">Inserisci logo marchio</label>
+                    <input class="form-control" type="file" accept="image/*" id="filePathBrand">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                    <h5 class="form-input-section" id="brandTitlePreview">Anteprima</h5>
+                    <div id="brandCardPreviewContainer">
+                        <div class="card brand-card d-flex flex-column justify-content-center align-items-center" id="brandCardPreview" style="width: 18rem;">
+                            <img src="../../img/variable/fiat-logo.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" align="center">FIAT</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 errorContainer" id="addBrandError">
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new optional -->
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Aggiungi optional</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome dell'optional" aria-label="default input example" id="inputOptionalName">
+                    <label for="exampleFormControlTextarea1" class="form-label form-input-item">Descrizione</label>
+                    <textarea class="form-control" id="inputOptionalDescription" rows="3"></textarea><br>
+                    <label for="customRange3" class="form-label form-input-item">Prezzo</label><br>
+                    <input type="range" class="form-range form-input-item" min="50" max="5000" step="20" id="inputOptionalPrice">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 errorContainer" id="addOptionalError">
                 </div>
             </div>
         </div>

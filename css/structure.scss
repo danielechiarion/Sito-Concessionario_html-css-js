@@ -239,6 +239,7 @@ other pages */
 .form-input-item{
     margin-top: 7px;
     margin-bottom: 7px;
+    max-width: 600px;
 }
 
 .form-input-section{
@@ -272,9 +273,18 @@ other pages */
 }
 
 /* success or error messages */
-#errorContainer img,
-#successContainer img{
+.errorContainer img,
+.successContainer img{
     height:40px;
     width:40px;
     margin-right: 8px;
+}
+
+/* admin page settings */
+#brandCardPreview{
+    margin-left:90px;
+}
+
+textarea{
+    max-width: 600px;
 }
