@@ -214,74 +214,246 @@
         </div>
       </div>
 
-      <!-- MOST SOLD CARS  -->
-      <div class="home-section">
-        <h2>Le più vendute</h2>
-        <br>
-        <div class="d-flex overflow-visible" id="mostSoldSection">
-          <div class="card card-zoom me-3" style="width: 18rem;">
-            <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Fiat Panda</h5>
-              <p class="card-text">
-                <ul class="card-ul">
-                  <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                  <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                  <li><span class="card-descriptor">Posti: </span>5</li>
-                  <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                </ul>
-              </p>
-              <p class="price">€12.000,00</p>
-              <div class="d-flex align-items-center justify-content-end gap-2">
-                <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-                <button type="button" class="shopping-cart-button">
-                  <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
-                </button>
+      <div class="container home-section">
+        <div class="row mb-2">
+          <div class="col-12">
+            <h2>Le più vendute</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" id="most-sold-car-section">
+            <!-- Carousel for smartphones (1 element per carousel-item)-->
+            <div class="carousel slide d-block d-md-none position-relative overflow-visible">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card card-zoom me-3" style="width: 18rem;">
+                    <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fiat Panda</h5>
+                      <p class="card-text">
+                        <ul class="card-ul">
+                          <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                          <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                          <li><span class="card-descriptor">Posti: </span>5</li>
+                          <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                        </ul>
+                      </p>
+                      <p class="price">€12.000,00</p>
+                      <div class="d-flex align-items-center justify-content-end gap-2">
+                        <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                        <button type="button" class="shopping-cart-button">
+                          <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <!-- Controls -->
+              <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>                          
+            </div>
+
+            <!-- Carousel for tablets (2 elements per carousel-item)-->
+            <div class="carousel slide d-none d-md-block d-lg-none position-relative overflow-visible">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card card-zoom me-3" style="width: 18rem;">
+                    <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fiat Panda</h5>
+                      <p class="card-text">
+                        <ul class="card-ul">
+                          <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                          <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                          <li><span class="card-descriptor">Posti: </span>5</li>
+                          <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                        </ul>
+                      </p>
+                      <p class="price">€12.000,00</p>
+                      <div class="d-flex align-items-center justify-content-end gap-2">
+                        <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                        <button type="button" class="shopping-cart-button">
+                          <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Controls -->
+              <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>                          
+            </div>
+
+            <!-- Carousel for computers (4 elements per carousel-item)-->
+            <div class="carousel slide d-none d-lg-block position-relative">
+              <div class="carousel-inner overflow-visible">
+                <div class="carousel-item active d-flex align-items-center justify-content-center">
+                  <div class="card card-zoom me-3" style="width: 18rem;">
+                    <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fiat Panda</h5>
+                      <p class="card-text">
+                        <ul class="card-ul">
+                          <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                          <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                          <li><span class="card-descriptor">Posti: </span>5</li>
+                          <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                        </ul>
+                      </p>
+                      <p class="price">€12.000,00</p>
+                      <div class="d-flex align-items-center justify-content-end gap-2">
+                        <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                        <button type="button" class="shopping-cart-button">
+                          <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-zoom me-3" style="width: 18rem;">
+                    <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fiat Panda</h5>
+                      <p class="card-text">
+                        <ul class="card-ul">
+                          <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                          <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                          <li><span class="card-descriptor">Posti: </span>5</li>
+                          <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                        </ul>
+                      </p>
+                      <p class="price">€12.000,00</p>
+                      <div class="d-flex align-items-center justify-content-end gap-2">
+                        <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                        <button type="button" class="shopping-cart-button">
+                          <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-zoom me-3" style="width: 18rem;">
+                    <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fiat Panda</h5>
+                      <p class="card-text">
+                        <ul class="card-ul">
+                          <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                          <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                          <li><span class="card-descriptor">Posti: </span>5</li>
+                          <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                        </ul>
+                      </p>
+                      <p class="price">€12.000,00</p>
+                      <div class="d-flex align-items-center justify-content-end gap-2">
+                        <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                        <button type="button" class="shopping-cart-button">
+                          <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-zoom me-3" style="width: 18rem;">
+                    <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fiat Panda</h5>
+                      <p class="card-text">
+                        <ul class="card-ul">
+                          <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                          <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                          <li><span class="card-descriptor">Posti: </span>5</li>
+                          <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                        </ul>
+                      </p>
+                      <p class="price">€12.000,00</p>
+                      <div class="d-flex align-items-center justify-content-end gap-2">
+                        <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                        <button type="button" class="shopping-cart-button">
+                          <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Controls -->
+              <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>                          
             </div>
           </div>
         </div>
       </div>
 
       <!-- CARD THAT THE USER COULD LIKE  -->
-      <div class="home-section">
-        <h2>Potrebbero piacerti...</h2>
-        <br>
-        <div class="d-flex overflow-visible" id="adviceSection">
-          <div class="card card-zoom me-3" style="width: 18rem;">
-            <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Fiat Panda</h5>
-              <p class="card-text normal-text">
-                <ul class="card-ul">
-                  <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                  <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                  <li><span class="card-descriptor">Posti: </span>5</li>
-                  <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                </ul>
-              </p>
-              <p class="price">€12.000,00</p>
-              <div class="d-flex align-items-center justify-content-end gap-2">
-                <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-                <button type="button" class="shopping-cart-button">
-                  <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
-                </button>
+      <div class="container home-section">
+        <div class="row mb-2">
+          <div class="col-12">
+            <h2>Potrebbero piacerti...</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 overflow-visible">
+            <div class="d-flex overflow-visible" id="advice-section">
+              <div class="card card-zoom me-3" style="width: 18rem;">
+                <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Fiat Panda</h5>
+                  <p class="card-text normal-text">
+                    <ul class="card-ul">
+                      <li><span class="card-descriptor">Motore: </span>Benzina</li>
+                      <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
+                      <li><span class="card-descriptor">Posti: </span>5</li>
+                      <li><span class="card-descriptor">Potenza: </span>85kW</li>
+                    </ul>
+                  </p>
+                  <p class="price">€12.000,00</p>
+                  <div class="d-flex align-items-center justify-content-end gap-2">
+                    <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
+                    <button type="button" class="shopping-cart-button">
+                      <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-
       <!-- CARD BRANDS  -->
-      <div class="home-section">
-        <h2>I nostri marchi</h2>
-        <br>
-        <div class="d-flex overflow-visible" id="brandSection">
-          <div class="card brand-card card-zoom" style="width: 18rem;">
-            <img src="../../img/variable/fiat-logo.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title" align="center">FIAT</h5>
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <h2>I nostri marchi</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 overflow-visible" id="brand-section">
+            <div class="d-flex overflow-visible" id="brandSection">
+              <div class="card brand-card brand-card-zoom" style="width: 18rem;">
+                <img src="../../img/variable/fiat-logo.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" align="center">FIAT</h5>
+                </div>
+              </div>
             </div>
           </div>
         </div>
