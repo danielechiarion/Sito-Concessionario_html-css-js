@@ -26,10 +26,9 @@
             background-color: #343a40;
             color: white;
             padding: 40px 0;
-            margin-top: 20px;  /* Spazio sopra il footer (distanza dalla linea) */
-            position: relative;
-            bottom: 0;
+            margin-top: 20px;
             width: 100%;
+            bottom: 0;
         }
 
         .footer-column h5 {
@@ -63,7 +62,6 @@
             color: #343a40;
         }
 
-        /* Aggiustamenti al layout */
         .purchase-list img {
             width: 100%;
             max-width: 150px;
@@ -77,134 +75,196 @@
         }
 
         .list-group-item button {
-            background-color: #dc3545; /* Rosso per il bottone di rimozione */
+            background-color: #dc3545;
             color: white;
             border: none;
         }
-        
+
         .list-group-item button:hover {
-            background-color: #c82333; /* Cambia colore al passaggio del mouse */
+            background-color: #c82333;
         }
 
-        /* Stile per il Toast */
-        .toast-container {
-            z-index: 1050;
-        }
-
-        /* Modifica per rimuovere lo spazio bianco sotto il footer */
+        /* Aggiunta per far adattare il footer al contenuto */
         body, html {
             height: 100%;
             margin: 0;
+            display: flex;
+            flex-direction: column;
         }
 
-        footer {
-            margin-bottom: 0 !important;  /* Rimuove lo spazio sotto il footer */
+        .purchase-list {
+            flex-grow: 1;
+        }
+
+        /* Sottolineare la scritta sotto il titolo "Desideri Attuali" */
+        .underline {
+            text-decoration: underline;
+        }
+
+        /* Rimuovere spazio extra tra l'ultima scritta e il footer */
+        .footer-column {
+            margin-bottom: 0 !important;
+        }
+
+        .footer-column p {
+            margin-bottom: 0 !important;
+        }
+
+        .footer-link {
+            margin-bottom: 0 !important;
+        }
+
+        /* Modifica per ridurre lo spazio tra la scritta e il footer */
+        .purchase-list {
+            margin-bottom: 0 !important;
+        }
+
+        .purchase-list h3 {
+            margin-bottom: 10px; /* Ridotto lo spazio sotto il titolo */
+        }
+
+        .purchase-list h3.underline {
+            margin-bottom: 10px; /* Ridotto lo spazio sotto la scritta sotto il titolo */
+        }
+
+        /* Questo si occupa di far "attaccare" il footer al fondo */
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Contenitori per migliorare la reattività */
+        .container-fluid {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .purchase-list h2 {
+                font-size: 1.5rem;
+            }
+
+            .purchase-list h3 {
+                font-size: 1.2rem;
+            }
+
+            .list-group-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .list-group-item button {
+                margin-top: 10px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar telefonica -->
-    <nav class="navbar navbar-light bg-light fixed-bottom d-block d-md-none">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Icona Home -->
-            <a href="index.html" class="navbar-brand m-0 p-0">
-                <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
-            </a>
-            <!-- Icona Profilo -->
-            <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-                <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
-            </a>
-            <!-- Hamburger menu con link del sito -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Ricerca - configuratore auto -->
-            <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-                <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
-            </a>
-            <!-- Switch scuro/chiaro -->
-            <label class="switch mb-0">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </nav>
+    <!-- Contenitore principale che avvolge tutto, incluso il footer -->
+    <div class="content-wrapper">
+        
+        <!-- Navbar telefonica -->
+        <nav class="navbar navbar-light bg-light fixed-bottom d-block d-md-none">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Icona Home -->
+                <a href="index.html" class="navbar-brand m-0 p-0">
+                    <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
+                </a>
+                <!-- Icona Profilo -->
+                <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
+                    <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
+                </a>
+                <!-- Hamburger menu con link del sito -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Ricerca - configuratore auto -->
+                <a href="car-configurator.html" class="navbar-brand m-0 p-0">
+                    <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
+                </a>
+                <!-- Switch scuro/chiaro -->
+                <label class="switch mb-0">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </nav>
 
-    <!-- Navbar desktop -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link-desktop" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Per te
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
-                            <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="collapse navbar-collapse nav-item-right-desktop" id="navbarNavLightDropdown">
-                    <ul class="navbar-nav ms-auto">
+        <!-- Navbar desktop -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link-desktop" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
-                                <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
-                                <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
+                            <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Per te
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
+                                <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
                             </ul>
                         </li>
                     </ul>
+                    <div class="collapse navbar-collapse nav-item-right-desktop" id="navbarNavLightDropdown">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-light">
+                                    <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
+                                    <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
+                                    <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-item-right-desktop">
+                        <img src="../../img/static/light.svg" class="nav-icon-desktop">
+                        <!-- Switch scuro/chiaro -->
+                        <label class="switch mb-0">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+                    </div>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
-                <div class="nav-item-right-desktop">
-                    <img src="../../img/static/light.svg" class="nav-icon-desktop">
-                    <!-- Switch scuro/chiaro -->
-                    <label class="switch mb-0">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                    <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+            </div>
+        </nav>
+
+        <div class="container-fluid mt-5 pt-5 primary">
+            <div class="purchase-list mt-4">
+                <h2>Lista dei Desideri</h2>
+
+                <!-- Scritta sotto il titolo Desideri Attuali sottolineata con i due punti -->
+                <h3 class="underline">I tuoi desideri attuali:</h3>
+
+                <!-- Lista dei desideri -->
+                <div class="card">
+                    <ul class="list-group list-group-flush" id="lista-desideri">
+                        <!-- Gli articoli della lista saranno aggiunti dinamicamente -->
+                    </ul>
                 </div>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
-    </nav>
 
-    <div class="container mt-5 pt-5 primary">
-        <div class="purchase-list mt-4">
-            <!-- Immagine del profilo -->
-            <img src="C:\Users\Studente\Desktop\PROFILO-profile.svg" class="card-img-top" alt="Immagine del profilo">
-            <h2>Lista dei Desideri</h2>
-
-            <!-- Sezione modifica lista desideri -->
-            <h2>
-                <span>Desideri Attuali</span>
-            </h2>
-
-            <!-- Lista dei desideri -->
-            <h3>Desideri:</h3>
-            <div class="card">
-                <ul class="list-group list-group-flush" id="lista-desideri">
-                    <!-- Gli articoli della lista saranno aggiunti dinamicamente -->
-                </ul>
-            </div>
-        </div>
     </div>
 
     <!-- Modal di conferma per la rimozione -->
