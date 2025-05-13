@@ -42,3 +42,5 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 12/05/2025	20:12	Daniele Chiarion	Add car-brand section for admin
 12/05/2025	20:40	Daniele Chiarion	Add optional section for admin
 13/05/2025	10:19	Daniele Chiarion	Add html page to test if all the elements are ready
+13/05/2025	11:06	Daniele Chiarion	Change the admin settings page with the choice of the file
+13/05/2025	11:06	Daniele Chiarion	Add carousel with images in the car details
