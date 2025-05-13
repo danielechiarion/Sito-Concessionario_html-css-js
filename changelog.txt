@@ -41,3 +41,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 12/05/2025	19:52	Daniele Chiarion	Completed add-car part for the admin
 12/05/2025	20:12	Daniele Chiarion	Add car-brand section for admin
 12/05/2025	20:40	Daniele Chiarion	Add optional section for admin
+13/05/2025	10:19	Daniele Chiarion	Add html page to test if all the elements are ready
