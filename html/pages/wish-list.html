@@ -96,11 +96,6 @@
             flex-grow: 1;
         }
 
-        /* Sottolineare la scritta sotto il titolo "Desideri Attuali" */
-        .underline {
-            text-decoration: underline;
-        }
-
         /* Rimuovere spazio extra tra l'ultima scritta e il footer */
         .footer-column {
             margin-bottom: 0 !important;
@@ -121,10 +116,6 @@
 
         .purchase-list h3 {
             margin-bottom: 10px; /* Ridotto lo spazio sotto il titolo */
-        }
-
-        .purchase-list h3.underline {
-            margin-bottom: 10px; /* Ridotto lo spazio sotto la scritta sotto il titolo */
         }
 
         /* Questo si occupa di far "attaccare" il footer al fondo */
@@ -159,6 +150,12 @@
                 margin-top: 10px;
                 width: 100%;
             }
+        }
+
+        /* Rimuovere la linea grigia sotto il titolo */
+        .purchase-list h3 {
+            border-bottom: none; /* Rimosso il bordo */
+            margin-bottom: 10px; /* Ridotto lo spazio sotto il titolo */
         }
     </style>
 </head>
@@ -252,9 +249,6 @@
         <div class="container-fluid mt-5 pt-5 primary">
             <div class="purchase-list mt-4">
                 <h2>Lista dei Desideri</h2>
-
-                <!-- Scritta sotto il titolo Desideri Attuali sottolineata con i due punti -->
-                <h3 class="underline">I tuoi desideri attuali:</h3>
 
                 <!-- Lista dei desideri -->
                 <div class="card">
