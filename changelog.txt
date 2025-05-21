@@ -44,3 +44,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 13/05/2025	10:19	Daniele Chiarion	Add html page to test if all the elements are ready
 13/05/2025	11:06	Daniele Chiarion	Change the admin settings page with the choice of the file
 13/05/2025	11:06	Daniele Chiarion	Add carousel with images in the car details
+21/05/2025	18:39	Daniele Chiarion	Add .js code for pagination and spacer between footers and navbars. 

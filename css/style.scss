@@ -356,6 +356,10 @@ input[type=range]::-moz-range-track {
     border: 5px solid $secondary;
 }
 
+.range-value{
+    font-weight: bold;
+}
+
 /* Error or success messages */
 .errorContainer{
     font-family: $normal-text_font;
