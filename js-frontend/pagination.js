@@ -1,10 +1,12 @@
+import * as device from './size-device_bootstrap.js'
+
 /* define constants */
 const NAVBARDISTANCEDESKTOP = 75;
 const NAVBARDISTANCEMOBILE = 50;
 
 function resizer(){
         /* add a space to separate the content-page from the navbar */
-        if(window.innerWidth < 768){
+        if(window.innerWidth < device.getBootstrapBreakPointValue('md')){
             document.getElementById("navbar-spacer-bottom").style.height = `${NAVBARDISTANCEMOBILE}px`;
             document.getElementById("navbar-spacer-top").style.height = `0px`;
         }else{
