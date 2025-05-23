@@ -45,3 +45,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 13/05/2025	11:06	Daniele Chiarion	Change the admin settings page with the choice of the file
 13/05/2025	11:06	Daniele Chiarion	Add carousel with images in the car details
 21/05/2025	18:39	Daniele Chiarion	Add .js code for pagination and spacer between footers and navbars. 
+23/05/2025	17:56	Daniele Chiarion	Add .js code to show the sliders value on the configurator page.
+23/05/2025	17:12	Daniele Chiarion	Do the same thing done before for the admin add-items page. 
+23/05/2025	17:55	Daniele Chiarion	Add .js to remember the previous page. 
