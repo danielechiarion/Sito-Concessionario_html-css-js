@@ -1,6 +1,6 @@
 export default class Slider{
-    constructor(inputId, outputID, unit){
-        this.input = inputId;
+    constructor(inputID, outputID, unit){
+        this.input = inputID;
         this.output = outputID;
         this.unit = unit;
     }
@@ -8,6 +8,6 @@ export default class Slider{
 
 export function printSliderValue(slider){
     document.getElementById(slider.input).addEventListener('input', () => {
-        document.getElementById(output).innerHTML = document.getElementById(slider.input).value + slider.unit;
+        document.getElementById(slider.output).innerHTML = document.getElementById(slider.input).value + slider.unit;
     });
 }

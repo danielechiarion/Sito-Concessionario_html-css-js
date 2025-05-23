@@ -1,4 +1,4 @@
-import {Slider} from './slider-manager.js';
+import Slider from './slider-manager.js';
 import * as sliderTools from './slider-manager.js';
  
 const sliders = [
