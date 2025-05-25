@@ -48,3 +48,9 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 23/05/2025	17:56	Daniele Chiarion	Add .js code to show the sliders value on the configurator page.
 23/05/2025	17:12	Daniele Chiarion	Do the same thing done before for the admin add-items page. 
 23/05/2025	17:55	Daniele Chiarion	Add .js to remember the previous page. 
+25/05/2025	14:55	Daniele Chiarion	Completed .js backend for car elements and vehicles.
+25/05/2025	15:10	Daniele Chiarion	Completed .js backend for operation (only purchase is now necessary)
+25/05/2025	15:35	Daniele Chiarion	Completed .js backend part for user and account functions.
+25/05/2025	16:00	Daniele Chiarion	Completed .js backend class to manage a showroom.
+25/05/2025	16:11	Daniele Chiarion	Completed .js backend class to manage the users.
+25/05/2025	16:27	Daniele Chiarion	Add backend methods to save and load classes using the localStorage.
