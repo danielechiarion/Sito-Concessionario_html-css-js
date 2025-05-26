@@ -183,24 +183,9 @@ export default class Showroom {
      */
     saveToLocalStorage() {
         const showroomData = {
-            carList: this.#carList.map(car => {
-                return {
-                    ...car,
-                    __className: 'Car'
-                }
-            }),
-            brandList: this.#brandList.map(brand => {
-                return {
-                    ...brand,
-                    __className: 'Brand'
-                }
-            }),
-            optionalList: this.#optionalList.map(optional => {
-                return {
-                    ...optional,
-                    __className: 'Optional'
-                }
-            })
+            carList: this.#carList.map(car => car.toJson()),
+            brandList: this.#brandList.map(brand => brand.toJson()),
+            optionalList: this.#optionalList.map(optional => optional.toJson())
         };
         localStorage.setItem('showroom', JSON.stringify(showroomData));
     }
@@ -215,17 +200,9 @@ export default class Showroom {
         if (showroomString) {
             const showroomData = JSON.parse(showroomString);
 
-            showroom.#carList = showroomData.carList.map(carData => {
-                return Object.assign(new Car(), carData);
-            });
-
-            showroom.#brandList = showroomData.brandList.map(brandData => {
-                return Object.assign(new Brand(), brandData)
-            });
-            
-            showroom.#optionalList = showroomData.optionalList.map(optionalData => {
-                return Object.assign(new Optional(), optionalData);
-            });
+            showroom.#carList = showroomData.carList.map(carData => Car.fromJson(carData));
+            showroom.#brandList = showroomData.brandList.map(brandData => Brand.fromJson(brandData));
+            showroom.#optionalList = showroomData.optionalList.map(optionalData => Optional.fromJson(optionalData));
         }
 
         return showroom;

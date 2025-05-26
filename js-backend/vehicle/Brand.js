@@ -59,4 +59,24 @@ export default class Brand{
     clone(){
         return new Brand(this.#name, this.#logoPath);
     }
+
+    /**
+     * Creates a Brand object from a JSON object.
+     * @param {object} json 
+     * @returns Brand object
+     */
+    static fromJson(json) {
+        return new Brand(json.name, json.logoPath);
+    }
+
+    /**
+     * Converts the Brand object to a JSON object.
+     * @returns {object} JSON object representing the Brand
+     */
+    toJson() {
+        return {
+            name: this.#name,
+            logoPath: this.#logoPath
+        };
+    }
 }

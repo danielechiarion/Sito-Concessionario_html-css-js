@@ -38,4 +38,27 @@ export default class Purchase {
     clone() {
         return new Purchase(this.#car.clone(), new Date(this.#date.getTime()));
     }
+
+    /**
+     * Creates a Purchase object from a JSON object.
+     * @param {object} json 
+     * @returns Purchase object
+     */
+    static fromJson(json) {
+        return new Purchase(
+            Car.fromJson(json.car),
+            new Date(json.date)
+        );
+    }
+
+    /**
+     * Converts the Purchase object to a JSON object.
+     * @returns {object} JSON object representing the Purchase
+     */
+    toJson() {
+        return {
+            car: this.#car.toJson(),
+            date: this.#date.toISOString()
+        };
+    }
 }

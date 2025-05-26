@@ -97,4 +97,25 @@ export default class Optional{
     clone(){
         return new Optional(this.#description, this.#price, this.#status);
     }
+
+    /**
+     * Creates an Optional object from a JSON object.
+     * @param {object} json 
+     * @returns Optional object
+     */
+    static fromJson(json) {
+        return new Optional(json.description, json.price, json.status);
+    }
+
+    /**
+     * Converts the Optional object to a JSON object.
+     * @returns {object} JSON object representing the Optional
+     */
+    toJson() {
+        return {
+            description: this.#description,
+            price: this.#price,
+            status: this.#status
+        };
+    }
 }

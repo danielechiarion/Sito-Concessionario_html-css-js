@@ -187,17 +187,6 @@ export default class User {
     }
 
     /**
-     * Checks if the user can log in with the username and password.
-     * This method checks if the username and password match.
-     * @param {User} otherUser 
-     * @returns TRUE if the username and password match, FALSE otherwise.
-     * @throws {TypeError} If the argument is not an instance of User.
-     */
-    login(otherUser){
-        return this.equals(otherUser) && this.#password === otherUser.#password;
-    }
-
-    /**
      * Method to clone the user.
      * @returns {User} A clone of the user.
      */
@@ -206,5 +195,39 @@ export default class User {
         clonedUser.#wishList = this.getWishList();
         clonedUser.#purchaseList = this.getPurchaseList();
         return clonedUser;
+    }
+
+    /**
+     * Creates a User object from a JSON object.
+     * @param {object} json 
+     * @returns User object
+     */
+    static fromJson(json) {
+        const user =  new User(
+            json.name,
+            json.surname,
+            json.username,
+            json.password,
+            json.role
+        );
+        user.setWishList(json.wishList.map(car => Car.fromJson(car)));
+        user.setPurchaseList(json.purchaseList.map(purchase => Purchase.fromJson(purchase)));
+        return user;
+    }
+
+    /**
+     * Converts the User object to a JSON object.
+     * @returns {object} JSON object representing the User
+     */
+    toJson() {
+        return {
+            name: this.#name,
+            surname: this.#surname,
+            username: this.#username,
+            password: this.#password,
+            role: this.#role,
+            wishList: this.#wishList.map(car => car.toJson()),
+            purchaseList: this.#purchaseList.map(purchase => purchase.toJson())
+        };
     }
 }

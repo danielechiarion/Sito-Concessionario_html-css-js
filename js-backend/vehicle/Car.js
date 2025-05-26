@@ -401,4 +401,51 @@ export default class Car{
     clone(){
         return new Car(this.#brand.clone(), this.#model, this.#type, this.#engine, this.#minPower, this.#engineAutonomy, this.#initialValue, this.#seats, this.#doorsNumber, this.#quantityAvailable, this.#mainImage, this.getDetailsImage(), this.getOptionalList(), this.#ID);
     }
+
+    /**
+     * Creates a Car object from a JSON object.
+     * @param {object} json 
+     * @returns Car object
+     */
+    static fromJson(json) {
+        return new Car(
+            Brand.fromJson(json.brand),
+            json.model,
+            json.type,
+            json.engine,
+            json.minPower,
+            json.engineAutonomy,
+            json.initialValue,
+            json.seats,
+            json.doorsNumber,
+            json.quantityAvailable,
+            json.mainImage,
+            json.detailsImage,
+            json.optionalList.map(optional => Optional.fromJson(optional)),
+            json.ID
+        );
+    }
+
+    /**
+     * Converts the Car object to a JSON object.
+     * @returns {object} JSON object representing the Car
+     */
+    toJson() {
+        return {
+            brand: this.#brand.toJson(),
+            model: this.model,
+            type: this.#type,
+            engine: this.#engine,
+            minPower: this.#minPower,
+            engineAutonomy: this.#engineAutonomy,
+            initialValue: this.#initialValue,
+            seats: this.#seats,
+            doorsNumber: this.#doorsNumber,
+            quantityAvailable: this.#quantityAvailable,
+            mainImage: this.#mainImage,
+            detailsImage: this.#detailsImage,
+            optionalList: this.#optionalList.map(optional => optional.toJson()),
+            ID: this.#ID
+        };
+    }
 }

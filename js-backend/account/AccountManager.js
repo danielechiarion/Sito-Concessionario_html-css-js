@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import UserSearch from './UserSearch.js';
 
 /* class for the account management */
 export default class AccountManager {
@@ -66,18 +67,19 @@ export default class AccountManager {
     }
 
     /**
-     * Return the accoun by the index given.
-     * @param {number} index 
+     * Return the accoun by the account given
+     * @param {UserSearch} account account to be searched
      * @returns {User} The account at the specified index.
-     * @throws {TypeError} If the index is not a number.
-     * @throws {RangeError} If the index is out of range.
+     * @return {null} if the account is not found.
+     * @throws {TypeError} if it's not an instance of UserSearch.
      */
-    getAccount(index){
-        if(typeof index !== 'number')
-            throw new TypeError("index must be a number");
-        if(index < 0 || index >= this.#accountList.length)
-            throw new RangeError("index out of range");
-
+    getAccount(account){
+        if(!(account instanceof UserSearch))
+            throw new TypeError("index must be a user");
+        
+        const index = this.#accountList.findIndex(acc => account.equals(acc));
+        if(index === -1) 
+            return null;
         return this.#accountList[index];
     }
 
@@ -93,27 +95,7 @@ export default class AccountManager {
      * Saves the current account list to local storage.
      */
     saveLocalStorage() {
-        const accountManagerData = this.#accountList.map(account => {
-            return {
-                name: account.getName(),
-                surname: account.getSurname(),
-                username: account.getUsername(),
-                password: account.getPassword(),
-                role: account.getRole(),
-                wishList: account.getWishList().map(car => {
-                    return {
-                        ...car,
-                        __className: 'Car'
-                    }
-                }),
-                purchaseList: account.getPurchaseList().map(purchase => {
-                     return {
-                        ...purchase,
-                        __className: 'Purchase'
-                    }
-                })
-            };
-        });
+        const accountManagerData = this.#accountList.map(account => account.toJson());
         localStorage.setItem('accountManager', JSON.stringify(accountManagerData));
     }
 
@@ -126,22 +108,7 @@ export default class AccountManager {
         const StringAccountManager = localStorage.getItem('accountManager');
         if (StringAccountManager) {
             const accountList = JSON.parse(StringAccountManager);
-            accountManager.#accountList = accountList.map(accountData => {
-                const user = new User(
-                    accountData.name,
-                    accountData.surname,
-                    accountData.username,
-                    accountData.password,
-                    accountData.role
-                );
-                user.setWishList(accountData.wishList.map(carData => {
-                    return Object.assign(new Car(), carData);
-                }));
-                user.setPurchaseList(accountData.purchaseList.map(purchaseData => {
-                    return Object.assign(new Purchase(), purchaseData);
-                }));
-                return user;
-            });
+            accountManager.#accountList = accountList.map(accountData => User.fromJson(accountData));
         }
 
         return accountManager;

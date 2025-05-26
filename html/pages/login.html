@@ -180,11 +180,9 @@
       </div>
     </nav>
 
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="navbar-spacer-top"></div>
 
     <!-- Login part -->
-    <br><br><br>
     <div class="container">
         <div class="row mb-4">
             <div class="col-12 d-flex justify-content-center">
@@ -198,22 +196,17 @@
                 <button type="button" class="btn btn-secondary command-button form-input-item" id="input-submit">Accedi</button>
             </div>
         </div>
-        <div class="row mb-5">
-          <div class="col-12 d-flex justify-content-center align-items-center errorContainer" id="login-error">
-            <img src="../../img/static/alert.svg">
-            Username o password errati
-          </div>
-          <div class="col-12 d-flex justify-content-center align-items-center successContainer" id="login-success">
-            <img src="../../img/static/tick.svg">
-             Logout avvenuto con successo
-          </div>
-        </div>
-        <div class="row mb-5">
+        <div class="row mb-3">
           <div class="col-12">
             <p class="normal-text" align="center"><a href="sign-up.html" class="simple-link">Non hai ancora un account? Registrati</a></p>
           </div>
         </div>
+        <div class="row mb-5" id="login-message">
+          
+        </div>
     </div>
+
+    <div id="body-spacer"></div>
 
     <!-- Footer -->
     <footer>
@@ -262,5 +255,13 @@
           </div>
         </div>
     </footer>
+
+    <div id="navbar-spacer-bottom"></div>
+
+    <!-- Add .css part -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <!-- Add .js scripts -->
+    <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../js-frontend/pagination.js"></script>
   </body>
 </html>
