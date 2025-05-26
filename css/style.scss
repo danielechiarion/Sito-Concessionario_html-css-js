@@ -181,11 +181,13 @@ h5{
 
     &:hover{
         background-color: $secondary;
-        .shopping-cart-icon{
+        .shopping-cart-icon, .wish-list-icon{
             filter: invert(1);
         }
     }
 }
+
+
 
 .brand-card-zoom{
     transform-origin: top left;
