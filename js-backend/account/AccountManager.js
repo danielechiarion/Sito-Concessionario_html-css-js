@@ -1,4 +1,4 @@
-import User from '../models/User.js';
+import User from './User.js';
 import UserSearch from './UserSearch.js';
 
 /* class for the account management */
@@ -80,6 +80,7 @@ export default class AccountManager {
         const index = this.#accountList.findIndex(acc => account.equals(acc));
         if(index === -1) 
             return null;
+        
         return this.#accountList[index];
     }
 

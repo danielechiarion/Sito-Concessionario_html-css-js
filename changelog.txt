@@ -55,3 +55,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 25/05/2025	16:11	Daniele Chiarion	Completed .js backend class to manage the users.
 25/05/2025	16:27	Daniele Chiarion	Add backend methods to save and load classes using the localStorage.
 26/05/2025	17:05	Daniele Chiarion	Add toJSON and fromJSON method for each class to be saved on localStorage.
+26/05/2025	17:49	Daniele Chiarion	Add login and logout function.
+26/05/2025	18:28	Daniele Chiarion	Add custom-navbar .js code.
+26/05/2025	18:48	Daniele Chiarion	Add .js to manage sign-up page.
