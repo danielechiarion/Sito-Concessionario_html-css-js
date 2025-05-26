@@ -30,6 +30,7 @@ export default class User {
         this.#password = password;
         this.#purchaseList = [];
         this.#wishList = [];
+        this.#role = role;
     }
 
     #setRole(roleName) {
@@ -208,7 +209,7 @@ export default class User {
             json.surname,
             json.username,
             json.password,
-            json.role
+            AccountRole.AccountRole[json.role]
         );
         user.setWishList(json.wishList.map(car => Car.fromJson(car)));
         user.setPurchaseList(json.purchaseList.map(purchase => Purchase.fromJson(purchase)));

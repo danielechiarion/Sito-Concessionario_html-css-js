@@ -7,9 +7,9 @@ import * as TemplateParts from "./template-parts.js";
 on the type of user */
 let currentAccount = localStorage.getItem("loggedUser");
 if(currentAccount !== null) 
-    currentAccount = User.fromJson(currentAccount);
+    currentAccount = User.fromJson(JSON.parse(currentAccount));
 
-if(currentAccount !== null && currentAccount.role === AccountRole.AccountRole.ADMIN)
+if(currentAccount !== null && currentAccount.getRole() === AccountRole.AccountRole.ADMIN)
     document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarAdmin();
 else
     document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarCustomer();

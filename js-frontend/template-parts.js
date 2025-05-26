@@ -32,7 +32,7 @@ export function getNavbarAdmin(){
       <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
         <div class="bg-light p-4">
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/setting.svg" class="nav-icon-desktop">
+            <img src="../../img/static/settings.svg" class="nav-icon-desktop">
             <a class="nav-link-mobile" href="admin_add-items.html">Aggiungi articoli</a>
           </li>
         </div>
@@ -359,4 +359,35 @@ export function getNavbarCustomer(){
         </form>
       </div>
     </nav>`
+}
+
+/**
+ * Returns a formatted select options for a form
+ * @param {string[]} values 
+ * @returns formatted string with the options
+ */
+export function getFormSelectOptions(values){
+  let options = "";
+  for(let i=0; i<values.length;i++){
+    options += `<option value="${i}">${values[i]}</option>`;
+  }
+
+  return options;
+}
+
+/**
+ * Returns a formatted switch options for a form
+ * @param {string[]} values 
+ * @returns formatted string with the switch options
+ */
+export function getSwitchOption(values){
+  let options = "";
+  for(let i=0; i<values.length;i++){
+    options += `<div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch">
+      <label class="form-check-label" for="switchCheckDefault">${values[i]}</label>
+    </div>`;
+  }
+
+  return options;
 }

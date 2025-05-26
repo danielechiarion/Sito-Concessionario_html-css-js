@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <title>Aggiungi prodotti</title>
@@ -6,195 +6,21 @@
         <link rel="icon" href="../../img/static/logo.svg">
     </head>
     <body>
-        <!-- NAVBAR FOR SMARTPHONE -->
-        <div id="accordionMenus">
-            <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
-            <div class="bg-light p-4">
-                <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
-                </li>
-                <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/gift.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
-                </li>
-                <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
-                </li>
-            </div>
-            </div>
-            <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
-            <div class="bg-light p-4">
-                <h4><a class="nav-link-mobile link-group_navMobile" href="profile.html">Il tuo profilo</a></h4>
-                <h4><a class="nav-link-mobile link-group_navMobile" href="login.html">Accedi / Logout</a></h4>
-                <h4><a class="nav-link-mobile link-group_navMobile" href="sign-up.html">Registrati</a></h4>
-            </div>
-            </div>
-        </div>
-            <nav class="navbar navbar-light bg-light fixed-bottom d-block d-sm-none">
-                <div class="container-fluid d-flex justify-content-between align-items-center">
-                <!-- Home icon -->
-                <a href="index.html" class="navbar-brand m-0 p-0">
-                    <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
-                </a>
-                <!-- Profile icon -->
-                <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-                    <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
-                </a>
-                <!-- Hamburger with the site links-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Search - car configurator -->
-                <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-                    <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
-                </a>
-                <!-- Dark/Light switch -->
-                <label class="switch mb-0">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                </div>
-            </nav>
-    
-            <!-- NAVBAR FOR PC -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item d-flex align-items-center">
-                    <img src="../../img/static/home.svg" class="nav-icon-desktop">
-                    <a class="nav-link-desktop" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center">
-                    <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
-                    <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center">
-                    <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
-                    <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
-                    </li>
-                    <li class="nav-item dropdown d-flex align-items-center">
-                    <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav">
-                    <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Per te
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
-                        <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
-                    </ul>
-                    </li>
-                </ul>
-                <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
-                    <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../../img/static/profile.svg" class="nav-icon-desktop">
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-light">
-                        <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
-                        <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
-                        <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
-                        </ul>
-                    </li>
-                    </ul>
-                </div>
-                <div class="nav-item-right-desktop d-flex align-items-center">
-                    <img src="../../img/static/light.svg" class="nav-icon-desktop">
-                    <!-- Dark/Light switch -->
-                    <label class="switch mb-0">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                    </label>
-                    <img src="../../img/static/dark.svg" class="nav-icon-desktop">
-                </div>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                </div>
-            </div>
-        </nav>
-    
-        <!-- NAVBAR FOR TABLET-->
-        <div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
-            <div class="bg-light p-4">
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/home.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="index.html">Home</a>
-            </li>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
-                <a class="nav-link-mobile" href="car-configurator.html">Configuratore</a>
-            </li>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
-            </li>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/gift.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
-            </li>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
-            </li>
-    
-            <br>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="profile.html">Profilo personale</a>
-            </li>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="login.html">Accedi/Login</a>
-            </li>
-            <li class="d-flex align-items-center link-group_navMobile">
-                <img src="../../img/static/profile.svg" class="nav-icon-desktop">
-                <a class="nav-link-mobile" href="sign-up.html">Registrati</a>
-            </li>
-            </div>
-        </div>
-        <nav class="navbar navbar-light bg-light fixed-top d-none d-sm-block d-md-none">
-            <div class="container-fluid d-flex justify-content-between align-items-center flex-nowrap">
-            <div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburgerTablet" aria-controls="hamburgerTablet" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="d-flex align-items-center flex-shrink-0">
-                <img src="../../img/static/light.svg" class="nav-icon-desktop">
-                <!-- Dark/Light switch -->
-                <label class="switch mb-0">
-                <input type="checkbox">
-                <span class="slider round"></span>
-                </label>
-                <img src="../../img/static/dark.svg" class="nav-icon-desktop">
-            </div>
-            <!-- Search section -->
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            </div>
-        </nav>
+        <div id="navbar-container"></div>
+        <div id="navbar-spacer-top"></div>
 
         <!-- Add new car -->
         <div class="container mb-4">
             <div class="row mb-3">
                 <div class="col-12">
-                    <h2>Aggiungi macchina</h2>
+                    <h2>Aggiungi una macchina</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <h5 class="form-input-section">Generalità macchina</h5>
                     <select class="form-select form-input-item" aria-label="Default select example" id="choice-brand">
-                        <option selected>Scegli la marca</option>
-                        <option value="1">FIAT</option>
-                        <option value="2">BMW</option>
-                        <option value="3">Audi</option>
+                        
                     </select>
                     <input class="form-control form-input-item" type="text" placeholder="Inserisci il modello" aria-label="default input example" id="input-model">
                     <h5 class="form-input-section">Fascia</h5>
@@ -207,8 +33,8 @@
                         <select class="form-select" aria-label="Example select with button addon" id="choice-engine">
                           <option selected>Scegli il motore</option>
                           <option value="1">Benzina</option>
-                          <option value="2">Diesel</option>
-                          <option value="3">Metano</option>
+                          <option value="2">Metano</option>
+                          <option value="3">Diesel</option>
                           <option value="5">GPL</option>
                           <option value="6">Ibrido</option>
                           <option value="7">Elettrico</option>
@@ -231,7 +57,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3 form-input-item">
-                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="choiceSeats">
+                        <select class="form-select" aria-label="Example select with button addon" id="choiceSeats">
                           <option selected>Numero posti</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -242,7 +68,7 @@
                         </select>
                     </div>
                     <div class="input-group mb-3 form-input-item">
-                        <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" id="choiceDoors">
+                        <select class="form-select" aria-label="Example select with button addon" id="choiceDoors">
                           <option selected>Numero porte</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -415,30 +241,7 @@
                         </button>
                     </div>
                     <h5 class="form-input-section">Optional</h5>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 1</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 2</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 3</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 4</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 5</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 6</label>
-                        </div>
+                        <div id="optional-container"></div>
 
                         <h5 class="form-input-section">Immagini macchina</h5>
                         <label for="formFileMultiple" class="form-label">Inserisci una foto della macchina</label>
@@ -498,8 +301,8 @@
                     <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome dell'optional" aria-label="default input example" id="inputOptionalName">
                     <label for="exampleFormControlTextarea1" class="form-label form-input-item">Descrizione</label>
                     <textarea class="form-control" id="input-optional-description" rows="3"></textarea><br>
-                    <label for="customRange3" class="form-label form-input-item">Prezzo</label><br>
-                    <input type="range" class="form-range form-input-item" min="50" max="5000" step="20" id="inputOptionalPrice">
+                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Prezzo <span class="range-value" id="output-optional-price"></span></label><br>
+                    <input type="range" class="form-range form-input-item" min="50" max="5000" step="20" id="input-optional-price">
                 </div>
             </div>
             <div class="row">
@@ -508,6 +311,8 @@
             </div>
         </div>
             
+        <div id="body-spacer"></div>
+
         <!-- Footer -->
         <footer>
             <div class="container">
@@ -556,11 +361,14 @@
             </div>
         </footer>
 
+        <div id="navbar-spacer-bottom"></div>
+
         <!-- Add .css style files -->
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
         <!-- Add js scripts -->
         <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script type="module" src="../../js-frontend/pagination.js"></script>
-        <script type="module" src="../../js-frontend/print-sliders_admin-add-items.js"></script>
+        <script type="module" src="../../js-frontend/custom-navbar.js"></script>
+        <script type="module" src="../../js-frontend/print-items_admin-add-items.js"></script>
     </body>
 </html>
