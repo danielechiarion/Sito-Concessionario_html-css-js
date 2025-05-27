@@ -24,10 +24,11 @@ export default class CarSearch extends Car {
      * @param {number} maxPrice 
      * @param {number} seats 
      * @param {number} doorsNumber 
-     * @param {Optional[]} optionalList 
+     * @param {Optional[]} optionalList
+     * @param {string} color 
      */
-    constructor(brandName, model, type, engine, minPower, maxPower, engineAutonomy, initialValue, maxPrice, seats, doorsNumber, optionalList){
-        super(new Brand(brandName, null), model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, null, null, null, optionalList, null);
+    constructor(brandName, model, type, engine, minPower, maxPower, engineAutonomy, initialValue, maxPrice, seats, doorsNumber, optionalList, color){
+        super(new Brand(brandName, null), model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, null, null, null, optionalList, [color], null);
         this.#setMaxPower(maxPower);
         this.#setMaxPrice(maxPrice);
     }
@@ -80,6 +81,8 @@ export default class CarSearch extends Car {
         if(this.getDoorsNumber() > 0 && anotherCar.getDoorsNumber() !== this.getDoorsNumber())
             return false;
         if(this.getOptionalList() !== null && this.getOptionalList().every(optional =>  anotherCar.getOptionalList().some(optional2 => optional2.equals(optional))))
+            return false;
+        if(this.getColorsAvailable() != null && !anotherCar.getColorsAvailable().includes(this.getColorsAvailable()[0]))
             return false;
 
         return true;

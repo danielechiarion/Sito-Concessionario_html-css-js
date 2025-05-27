@@ -36,7 +36,8 @@ export default class Car{
     #detailsImage;
     #carDetailsPath;
     #quantityAvailable;
-    #ID
+    #ID;
+    #colorsAvailable
 
     /**
      * Constructor of a car
@@ -53,9 +54,10 @@ export default class Car{
      * @param {string} mainImage 
      * @param {string[]} detailsImage 
      * @param {Optional[]} optionalList 
+     * @param {string[]} colorsAvailable
      * @param {number} ID 
      */
-    constructor(brand, model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, quantityAvailable, mainImage, detailsImage, optionalList, ID){
+    constructor(brand, model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, quantityAvailable, mainImage, detailsImage, optionalList, colorsAvailable, ID){
         this.#setBrand(brand);
         this.model = model;
         this.setType(type);
@@ -70,6 +72,7 @@ export default class Car{
         this.#detailsImage = detailsImage;
         this.setID(ID);
         this.#optionalList = optionalList;
+        this.#colorsAvailable = colorsAvailable;
     }
 
     /* private setters to check possible errors */
@@ -321,6 +324,14 @@ export default class Car{
      */
     getID() {
         return this.#ID;
+    }
+
+    /**
+     * Returns the list of colors available
+     * @returns list of colors available
+     */
+    getColorsAvailable(){
+        return this.#colorsAvailable;
     }
 
 

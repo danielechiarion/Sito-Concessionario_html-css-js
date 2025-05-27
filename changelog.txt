@@ -58,3 +58,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 26/05/2025	17:49	Daniele Chiarion	Add login and logout function.
 26/05/2025	18:28	Daniele Chiarion	Add custom-navbar .js code.
 26/05/2025	18:48	Daniele Chiarion	Add .js to manage sign-up page.
+27/05/2025	11:20	Daniele Chiarion	Add .js code for the admin to add car.

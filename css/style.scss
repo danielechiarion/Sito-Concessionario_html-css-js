@@ -239,6 +239,15 @@ footer{
 /* form for the car configurator */
 /* remove the native style of 
 the browser */
+input[type="number"] {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease; 
+}
+
 input[type=range] {
     -webkit-appearance: none;
     width: 100%;

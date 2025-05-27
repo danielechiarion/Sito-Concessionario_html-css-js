@@ -377,14 +377,16 @@ export function getFormSelectOptions(values){
 
 /**
  * Returns a formatted switch options for a form
+ * and adding an optional class
  * @param {string[]} values 
+ * @param {string} class
  * @returns formatted string with the switch options
  */
-export function getSwitchOption(values){
+export function getSwitchOption(values, elementClass){
   let options = "";
   for(let i=0; i<values.length;i++){
     options += `<div class="form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch">
+      <input class="form-check-input ${elementClass}" type="checkbox" role="switch">
       <label class="form-check-label" for="switchCheckDefault">${values[i]}</label>
     </div>`;
   }

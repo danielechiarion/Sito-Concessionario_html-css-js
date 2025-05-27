@@ -209,7 +209,7 @@ export default class User {
             json.surname,
             json.username,
             json.password,
-            AccountRole.AccountRole[json.role]
+            json.role
         );
         user.setWishList(json.wishList.map(car => Car.fromJson(car)));
         user.setPurchaseList(json.purchaseList.map(purchase => Purchase.fromJson(purchase)));
