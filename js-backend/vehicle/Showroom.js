@@ -63,7 +63,7 @@ export default class Showroom {
         }else{
             /* create a new car with a new index 
             and push it into the car list */
-            car.setID(Car.getNextID());
+            car.setID(Car.newID());
             this.#carList.push(car);
         }
     }

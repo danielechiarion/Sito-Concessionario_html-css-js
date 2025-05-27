@@ -12,8 +12,8 @@ export default class Brand{
      * @param {String} logoPath path of the brand icon
      */
     constructor(name, logoPath){
-        this.name = name;
-        this.logoPath = logoPath;
+        this.#name = name;
+        this.#logoPath = logoPath;
     }
 
     /**
@@ -26,7 +26,7 @@ export default class Brand{
 
     /**
      * Returns the path of the logo
-     * @returns loho path
+     * @returns logo path
      */
     getLogoPath(){
         return this.#logoPath;

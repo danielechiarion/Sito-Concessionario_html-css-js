@@ -37,7 +37,8 @@ export default class Car{
     #carDetailsPath;
     #quantityAvailable;
     #ID;
-    #colorsAvailable
+    #colorsAvailable;
+    #htmlDetailsPage;
 
     /**
      * Constructor of a car
@@ -59,7 +60,7 @@ export default class Car{
      */
     constructor(brand, model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, quantityAvailable, mainImage, detailsImage, optionalList, colorsAvailable, ID){
         this.#setBrand(brand);
-        this.model = model;
+        this.#model = model;
         this.setType(type);
         this.#setEngine(engine);
         this.setMinPower(minPower);
@@ -73,6 +74,7 @@ export default class Car{
         this.setID(ID);
         this.#optionalList = optionalList;
         this.#colorsAvailable = colorsAvailable;
+        this.#htmlDetailsPage = this.#brand.getName()+"-"+this.#model+"_"+this.#ID;
     }
 
     /* private setters to check possible errors */
@@ -84,10 +86,6 @@ export default class Car{
     }
 
     #setEngine(newEngine){
-        const engine = Engine.getEngine(newEngine);
-        if(engine === null)
-            throw new TypeError("engine requires a value of Engine enum");
-
         this.#engine = newEngine;
     }
 
@@ -95,7 +93,7 @@ export default class Car{
         if(typeof newDoorsNumber !== "number")
             throw new TypeError("doors number must be a number");
 
-        this.#seats = newSeats;
+        this.#doorsNumber = newDoorsNumber;
     }
 
     /* public setters */
@@ -104,10 +102,6 @@ export default class Car{
      * @param {CarType} newType 
      */
     setType(newType){
-        const type = CarType.getCarType(newType);
-        if(type === null)
-            throw new TypeError("type require a value of CarType enum");
-
         this.#type = newType;
     }
 
@@ -120,7 +114,7 @@ export default class Car{
     setID(newID){
         if(typeof newID !== "number")
             throw new TypeError("ID must be a number");
-        if(newID>0 && newID < Car.IDCounter)
+        if(newID>0 && newID < Car.IDCounter - 1)
             throw new RangeError("The ID has already been used from another car");
         this.#ID = newID;
     }
@@ -220,6 +214,15 @@ export default class Car{
      */
     getModel() {
         return this.model;
+    }
+
+    /**
+     * Returns html details page with
+     * all the information about the car
+     * @returns html page name
+     */
+    getHtmlNamePage(){
+        return this.#htmlDetailsPage;
     }
 
     /**
@@ -409,8 +412,24 @@ export default class Car{
      * Returns a clone of the car.
      * @returns {Car} clone of the car
      */
-    clone(){
-        return new Car(this.#brand.clone(), this.#model, this.#type, this.#engine, this.#minPower, this.#engineAutonomy, this.#initialValue, this.#seats, this.#doorsNumber, this.#quantityAvailable, this.#mainImage, this.getDetailsImage(), this.getOptionalList(), this.#ID);
+    clone() {
+        return new Car(
+            this.#brand.clone(),
+            this.#model,
+            this.#type,
+            this.#engine,
+            this.#minPower,
+            this.#engineAutonomy,
+            this.#initialValue,
+            this.#seats,
+            this.#doorsNumber,
+            this.#quantityAvailable,
+            this.#mainImage,
+            this.getDetailsImage(),
+            this.getOptionalList(),
+            this.getColorsAvailable(), // aggiunto
+            this.#ID
+        );
     }
 
     /**
@@ -433,6 +452,7 @@ export default class Car{
             json.mainImage,
             json.detailsImage,
             json.optionalList.map(optional => Optional.fromJson(optional)),
+            json.colorsAvailable || [], // aggiunto
             json.ID
         );
     }
@@ -456,7 +476,9 @@ export default class Car{
             mainImage: this.#mainImage,
             detailsImage: this.#detailsImage,
             optionalList: this.#optionalList.map(optional => optional.toJson()),
+            colorsAvailable: this.#colorsAvailable, // aggiunto
             ID: this.#ID
         };
     }
+
 }

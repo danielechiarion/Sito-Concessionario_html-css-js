@@ -1,5 +1,6 @@
 import Showroom from '../js-backend/vehicle/Showroom.js';
 import Slider from './slider-manager.js';
+import Brand from '../js-backend/vehicle/Brand.js';
 
 import * as sliderTools from './slider-manager.js';
 import * as TemplateParts from './template-parts.js';
@@ -7,6 +8,7 @@ import * as TemplateParts from './template-parts.js';
 const sliders = [
     new Slider("input-power", "output-power", "KW"),
     new Slider("input-price", "output-price", "€"),
+    new Slider("input-autonomy", "output-autonomy", "km"),
     new Slider("input-optional-price", "output-optional-price", "€")
 ];
 
@@ -17,7 +19,7 @@ export function printBrandSelect(brandList){
 
 export function printCarOptionals(optionalList){
     /* print the optional options */
-    document.getElementById("optional-container").innerHTML = TemplateParts.getSwitchOption(optionalList.map(optional => optional.getDescription()), "optional-switch");
+    document.getElementById("optional-container").innerHTML = TemplateParts.getSwitchOption(optionalList.map(optional => optional.getName()), "optional-switch");
 }
 
 function printChoiceColors(){
@@ -53,6 +55,19 @@ function printChoiceCar(){
     }));
 }
 
+function getBrandPreview(){
+    const name = document.getElementById("input-brand-name").value;
+    let logo = document.getElementById("file-brand-logo").files[0];
+
+    if(!logo)
+        logo="../img/static/car.svg";
+    else
+        logo = URL.createObjectURL(logo);
+
+    const brand = new Brand(name, logo);
+    document.getElementById("brand-card-preview-container").innerHTML = TemplateParts.getBrandCard(brand);
+}
+
 /* get the elements from the showroom */
 let showroom;
 if(localStorage.getItem("showroom") === null){
@@ -61,10 +76,13 @@ if(localStorage.getItem("showroom") === null){
 }else
     showroom = Showroom.loadFromLocalStorage(JSON.parse(localStorage.getItem("showroom")));
 
-printBrandSelect(showroom.getBrandList());
-printCarOptionals(showroom.getOptionalList());
-printChoiceColors();
-printChoiceCar();
+printBrandSelect(showroom.getBrandList()); //change the selection of brands
+printCarOptionals(showroom.getOptionalList()); //change the car optionals
+printChoiceColors(); //manage the color selection
+printChoiceCar(); //manage the car selection
+
+document.getElementById("input-brand-name").addEventListener("input", getBrandPreview);
+document.getElementById("file-brand-logo").addEventListener("change", getBrandPreview);
 
 /* manage sliders */
 sliders.forEach(slider => {

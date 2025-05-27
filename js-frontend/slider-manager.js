@@ -6,8 +6,13 @@ export default class Slider{
     }
 }
 
+function printData(slider){
+    document.getElementById(slider.output).innerHTML = document.getElementById(slider.input).value + slider.unit;
+}
+
 export function printSliderValue(slider){
     document.getElementById(slider.input).addEventListener('input', () => {
-        document.getElementById(slider.output).innerHTML = document.getElementById(slider.input).value + slider.unit;
+        printData(slider);
     });
+    printData(slider);
 }

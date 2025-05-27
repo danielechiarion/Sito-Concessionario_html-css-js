@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-3">
                     <h5 class="form-input-section">Generalità macchina</h5>
                     <select class="form-select form-input-item" aria-label="Default select example" id="choice-brand">
                         
@@ -44,7 +44,7 @@
                           <option value="7">Elettrico</option>
                         </select>
                     </div>
-                    <label for="customRange3" class="form-label form-input-item">Autonomia (km con un pieno)</label>
+                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Autonomia (km con un pieno) <span class="range-value" id="output-autonomy"></span></label>
                     <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="input-autonomy">
                     <h5 class="form-input-section">Dettagli</h5>
                     <div class="input-group mb-3 form-input-item">
@@ -255,7 +255,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 mb-3 d-flex justify-content-center">
                     <button class="btn btn-secondary" id="add-car-submit">Aggiungi macchina</button>
                 </div>
                 <div class="col-12 error-container" id="add-car-message">
@@ -264,7 +264,7 @@
         </div>
 
         <!-- Add new brand -->
-        <div class="container">
+        <div class="container mb-4">
             <div class="row">
                 <div class="col-12">
                     <h2>Aggiungi marchio</h2>
@@ -273,25 +273,23 @@
             <div class="row">
                 <div class="col-md-6">
                     <h5 class="form-input-section">Inserimento dati</h5>
-                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome del marchio" aria-label="default input example" id="inputBrandName">
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome del marchio" aria-label="default input example" id="input-brand-name">
                     <br>
                     <label for="formFile" class="form-label form-input-item">Inserisci logo marchio</label>
-                    <input class="form-control" type="file" accept="image/*" id="filePathBrand">
+                    <input class="form-control" type="file" accept="image/*" id="file-brand-logo">
                 </div>
                 <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="form-input-section" id="brandTitlePreview">Anteprima</h5>
-                    <div id="brandCardPreviewContainer">
-                        <div class="card brand-card d-flex flex-column justify-content-center align-items-center" id="brandCardPreview" style="width: 18rem;">
-                            <img src="../../img/variable/fiat-logo.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title" align="center">FIAT</h5>
-                            </div>
-                        </div>
+                    <h5 class="form-input-section" id="brand-title-preview">Anteprima</h5>
+                    <div id="brand-card-preview-container">
+                        
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 error-container" id="add-brand-error">
+            <div class="row mt-4">
+                <div class="col-12 d-flex justify-content-center mb-3">
+                    <button class="btn btn-secondary" id="add-brand-submit">Aggiungi marchio</button>
+                </div>
+                <div class="col-12 error-container" id="add-brand-message">
                 </div>
             </div>
         </div>
@@ -305,15 +303,18 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome dell'optional" aria-label="default input example" id="inputOptionalName">
+                    <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome dell'optional" aria-label="default input example" id="input-optional-name">
                     <label for="exampleFormControlTextarea1" class="form-label form-input-item">Descrizione</label>
-                    <textarea class="form-control" id="input-optional-description" rows="3"></textarea><br>
+                    <textarea class="form-control form-input-item" id="input-optional-description" rows="3"></textarea><br>
                     <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Prezzo <span class="range-value" id="output-optional-price"></span></label><br>
                     <input type="range" class="form-range form-input-item" min="50" max="5000" step="20" id="input-optional-price">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 error-container" id="add-optional-error">
+            <div class="row mt-4">
+                <div class="col-12 d-flex justify-content-center mb-3">
+                    <button class="btn btn-secondary" id="add-optional-submit">Aggiungi optional</button>
+                </div>
+                <div class="col-12 error-container" id="add-optional-message">
                 </div>
             </div>
         </div>
@@ -377,5 +378,6 @@
         <script type="module" src="../../js-frontend/pagination.js"></script>
         <script type="module" src="../../js-frontend/custom-navbar.js"></script>
         <script type="module" src="../../js-frontend/print-items_admin-add-items.js"></script>
+        <script type="module" src="../../js-frontend/page_admin-add-items.js"></script>
     </body>
 </html>

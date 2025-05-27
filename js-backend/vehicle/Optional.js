@@ -3,20 +3,39 @@
  */
 export default class Optional{
     /* define private attributes */
+    #name;
     #description;
     #status;
     #price;
 
     /**
      * Constructor of an optional
+     * @param {String} name
      * @param {String} description 
      * @param {number} price 
      * @param {boolean} status 
      */
-    constructor(description, price, status){
+    constructor(name, description, price, status){
+        this.#name = name;
         this.#description = description;
         this.setPrice(price);
         this.setStatus(status);
+    }
+
+    /**
+     * Returns the name of the optional
+     * @returns name of the optional
+     */
+    getName(){
+        return this.#name;
+    }
+
+    /**
+     * Sets a new name for the optional
+     * @param {string} newName new name of the optional
+     */
+    setName(newName){
+        this.#name = newName;
     }
 
     /**
@@ -58,8 +77,9 @@ export default class Optional{
      */
     setPrice(newPrice){
         if(typeof newPrice !== "number")
-            throw new TypeError("price requires a number");
-        if(typeof newPrice < 0)
+            throw new TypeError("Price must be a number");
+        
+        if(newPrice < 0)
             throw new RangeError("the price must be >=0");
 
         this.#price = newPrice;
@@ -68,12 +88,11 @@ export default class Optional{
     /**
      * Sets a new status
      * @param {boolean} newStatus 
-     * @throws Errors if the param is not a boolean
+     * @throws TypeError if status is not a boolean
      */
     setStatus(newStatus){
         if(typeof newStatus !== "boolean")
-            throw new TypeError("status requires a boolean");
-
+            throw new TypeError("status must be a boolean");
         this.#status = newStatus;
     }
 
@@ -87,7 +106,7 @@ export default class Optional{
         if(!(anotherOptional instanceof Optional))
             return false;
 
-        return this.#description.toLowerCase() === anotherOptional.#description.toLowerCase();
+        return this.#name.toLowerCase() === anotherOptional.#name.toLowerCase();
     }
     
     /**
@@ -95,7 +114,7 @@ export default class Optional{
      * @returns clone of the optional
      */
     clone(){
-        return new Optional(this.#description, this.#price, this.#status);
+        return new Optional(this.#name, this.#description, this.#price, this.#status);
     }
 
     /**
@@ -104,7 +123,7 @@ export default class Optional{
      * @returns Optional object
      */
     static fromJson(json) {
-        return new Optional(json.description, json.price, json.status);
+        return new Optional(json.name, json.description, json.price, json.status);
     }
 
     /**
@@ -113,6 +132,7 @@ export default class Optional{
      */
     toJson() {
         return {
+            name: this.#name,
             description: this.#description,
             price: this.#price,
             status: this.#status

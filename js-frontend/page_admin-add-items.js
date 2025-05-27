@@ -1,67 +1,154 @@
 import Car from '../js-backend/vehicle/Car.js';
-import Brand from '../js-backend/vehicle/Brand';
+import Brand from '../js-backend/vehicle/Brand.js';
 import Optional from '../js-backend/vehicle/Optional.js';
 import * as Engine from '../js-backend/vehicle/Engine.js';
 import * as CarType from '../js-backend/vehicle/CarType.js';
 import Showroom from '../js-backend/vehicle/Showroom.js';
 
 import * as TemplateParts from './template-parts.js';
-import * as PrintPage from '.print-items_admin-add-items.js';
+import * as PrintPage from './print-items_admin-add-items.js';
 
 let showroom;
 
-function getColor(){
-    const colors = document.querySelectorAll(".color-option-clicked").map(color => color.value);
-    return colors();
-}
+function addCar() {
+    /* brand */
+    const brandIndex = parseInt(document.getElementById("choice-brand").value, 10);
+    const brand = showroom.getBrandList()[brandIndex];
 
-function getCarType(){
-    const carTypes = document.querySelectorAll(".card-car-type .btn-secondary-clicked");
-    for(let i=0;i<carTypes.length;i++){
-        if(carTypes[i].classList.contains("btn-secondary-clicked")){
-            return CarType.CarType[i];
-        }
-    }
-}
-
-function getOptionals(){
-    const optionals = document.querySelectorAll(".optional-switch");
-    let optionalSelected = [];
-
-    for(let i=0;i<showroom.getOptionalList().length;i++){
-        if(optionals[i].checked){
-            optionalSelected.push(showroom.getOptionalList()[i]);
-        }
-    }
-}
-
-function addCar(){
-    /* get car data */
-    const brand = showroom.getBrandList()[document.getElementById("choice-brand").value];
+    /* model */
     const model = document.getElementById("input-model").value;
-    const power = document.getElementById("input-power").value;
-    const price = document.getElementById("input-price").value;
-    const engine = Engine.Engine[document.getElementById("choice-engine").value];
-    const engineAutonomy = document.getElementById("input-autonomy").value;
-    const colorsAvailable = getColor();
-    const seats = document.getElementById("choice-seats").value;
-    const doors = document.getElementById("choice-doors").value;
-    const carType = document.getCarType();
-    const optionalList = getOptionals();
-    const mainImage = URL.createObjectURL(document.getElementById("file-main-image").files[0]);
-    const detailsImage = document.getElementById("file-details-image").files.map(file => URL.createObjectURL(file));
-    const quantity = document.getElementById("input-car-quantity").value;
 
-    /* create a new car */
-    const car = new Car(brand, model, carType, engine, power, engine, price, seats, doors, quantity, mainImage, detailsImage, optionalList, colorsAvailable, null);
+    /* power, price, quantity,
+    all number inputs */
+    const power = parseInt(document.getElementById("input-power").value, 10);
+    const price = parseInt(document.getElementById("input-price").value, 10);
+    const engineAutonomy = parseInt(document.getElementById("input-autonomy").value, 10);
+    const seats = parseInt(document.getElementById("choice-seats").value, 10);
+    const doors = parseInt(document.getElementById("choice-doors").value, 10);
+    const quantity = parseInt(document.getElementById("input-car-quantity").value, 10);
 
-    /* add it to the car manager and check if the car already exists */
-    try{
+    /* engine selection */
+    const engineSelect = document.getElementById("choice-engine");
+    const engineIndex = engineSelect.selectedIndex - 1; // -1 perché la prima è "Scegli il motore"
+    const engineKeys = Object.keys(Engine.Engine);
+    const engine = engineIndex >= 0 ? Engine.Engine[engineKeys[engineIndex]] : Engine.Engine.NOTHING;
+
+    /* car type colors */
+    const carTypeCards = document.querySelectorAll(".card-car-type .btn-secondary-clicked");
+    let carType = CarType.CarType.NOTHING;
+    if (carTypeCards.length > 0) {
+        const carTypeIndex = Array.from(document.querySelectorAll(".card-car-type .btn-card-details")).findIndex(btn =>
+            btn.classList.contains("btn-secondary-clicked")
+        );
+        const carTypeKeys = Object.keys(CarType.CarType);
+        if (carTypeIndex >= 0) carType = CarType.CarType[carTypeKeys[carTypeIndex]];
+    }
+
+    /* colors */
+    const colorElements = document.querySelectorAll(".color-option-clicked");
+    const colorsAvailable = Array.from(colorElements).map(el => el.dataset.color);
+
+    /* optionals */
+    const optionalSwitches = document.querySelectorAll(".optional-switch");
+    const optionalList = [];
+    showroom.getOptionalList().forEach((opt, i) => {
+        if (optionalSwitches[i] && optionalSwitches[i].checked) {
+            optionalList.push(opt);
+        }
+    });
+
+    /* main image */
+    const mainImageInput = document.getElementById("file-main-image");
+    const mainImage = mainImageInput.files[0] ? URL.createObjectURL(mainImageInput.files[0]) : "";
+
+    /* secondary images */
+    const secondaryImagesInput = document.getElementById("file-secondary-images");
+    const detailsImage = Array.from(secondaryImagesInput.files).map(file => URL.createObjectURL(file));
+
+    const car = new Car(
+        brand,
+        model,
+        carType,
+        engine,
+        power,
+        engineAutonomy,
+        price,
+        seats,
+        doors,
+        quantity,
+        mainImage,
+        detailsImage,
+        optionalList,
+        colorsAvailable,
+        -1
+    );
+    
+    /* save and show messages */
+    try {
         showroom.addCar(car);
         showroom.saveToLocalStorage();
-        document.getElementById("message").innerHTML = TemplateParts.getSuccessMessage("Auto aggiunta con successo");
-    }catch(error){
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getSuccessMessage("Auto aggiunta con successo");
+    } catch (error) {
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage(error);
+    }
+}
+
+function addBrand(){
+    if(document.getElementById("input-brand-name").value === ""){
+        document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il nome del brand");
+        return;
+    }
+    if(!document.getElementById("file-brand-logo").files[0]){
+        document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il logo del brand");
+        return;
+    }
+
+    /* get the data of the brand */
+    const name = document.getElementById("input-brand-name").value;
+    const logo = URL.createObjectURL(document.getElementById("file-brand-logo").files[0]);
+
+    /* create the brand and check if 
+    it's possible to add it */
+    try{
+        const brand = new Brand(name, logo);
+        showroom.addBrand(brand);
+        showroom.saveToLocalStorage();
+        document.getElementById("add-brand-message").innerHTML = TemplateParts.getSuccessMessage("Marchio aggiunto con successo");
+        PrintPage.printBrandSelect(showroom.getBrandList());
+    }catch(error){
+        if(!(error instanceof TypeError))
+            document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Marchio già esistente");
+        else
+            document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage(error);
+    }
+}
+
+function addOptional(){
+    /* check if all data have been given */
+    if(document.getElementById("input-optional-name").value === ""){
+        document.getElementById("add-optional-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il nome dell'optional");
+        return;
+    }
+
+    /* pick up the data */
+    const name = document.getElementById("input-optional-name").value;
+    const description = document.getElementById("input-optional-description").value;
+    console.log(document.getElementById("input-optional-price").value);
+    const price = parseInt(document.getElementById("input-optional-price").value, 10);
+
+    /* create a new optional and try to
+    add it to the shoowroom */
+    try{
+        const optional = new Optional(name, description, price, false);
+        showroom.addOptional(optional);
+        showroom.saveToLocalStorage();
+        document.getElementById("add-optional-message").innerHTML = TemplateParts.getSuccessMessage("Optional aggiunto con successo");
+        PrintPage.printCarOptionals(showroom.getOptionalList());
+    }catch(error){
+        if(!(error instanceof TypeError))
+            document.getElementById("add-optional-message").innerHTML = TemplateParts.getErrorMessage("Optional già esistente");
+        else
+            document.getElementById("add-optional-message").innerHTML = TemplateParts.getErrorMessage(error);
     }
 }
 
@@ -71,4 +158,8 @@ if(localStorage.getItem("showroom") === null)
 else
     showroom = Showroom.loadFromLocalStorage(JSON.parse(localStorage.getItem("showroom")));
 
+/* add eventListener for all items
+to be added by the admin */
 document.getElementById("add-car-submit").addEventListener("click", addCar);
+document.getElementById("add-brand-submit").addEventListener("click", addBrand);
+document.getElementById("add-optional-submit").addEventListener("click", addOptional);
