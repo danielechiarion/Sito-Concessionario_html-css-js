@@ -1,130 +1,360 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Profilo</title>
 
     <!-- Collega i fogli di stile CSS esterni -->
-    <link rel="stylesheet" href="../../css/structure.css"> <!-- Modifica il percorso se necessario -->
-    <link rel="stylesheet" href="../../css/style.css">     <!-- Modifica il percorso se necessario -->
+    <link rel="stylesheet" href="../../css/structure.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="navbar-container"></div>
-    <div id="navbar-spacer-top"></div>
 
-    <!-- Contenuto profilo -->
-    <div class="container primary">
-        <div class="purchase-list mt-4">
-            <div class="row">
-                <!-- Profilo -->
-                <div class="col-md-6 profile-column d-flex align-items-center justify-content-start flex-column">
-                    <!-- Immagine del profilo -->
-                    <img src="../../img/static/profile.svg" class="card-img-top" alt="Immagine del profilo" style="max-width: 150px; height: auto;">
-                    <h2 class="mt-4">PROFILO</h2>
-                    <h4 class="small-text profile-field"><strong>NOME:</strong> <span id="profile-nome"></span></h4>
-                    <h4 class="small-text profile-field"><strong>COGNOME:</strong> <span id="profile-cognome"></span></h4>
-                    <h4 class="small-text profile-field"><strong>EMAIL:</strong> <span id="profile-email"></span></h4>
-                </div>
+<!-- INIZIO NAVBAR -->
 
-                <!-- Modifica -->
-                <div class="col-md-6 edit-column">
-                    <h2 class="modifica-dati">MODIFICA DATI</h2>
+<!-- NAVBAR FOR SMARTPHONE -->
+<div id="accordionMenus">
+  <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
+    <div class="bg-light p-4">
+      <li class="d-flex align-items-center link-group_navMobile">
+        <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop" />
+        <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
+      </li>
+      <li class="d-flex align-items-center link-group_navMobile">
+        <img src="../../img/static/gift.svg" class="nav-icon-desktop" />
+        <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
+      </li>
+      <li class="d-flex align-items-center link-group_navMobile">
+        <img src="../../img/static/dollar.svg" class="nav-icon-desktop" />
+        <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
+      </li>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
+    <div class="bg-light p-4">
+      <h4><a class="nav-link-mobile link-group_navMobile" href="profile.html">Il tuo profilo</a></h4>
+      <h4><a class="nav-link-mobile link-group_navMobile" href="login.html">Accedi / Logout</a></h4>
+      <h4><a class="nav-link-mobile link-group_navMobile" href="sign-up.html">Registrati</a></h4>
+    </div>
+  </div>
+</div>
 
-                    <div id="alertSuccess" class="alert alert-success d-none" role="alert">I dati sono stati aggiornati con successo!</div>
-                    <div id="alertError" class="alert alert-danger d-none" role="alert">Si è verificato un errore nell'aggiornamento dei dati.</div>
+<nav class="navbar navbar-light bg-light fixed-bottom d-block d-sm-none">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Home icon -->
+    <a href="index.html" class="navbar-brand m-0 p-0">
+      <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile" />
+    </a>
+    <!-- Profile icon -->
+    <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
+      <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile" />
+    </a>
+    <!-- Hamburger with the site links-->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menuHamburger"
+      aria-controls="#menuHamburger"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Search - car configurator -->
+    <a href="car-configurator.html" class="navbar-brand m-0 p-0">
+      <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile" />
+    </a>
+    <!-- Dark/Light switch -->
+    <label class="switch mb-0">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+</nav>
 
-                    <form id="profileForm">
-                        <div class="mb-3">
-                            <label for="nome" class="form-label">Inserisci il nome:</label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="cognome" class="form-label">Inserisci il cognome:</label>
-                            <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Indirizzo Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Inserisci la password:</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la tua password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="conferma-password" class="form-label">Conferma la password:</label>
-                            <input type="password" class="form-control" id="conferma-password" name="conferma-password" placeholder="Conferma la tua password" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                            <label class="form-check-label" for="exampleCheck1">Accetto i termini e le condizioni</label>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="updateProfile()">
-                            <i class="bi bi-check-circle"></i> CONFERMA
-                        </button>
-                    </form>
-                </div>
+<!-- NAVBAR FOR PC -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item d-flex align-items-center">
+          <img src="../../img/static/home.svg" class="nav-icon-desktop" />
+          <a class="nav-link-desktop" href="index.html">Home</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop" />
+          <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav" />
+          <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
+        </li>
+        <li class="nav-item dropdown d-flex align-items-center">
+          <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav" />
+          <a
+            class="nav-link dropdown-toggle nav-link-desktop"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Per te
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
+            <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../img/static/profile.svg" class="nav-icon-desktop" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-light">
+              <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
+              <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
+              <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-item-right-desktop d-flex align-items-center">
+        <img src="../../img/static/light.svg" class="nav-icon-desktop" />
+        <!-- Dark/Light switch -->
+        <label class="switch mb-0">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <img src="../../img/static/dark.svg" class="nav-icon-desktop" />
+      </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- NAVBAR FOR TABLET-->
+<div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
+  <div class="bg-light p-4">
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/home.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="index.html">Home</a>
+    </li>
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav" />
+      <a class="nav-link-mobile" href="car-configurator.html">Configuratore</a>
+    </li>
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
+    </li>
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/gift.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
+    </li>
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/dollar.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
+    </li>
+
+    <br />
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/profile.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="profile.html">Profilo personale</a>
+    </li>
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/profile.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="login.html">Accedi/Login</a>
+    </li>
+    <li class="d-flex align-items-center link-group_navMobile">
+      <img src="../../img/static/profile.svg" class="nav-icon-desktop" />
+      <a class="nav-link-mobile" href="sign-up.html">Registrati</a>
+    </li>
+  </div>
+</div>
+<nav class="navbar navbar-light bg-light fixed-top d-none d-sm-block d-md-none">
+  <div class="container-fluid d-flex justify-content-between align-items-center flex-nowrap">
+    <div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#hamburgerTablet"
+        aria-controls="hamburgerTablet"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="d-flex align-items-center flex-shrink-0">
+      <img src="../../img/static/light.svg" class="nav-icon-desktop" />
+      <!-- Dark/Light switch -->
+      <label class="switch mb-0">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+      <img src="../../img/static/dark.svg" class="nav-icon-desktop" />
+    </div>
+    <!-- Search section -->
+    <form class="d-flex flex-grow-1 me-2" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div id="navbar-spacer-top" style="height:70px;"></div>
+<!-- FINE NAVBAR -->
+
+<!-- Contenuto profilo -->
+<div class="container primary">
+    <div class="purchase-list mt-4">
+        <div class="row">
+            <!-- Profilo -->
+            <div class="col-md-6 profile-column d-flex align-items-center justify-content-start flex-column">
+                <!-- Immagine del profilo -->
+                <img src="../../img/static/profile.svg" class="card-img-top" alt="Immagine del profilo" style="max-width: 150px; height: auto;" />
+                <h2 class="mt-4">PROFILO</h2>
+                <h4 class="small-text profile-field"><strong>NOME:</strong> <span id="profile-nome"></span></h4>
+                <h4 class="small-text profile-field"><strong>COGNOME:</strong> <span id="profile-cognome"></span></h4>
+                <h4 class="small-text profile-field"><strong>EMAIL:</strong> <span id="profile-email"></span></h4>
+            </div>
+
+            <!-- Modifica -->
+            <div class="col-md-6 edit-column">
+                <h2 class="modifica-dati">MODIFICA DATI</h2>
+
+                <div id="alertSuccess" class="alert alert-success d-none" role="alert">I dati sono stati aggiornati con successo!</div>
+                <div id="alertError" class="alert alert-danger d-none" role="alert">Si è verificato un errore nell'aggiornamento dei dati.</div>
+
+                <form id="profileForm">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Inserisci il nome:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nome"
+                          name="nome"
+                          placeholder="Inserisci il tuo nome"
+                          required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="cognome" class="form-label">Inserisci il cognome:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cognome"
+                          name="cognome"
+                          placeholder="Inserisci il tuo cognome"
+                          required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Indirizzo Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          placeholder="Inserisci la tua email"
+                          required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Inserisci la password:</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          placeholder="Inserisci la password"
+                          required
+                        />
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="updateProfile()">Salva</button>
+                    <div style="padding-bottom: 60px;"></div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="body-spacer"></div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row normal-text">
-                <div class="col-md-6 col-lg-3 footer-column">
-                    <h5>Autori</h5>
-                    <ul class="unordered-list_no-pointed">
-                        <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
-                        <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
-                        <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 col-lg-6 footer-column">
-                    <h5 align="center">La scuola</h5>
-                    <div class="row">
-                        <div class="col-3 d-flex justify-content-end align-items-center">
-                            <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
-                        </div>
-                        <div class="col-9">
-                            <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
-                            <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 footer-column">
-                    <h5>I nostri servizi</h5>
-                    <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
-                    <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
-                    <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
-                    <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
-                </div>
-            </div>
-            <div class="row normal-text">
-                <div class="col-12 gx-3 mb-3">
-                    <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
-                </div>
-            </div>
-            <div class="row normal-text">
-                <div class="col-12">
-                    <p class="footer-link">© 2025 SistemaGestioneAuto.com | Sito web sviluppato dagli studenti dell'IIS Viola Marchesini di Rovigo.</p>
-                </div>
-            </div>
+<!-- Footer (esattamente come lo hai dato) -->
+<footer>
+  <div class="container">
+    <div class="row normal-text">
+      <div class="col-md-6 col-lg-3 footer-column">
+        <h5>Autori</h5>
+        <ul class="unordered-list_no-pointed">
+          <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
+          <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
+          <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-6 footer-column">
+        <h5 align="center">La scuola</h5>
+        <div class="row">
+          <div class="col-3 d-flex justify-content-end align-items-center">
+            <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80" />
+          </div>
+          <div class="col-9">
+            <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+            <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="col-md-6 col-lg-3 footer-column">
+        <h5>I nostri servizi</h5>
+        <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
+        <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
+        <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
+        <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+      </div>
+    </div>
+    <div class="row normal-text">
+      <div class="col-12 gx-3 mb-3">
+        <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+      </div>
+    </div>
+    <div class="row normal-text">
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon" />
+      </div>
+      <div class="col-8 d-flex justify-content-start align-items-center">
+        <h1 align="center">Concessionario Laghi</h1>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <div id="navbar-spacer-bottom"></div>
+<script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Collega il file JavaScript esterno -->
-    <!-- <script src="../../js/profile.js"></script> Modifica il percorso se necessario -->
+<script>
+  // Funzione per aggiornare il profilo (esempio)
+  function updateProfile() {
+    // Simuliamo un aggiornamento di successo (puoi inserire la tua logica AJAX/fetch qui)
+    document.getElementById('alertSuccess').classList.remove('d-none');
+    document.getElementById('alertError').classList.add('d-none');
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../../js-frontend/pagination.js"></script>
-    <script type="module" src="../../js-frontend/custom-navbar.js"></script>
+    // Aggiorna le informazioni nel profilo a sinistra (esempio)
+    document.getElementById('profile-nome').textContent = document.getElementById('nome').value;
+    document.getElementById('profile-cognome').textContent = document.getElementById('cognome').value;
+    document.getElementById('profile-email').textContent = document.getElementById('email').value;
+  }
+</script>
+
 </body>
 </html>
