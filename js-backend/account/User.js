@@ -1,3 +1,5 @@
+import Car from '../vehicle/Car.js';
+
 export default class User {
     /* define private attributes */
     #name;
@@ -37,7 +39,7 @@ export default class User {
         this.#role = role;
     }
 
-        /**
+    /**
      * Returns the user's name.
      * @returns {string}
      */
@@ -134,6 +136,39 @@ export default class User {
     getPurchaseList() {
         this.#purchaseList.map(purchase => purchase.clone());
     }
+    
+
+    /**
+     * Add a new car to the shopping cart
+     * @param {Car} car
+     * @throws {TypeError} if the car is not an instance of Car
+     * @throws {Error} if the car has already been added 
+     */
+    addToShoppingCart(car){
+        if(!(car instanceof Car))
+            throw new TypeError("car must be an instance of Car");
+        if(this.#shoppingCart.some(currentCar => currentCar.equals(car)))
+            throw new Error("Card has already been added in the shopping cart");
+
+        this.#shoppingCart.push(car);
+    }
+
+    /**
+     * Remove a car from the user shopping cart
+     * @param {Car} car
+     * @throws {TypeError} if the car is not a Car instance
+     * @throws {Error} if the car hasn't been found in the shopping cart 
+     */
+    removeFromShoppingCart(car){
+        if(!(car instanceof Car))
+            throw new TypeError("car must be a Car instance");
+        
+        const index = this.#shoppingCart.findIndex(currentCar => currentCar.equals(car));
+        if(index === -1)
+            throw new Error("car wasn't in the shopping cart");
+
+        this.#shoppingCart.splice(index, 1);
+    }
 
     /**
      * Add a new car to the wish list
@@ -141,6 +176,8 @@ export default class User {
      * @throws {Error} If the car is already in the wish list.
      */
     addWish(car){
+        if(!(car instanceof Car))
+            throw new TypeError("car must be an instance of Car")
         if(this.#wishList.some(currentCar => currentCar.equals(car)))
             throw new Error("Car already in wish list");
 
@@ -214,16 +251,15 @@ export default class User {
     /**
      * Finds the preferences based on the purchases.
      * If the user hasn't bought preferences
-     * @param {Car[]} purchasedCars car list bought by the user
      * @returns {object} Preferenze dell'utente.
      */
     findUserPreferences() {
-        const purchasedCars = this.#purchaseList;
+        const allCars = [...this.#purchaseList, ...this.#wishList, ...this.#shoppingCart];
 
-        if (!Array.isArray(purchasedCars) || purchasedCars.length === 0) {
+        if (!Array.isArray(allCars) || allCars.length === 0) {
             /* if there are no purchases, the code will return 
             null */
-            const firstCars = this.getCarList().slice(0, 5); // take the first five cars
+            const firstCars = this.getShoppingCart().slice(0, 5); // take the first five cars
             return {
                 preferredEngine: firstCars[0]?.getEngine() || null,
                 preferredDoorsNumber: firstCars[0]?.getDoorsNumber() || null,
@@ -235,13 +271,13 @@ export default class User {
 
         /* calculate preferences based on the frequence
         of the different items */
-        const preferredEngine = this.#findMostCommon(purchasedCars.map(car => car.getEngine()));
-        const preferredDoorsNumber = this.#findMostCommon(purchasedCars.map(car => car.getDoorsNumber()));
-        const preferredColors = this.#findMostCommonArray(purchasedCars.flatMap(car => car.getColorsAvailable()));
+        const preferredEngine = this.#findMostCommon(allCars.map(car => car.getEngine()));
+        const preferredDoorsNumber = this.#findMostCommon(allCars.map(car => car.getDoorsNumber()));
+        const preferredColors = this.#findMostCommonArray(allCars.flatMap(car => car.getColorsAvailable()));
         const preferredOptionals = this.#findMostCommonArray(
-            purchasedCars.flatMap(car => car.getOptionalList().map(optional => optional.getName()))
+            allCars.flatMap(car => car.getOptionalList().map(optional => optional.getName()))
         );
-        const preferredType = this.#findMostCommon(purchasedCars.map(car => car.getType()));
+        const preferredType = this.#findMostCommon(allCars.map(car => car.getType()));
 
         return {
             preferredEngine,

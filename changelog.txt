@@ -63,3 +63,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 27/05/2025	20:59	Daniele Chiarion	Completed .js code to get the correct carousel starting from the device size.
 28/05/2025	08:53	Daniele Chiarion	Add backed part with methods to show cars in the home page based on the user preferences.
 28/05/2025	09:05	Daniele Chiarion	Add .js class to do research using ID. 
+28/05/2025	18:02	Daniele Chiarion	Completed most sold cars output section.
+28/05/2025	18:21	Daniele Chiarion	Completed user advice output section.
+28/05/2025	20:00	Daniele Chiarion	Completed brand-show section and custom link to other pages.

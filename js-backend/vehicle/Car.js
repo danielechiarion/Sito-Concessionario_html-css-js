@@ -210,7 +210,7 @@ export default class Car{
      * @returns {string}
      */
     getModel() {
-        return this.model;
+        return this.#model;
     }
 
     /**

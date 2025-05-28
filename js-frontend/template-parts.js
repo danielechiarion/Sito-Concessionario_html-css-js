@@ -402,7 +402,7 @@ export function getSwitchOption(values, elementClass){
  * @returns formatted html card for the brand
  */
 export function getBrandCard(brand){
-  return `<div class="card brand-card d-flex flex-column justify-content-center align-items-center" id="brandCardPreview" style="width: 18rem;">
+  return `<div class="card brand-card d-flex flex-column justify-content-center align-items-center" style="width: 18rem;">
     <img src=${brand.getLogoPath()} class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title" align="center">${brand.getName()}</h5>
@@ -416,9 +416,7 @@ export function getBrandCard(brand){
  * @returns formatted card for that car
  */
 export function getCarCard(car){
-  return ` <div class="d-flex overflow-visible">
-          <div class="d-flex overflow-visible">
-            <div class="card card-zoom me-3" style="width: 18rem;" data-car-id="${car.getID()}">
+  return `<div class="card car-card card-zoom me-3" style="width: 18rem;" data-car-id="${car.getID()}">
               <img src="${car.getMainImage()}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">${car.getBrand().getName()} ${car.getModel()}</h5>
@@ -435,33 +433,33 @@ export function getCarCard(car){
                   <button type="button" class="shopping-cart-button" id="123456-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Macchina aggiunta al carrello!">
                     <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
                   </button>
-                  <button type="button" class="shopping-cart-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
+                  <button type="button" class="wish-list-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
                     <img src="../../img/static/gift.svg" class="wish-list-icon">
                   </button>
                   <a href="../posts/${car.getHtmlNamePage()}" class="btn btn-secondary btn-card-details">Dettagli</a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>`;
+            </div>`;
 }
 
 /**
  * Function to get a carousel
  * for mobile devices
  * @param {string} content mobile carousel
+ * @param {string} id id of the carousel
+ * @return formatted string with the carousel
  */
-export function getCarouselMobile(content) {
-  return `<div id="most-sold-carousel" class="carousel slide d-block d-md-none position-relative overflow-visible">
-            <div class="carousel-inner">
+export function getCarouselMobile(content, id) {
+  return `<div id="${id}" class="carousel slide d-block d-md-none position-relative overflow-visible">
+            <div class="carousel-inner overflow-visible">
               ${content}
             </div>
             <!-- Controls -->
-            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="prev">
+            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#${id}" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="next">
+            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#${id}" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>                          
@@ -471,19 +469,20 @@ export function getCarouselMobile(content) {
 /**
 * Function to get a carousel for tablet-size
 * @param {string} content 
+* @param {string} id ID of the carousel
 * @returns formatted string for tablet
 */
-export function getCarouselTablet(content) {
-  return `<div id="most-sold-carousel" class="carousel slide d-none d-md-block d-lg-none position-relative overflow-visible">
-            <div class="carousel-inner">
+export function getCarouselTablet(content, id) {
+  return `<div id="${id}" class="carousel slide d-none d-md-block d-lg-none position-relative overflow-visible">
+            <div class="carousel-inner overflow-visible">
               ${content}
             </div>
             <!-- Controls -->
-            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="prev">
+            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#${id}" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="next">
+            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#${id}" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>                          
@@ -492,20 +491,21 @@ export function getCarouselTablet(content) {
 
 /**
 * Function to get carousel for the desktop size
-* @param content
+* @param {string} content
+* @param {string} id id of the carousel
 * @return formatted string for carousel desktop size
 */
-export function getCarouselDesktop(content) {
-  return `<div id="most-sold-carousel" class="carousel slide d-none d-lg-block position-relative">
-            <div class="carousel-inner">
+export function getCarouselDesktop(content, id) {
+  return `<div id="${id}" class="carousel slide d-none d-lg-block position-relative overflow-visible">
+            <div class="carousel-inner overflow-visible">
               ${content}
             </div>
             <!-- Controls -->
-            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="prev">
+            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#${id}" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="next">
+            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#${id}" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>                          
@@ -524,7 +524,7 @@ export function getCarouselItem(index, content) {
       attribute = "active";
 
   return `<div class="carousel-item ${attribute}">
-              <div class="d-flex">
+              <div class="d-flex justify-content-center align-items-center g-0">
                   ${content}
               </div>
           </div>`;
@@ -536,9 +536,10 @@ export function getCarouselItem(index, content) {
 * @param {number} numberMobile number of items to show on mobile per carousel item
 * @param {number} numberTablet number of items to show on tablet per carousel item 
 * @param {number} numberDesktop number of items to show on desktop per carousel item
+* @param {string} id ID of the carousel
 * @returns completed carousel with all items divided
 */
-export function getCarouselItems(items, numberMobile, numberTablet, numberDesktop) {
+export function getCarouselItems(items, numberMobile, numberTablet, numberDesktop, id) {
   /* declare and initialize all
   the variables to do the carousel */
   let divider;
@@ -560,7 +561,7 @@ export function getCarouselItems(items, numberMobile, numberTablet, numberDeskto
       const portion = items.slice(i, Math.min(i + divider, numberItems));
       let subcontent = "";
       for (let j = 0; j < portion.length; j++) {
-          subcontent += items[j];
+          subcontent += portion[j];
       }
       content += getCarouselItem(i, subcontent);
   }
@@ -568,11 +569,118 @@ export function getCarouselItems(items, numberMobile, numberTablet, numberDeskto
   /* check the size of the device
   and get the corresponding type of carousel */
   if (dimDevice < SizeDevice.getBootstrapBreakPointValue('md'))
-      content = getCarouselMobile(content);
+      content = getCarouselMobile(content, id);
   else if (dimDevice < SizeDevice.getBootstrapBreakPointValue('lg'))
-      content = getCarouselTablet(content);
+      content = getCarouselTablet(content, id);
   else
-      content = getCarouselDesktop(content);
+      content = getCarouselDesktop(content, id);
 
   return content;
+}
+
+/**
+ * Function that returns the link to the other pages on home
+ * for normal users and when no one has logged
+ * @returns formatted string to home link pages
+ */
+export function getHomeLinkPagesNormal(){
+  return `<div class="row">
+          <!-- shopping cart link -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header card-sitelink-header">Carrello</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="../../img/static/shopping-cart.svg" class="pagelink-card">
+                  </div>
+                  <div class="col-8">
+                    <p class="card-text">Rivedi gli articoli che hai aggiunto e decidi quali scartare e quali acquistare...</p>
+                    <a href="shopping-cart.html" class="btn btn-secondary">Visita</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- car configurator link -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header card-sitelink-header">Configuratore auto</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="../../img/static/car.svg" class="pagelink-card">
+                  </div>
+                  <div class="col-8">
+                    <p class="card-text">Ricerca l'auto più adatta ai tuoi gusti e alle tue esigenze...</p>
+                    <a href="car-configurator.html" class="btn btn-secondary">Visita</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <!-- wish-list link -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header card-sitelink-header">Lista dei desideri</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="../../img/static/gift.svg" class="pagelink-card">
+                  </div>
+                  <div class="col-8">
+                    <p class="card-text">Scegli le auto da tenere d'occhio. Il tuo sogno potrebbe trasformarsi in realtà...</p>
+                    <a href="wish-list.html" class="btn btn-secondary">Visita</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- purchase-list link -->
+          <div class="col-md-6">
+            <div class="card">
+              <h5 class="card-header card-sitelink-header">Lista acquisti</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="../../img/static/dollar.svg" class="pagelink-card">
+                  </div>
+                  <div class="col-8">
+                    <p class="card-text">Controlla gli ultimi bolidi che hai acquistato!</p>
+                    <a href="purchase-list.html" class="btn btn-secondary">Visita</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`
+}
+
+/**
+ * Get home links to other pages by
+ * the admin point of view
+ * @returns formatted strings with the links
+ */
+export function getHomeLinkPagesAdmin(){
+  return  `<div class="row">
+          <!-- shopping cart link -->
+          <div class="col-12 d-flex justify-content-center">
+            <div class="card card-sitelink">
+              <h5 class="card-header card-sitelink-header">Aggiungi articoli</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="../../img/static/settings.svg" class="pagelink-card">
+                  </div>
+                  <div class="col-8">
+                    <p class="card-text">Aggiungi macchine, marchi e optional al concessionario...</p>
+                    <a href="admin_add-items.html" class="btn btn-secondary">Visita</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`
 }

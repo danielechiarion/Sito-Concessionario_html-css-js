@@ -4,13 +4,14 @@ import Optional from '../js-backend/vehicle/Optional.js';
 import * as Engine from '../js-backend/vehicle/Engine.js';
 import * as CarType from '../js-backend/vehicle/CarType.js';
 import Showroom from '../js-backend/vehicle/Showroom.js';
+import * as FilePath from '../js-backend/file/FilePath.js';
 
 import * as TemplateParts from './template-parts.js';
 import * as PrintPage from './print-items_admin-add-items.js';
 
 let showroom;
 
-function addCar() {
+async function addCar() {
     /* brand */
     const brandIndex = parseInt(document.getElementById("choice-brand").value, 10);
     const brand = showroom.getBrandList()[brandIndex];
@@ -33,7 +34,7 @@ function addCar() {
     const engineKeys = Object.keys(Engine.Engine);
     const engine = engineIndex >= 0 ? Engine.Engine[engineKeys[engineIndex]] : Engine.Engine.NOTHING;
 
-    /* car type colors */
+    /* car type*/
     const carTypeCards = document.querySelectorAll(".card-car-type .btn-secondary-clicked");
     let carType = CarType.CarType.NOTHING;
     if (carTypeCards.length > 0) {
@@ -59,11 +60,11 @@ function addCar() {
 
     /* main image */
     const mainImageInput = document.getElementById("file-main-image");
-    const mainImage = mainImageInput.files[0] ? URL.createObjectURL(mainImageInput.files[0]) : "";
+    const mainImage = mainImageInput.files[0] ? await FilePath.fileToBase64(mainImageInput.files[0]) : "";
 
     /* secondary images */
     const secondaryImagesInput = document.getElementById("file-secondary-images");
-    const detailsImage = Array.from(secondaryImagesInput.files).map(file => URL.createObjectURL(file));
+    const detailsImage = await Promise.all(Array.from(secondaryImagesInput.files).map(file => FilePath.fileToBase64(file)));
 
     const car = new Car(
         brand,
@@ -93,7 +94,7 @@ function addCar() {
     }
 }
 
-function addBrand(){
+async function addBrand(){
     if(document.getElementById("input-brand-name").value === ""){
         document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il nome del brand");
         return;
@@ -105,7 +106,7 @@ function addBrand(){
 
     /* get the data of the brand */
     const name = document.getElementById("input-brand-name").value;
-    const logo = URL.createObjectURL(document.getElementById("file-brand-logo").files[0]);
+    const logo = await FilePath.fileToBase64(document.getElementById("file-brand-logo").files[0]);
 
     /* create the brand and check if 
     it's possible to add it */
