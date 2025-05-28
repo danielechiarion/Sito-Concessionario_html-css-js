@@ -14,6 +14,7 @@ export default class User {
     #role;
     #wishList;
     #purchaseList;
+    #shoppingCart;
 
     /**
      * Constructor for the User class.
@@ -30,6 +31,7 @@ export default class User {
         this.#password = password;
         this.#purchaseList = [];
         this.#wishList = [];
+        this.#shoppingCart = [];
         this.#role = role;
     }
 
@@ -91,6 +93,13 @@ export default class User {
     }
 
     /**
+     * 
+     */
+    getShoppingCart(){
+        return this.#shoppingCart.map(car => car.clone());
+    }
+
+    /**
      * Sets the user's password.
      * @param {string} password
      */
@@ -133,7 +142,7 @@ export default class User {
         if(this.#wishList.some(currentCar => currentCar.equals(car)))
             throw new Error("Car already in wish list");
 
-        this.#wishList.push(car.clone());
+        this.#wishList.push(car);
     }
 
     /**
@@ -155,7 +164,33 @@ export default class User {
      * @param {Purchase} purchase 
      */
     addPurchase(purchase) {
-        this.#purchaseList.push(purchase.clone());
+        this.#purchaseList.push(purchase);
+    }
+
+    /**
+     * Adds a item to the shopping cart
+     * @param car
+     * @throws {Error} if the car already exists
+     */
+    addItemShoppingCart(car){
+        if(this.#shoppingCart.some(currentCar => car.equals(car)))
+            throw new Error("Car already exists in the shopping cart");
+
+        this.#shoppingCart.push(car);
+    }
+
+    /**
+     * Remove an item from the shopping cart
+     * @param {Car} car
+     * @throws {Error} if the car is not found in the wish list 
+     */
+    removeItemShoppingCart(car){
+        const index = this.#shoppingCart.findIndex(currentCar => currentCar.equals(car));
+        if(index === -1) {
+            throw new Error("Car not found in wish list");
+        }
+
+        this.#shoppingCart.splice(index, 1);
     }
 
     /**
@@ -272,7 +307,7 @@ export default class User {
      * @returns User object
      */
     static fromJson(json) {
-        const user =  new User(
+        const user = new User(
             json.name,
             json.surname,
             json.username,
@@ -281,6 +316,7 @@ export default class User {
         );
         user.setWishList(json.wishList.map(car => Car.fromJson(car)));
         user.setPurchaseList(json.purchaseList.map(purchase => Purchase.fromJson(purchase)));
+        user.#shoppingCart = json.shoppingCart.map(car => Car.fromJson(car));
         return user;
     }
 
@@ -296,7 +332,8 @@ export default class User {
             password: this.#password,
             role: this.#role,
             wishList: this.#wishList.map(car => car.toJson()),
-            purchaseList: this.#purchaseList.map(purchase => purchase.toJson())
+            purchaseList: this.#purchaseList.map(purchase => purchase.toJson()),
+            shoppingCart: this.#shoppingCart.map(car => car.toJson())
         };
     }
 }
