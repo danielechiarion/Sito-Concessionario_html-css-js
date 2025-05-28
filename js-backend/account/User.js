@@ -1,10 +1,3 @@
-import Car from '../vehicle/Car.js';
-import Purchase from '../operation/Purchase.js';
-import * as AccountRole from './AccountRole.js';
-
-/**
- * Class representing a user in the system.
- */
 export default class User {
     /* define private attributes */
     #name;
@@ -93,10 +86,19 @@ export default class User {
     }
 
     /**
-     * 
+     * Returns a deep clone of the user's shopping cart.
+     * @returns {Car[]}
      */
     getShoppingCart(){
         return this.#shoppingCart.map(car => car.clone());
+    }
+
+    /**
+     * Sets the user's shopping cart.
+     * @param {Car[]} shoppingCart
+     */
+    setShoppingCart(shoppingCart) {
+        this.#shoppingCart = shoppingCart;
     }
 
     /**
@@ -298,6 +300,7 @@ export default class User {
         const clonedUser = new User(this.#name, this.#surname, this.#username, this.#password, this.#role);
         clonedUser.#wishList = this.getWishList();
         clonedUser.#purchaseList = this.getPurchaseList();
+        clonedUser.#shoppingCart = this.getShoppingCart();
         return clonedUser;
     }
 
@@ -316,7 +319,14 @@ export default class User {
         );
         user.setWishList(json.wishList.map(car => Car.fromJson(car)));
         user.setPurchaseList(json.purchaseList.map(purchase => Purchase.fromJson(purchase)));
-        user.#shoppingCart = json.shoppingCart.map(car => Car.fromJson(car));
+        
+        if (Array.isArray(json.shoppingCart)) {
+            user.setShoppingCart(json.shoppingCart.map(car => Car.fromJson(car)));
+        } else {
+            user.setShoppingCart([]);
+            console.warn("json.shoppingCart non è un array valido, inizializzato come array vuoto.");
+        }
+        
         return user;
     }
 

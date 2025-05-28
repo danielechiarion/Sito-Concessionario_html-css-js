@@ -416,13 +416,12 @@ export function getBrandCard(brand){
  * @returns formatted card for that car
  */
 export function getCarCard(car){
-  return 
-       ` <div class="d-flex overflow-visible">
+  return ` <div class="d-flex overflow-visible">
           <div class="d-flex overflow-visible">
-            <div class="card card-zoom me-3" style="width: 18rem;">
+            <div class="card card-zoom me-3" style="width: 18rem;" data-car-id="${car.getID()}">
               <img src="${car.getMainImage()}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">${car.getBrand().getName()}</h5>
+                <h5 class="card-title">${car.getBrand().getName()} ${car.getModel()}</h5>
                 <p class="card-text">
                   <ul class="card-ul">
                     <li><span class="card-descriptor">Motore: </span>${car.getEngine()}</li>
@@ -452,84 +451,94 @@ export function getCarCard(car){
  * for mobile devices
  * @param {string} content mobile carousel
  */
-export function getCarouselMobile(content){
-  return `<div class="carousel slide d-block d-md-none position-relative overflow-visible">
-              <div class="carousel-inner">
-                ${content}
-              </div>
-              <!-- Controls -->
-              <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>                          
-            </div>`;
+export function getCarouselMobile(content) {
+  return `<div id="most-sold-carousel" class="carousel slide d-block d-md-none position-relative overflow-visible">
+            <div class="carousel-inner">
+              ${content}
+            </div>
+            <!-- Controls -->
+            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>                          
+          </div>`;
 }
 
 /**
- * Function to get a carousel for tablet-size
- * @param {string} content 
- * @returns formatted string for tablet
- */
-export function getCarouselTablet(content){
-  return `<div class="carousel slide d-none d-md-block d-lg-none position-relative overflow-visible">
-              <div class="carousel-inner">
-                ${content}
-              </div>
-              <!-- Controls -->
-              <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>                          
-            </div>`;
+* Function to get a carousel for tablet-size
+* @param {string} content 
+* @returns formatted string for tablet
+*/
+export function getCarouselTablet(content) {
+  return `<div id="most-sold-carousel" class="carousel slide d-none d-md-block d-lg-none position-relative overflow-visible">
+            <div class="carousel-inner">
+              ${content}
+            </div>
+            <!-- Controls -->
+            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>                          
+          </div>`;
 }
 
 /**
- * Function to get carousel for the desktop size
- * @param content
- * @return formatted string for carousel desktop size
- */
-export function getCarouselDesktop(content){
-  return `<div class="carousel slide d-none d-lg-block position-relative">
-              <div class="carousel-inner">
-                ${content}
-              </div>
-              <!-- Controls -->
-              <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>                          
-            </div>`;
+* Function to get carousel for the desktop size
+* @param content
+* @return formatted string for carousel desktop size
+*/
+export function getCarouselDesktop(content) {
+  return `<div id="most-sold-carousel" class="carousel slide d-none d-lg-block position-relative">
+            <div class="carousel-inner">
+              ${content}
+            </div>
+            <!-- Controls -->
+            <button class="carousel-control-prev position-absolute start-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next position-absolute end-0 w-auto" type="button" data-bs-target="#most-sold-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>                          
+          </div>`;
 }
 
 /**
- * Gets a formatted carousel item
- * @param {number} index 
- * @param {string} content 
- * @returns formatted string for the carousel item
- */
-export function getCarouselItem(index, content){
-  let attribute;
-  if(index === 0)
-    attribute = "active";
+* Gets a formatted carousel item
+* @param {number} index 
+* @param {string} content 
+* @returns formatted string for the carousel item
+*/
+export function getCarouselItem(index, content) {
+  let attribute = "";
+  if (index === 0)
+      attribute = "active";
 
   return `<div class="carousel-item ${attribute}">
-    ${content}
-  </div>`;
+              <div class="d-flex">
+                  ${content}
+              </div>
+          </div>`;
 }
 
-export function getCarousel(items, numberMobile, numberTablet, numberDesktop){
+/**
+* Gets all the content of the carousel
+* @param {any[]} items items to add 
+* @param {number} numberMobile number of items to show on mobile per carousel item
+* @param {number} numberTablet number of items to show on tablet per carousel item 
+* @param {number} numberDesktop number of items to show on desktop per carousel item
+* @returns completed carousel with all items divided
+*/
+export function getCarouselItems(items, numberMobile, numberTablet, numberDesktop) {
   /* declare and initialize all
   the variables to do the carousel */
   let divider;
@@ -537,33 +546,33 @@ export function getCarousel(items, numberMobile, numberTablet, numberDesktop){
   const dimDevice = window.innerWidth;
 
   /* decide which one is the divider */
-  if(dimDevice < SizeDevice.getBootstrapBreakPointValue('md'))
-    divider = numberMobile;
-  else if(dimDevice < SizeDevice.getBootstrapBreakPointValue('lg'))
-    divider = numberTablet;
+  if (dimDevice < SizeDevice.getBootstrapBreakPointValue('md'))
+      divider = numberMobile;
+  else if (dimDevice < SizeDevice.getBootstrapBreakPointValue('lg'))
+      divider = numberTablet;
   else
-    divider = numberDesktop;
+      divider = numberDesktop;
 
-  let content;
+  let content = "";
 
   /* divide the items */
-  for(let i=0;i<numberItems;i+=divider){
-    const portion = items.slice(i, Math.min(i+divider, numberItems));
-    let subcontent = "";
-    for(let j=0;j<portion.length;j++){
-      subcontent += items[j];
-    }
-    content += getCarouselItem(i, subcontent);
+  for (let i = 0; i < numberItems; i += divider) {
+      const portion = items.slice(i, Math.min(i + divider, numberItems));
+      let subcontent = "";
+      for (let j = 0; j < portion.length; j++) {
+          subcontent += items[j];
+      }
+      content += getCarouselItem(i, subcontent);
   }
 
   /* check the size of the device
   and get the corresponding type of carousel */
-  if(dimDevice < SizeDevice.getBootstrapBreakPointValue('md'))
-    content = getCarouselMobile(content);
-  else if(dimDevice < SizeDevice.getBootstrapBreakPointValue('lg'))
-    content = getCarouselTablet(content);
+  if (dimDevice < SizeDevice.getBootstrapBreakPointValue('md'))
+      content = getCarouselMobile(content);
+  else if (dimDevice < SizeDevice.getBootstrapBreakPointValue('lg'))
+      content = getCarouselTablet(content);
   else
-    content = getCarouselDesktop(content);
+      content = getCarouselDesktop(content);
 
   return content;
 }

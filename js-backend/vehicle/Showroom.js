@@ -181,12 +181,14 @@ export default class Showroom {
     /**
      * Returns the most sold cars 
      * @param {number} carsNumber 
+     * @returns most sold cars
      */
     getMostSoldCars(carsNumber){
         if(typeof carsNumber !== "number")
             throw new TypeError("carsNumber must be a number");
 
         const soldCars = this.getCarList().sort(Car.compare).slice(0,carsNumber);
+        return soldCars;
     }
 
     /**

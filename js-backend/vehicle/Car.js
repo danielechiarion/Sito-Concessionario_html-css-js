@@ -109,13 +109,10 @@ export default class Car{
      * Sets a new ID for the car
      * @param {number} newID 
      * @throws {TypeError} if the ID is not a number
-     * @throws {RangeError} if the ID is already used by another car
      */
     setID(newID){
         if(typeof newID !== "number")
             throw new TypeError("ID must be a number");
-        if(newID>0 && newID < Car.IDCounter - 1)
-            throw new RangeError("The ID has already been used from another car");
         this.#ID = newID;
     }
 
@@ -302,7 +299,7 @@ export default class Car{
      * @returns {string}
      */
     getDetailsImage() {
-        return this.#detailsImage-map(image => image.clone());
+        return this.#detailsImage;
     }
 
     /**
