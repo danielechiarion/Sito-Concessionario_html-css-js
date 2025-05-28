@@ -464,7 +464,7 @@ export default class Car{
     toJson() {
         return {
             brand: this.#brand.toJson(),
-            model: this.model,
+            model: this.#model,
             type: this.#type,
             engine: this.#engine,
             minPower: this.#minPower,
@@ -479,6 +479,20 @@ export default class Car{
             colorsAvailable: this.#colorsAvailable, // aggiunto
             ID: this.#ID
         };
+    }
+
+    /**
+     * Method to compare both cars using the 
+     * available quantity of the cars
+     * @param {Car} carA 
+     * @param {Car} carB 
+     * @returns result of comparison using reverse order
+     */
+    static compare(carA, carB){
+        if(!(carA instanceof Car) || !(carB instanceof Car))
+            throw new TypeError("Both arguments must be of the car type");
+
+        return carB.getQuantityAvailable()-carA.getQuantityAvailable();
     }
 
 }

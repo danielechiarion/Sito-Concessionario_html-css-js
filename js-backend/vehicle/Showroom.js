@@ -179,6 +179,83 @@ export default class Showroom {
     }
 
     /**
+     * Returns the most sold cars 
+     * @param {number} carsNumber 
+     */
+    getMostSoldCars(carsNumber){
+        if(typeof carsNumber !== "number")
+            throw new TypeError("carsNumber must be a number");
+
+        const soldCars = this.getCarList().sort(Car.compare).slice(0,carsNumber);
+    }
+
+    /**
+     * Finds the cars based on the preferences of the user
+     * If preferences are not specified, the program will return the first cars available in the showroom.
+     * @param {object} userPreferences
+     * @param {number} number number of cars to show
+     * @returns {Car[]} Car list with the suggested cars for the user
+     */
+    findCarsForUser(userPreferences, number) {
+        const { preferredEngine, preferredDoorsNumber, preferredColors, preferredOptionals, preferredType } = userPreferences;
+
+        /* check if all the preferences are null */
+        const allPreferencesNull = !preferredEngine && !preferredDoorsNumber && 
+                                (!preferredColors || preferredColors.length === 0) && 
+                                (!preferredOptionals || preferredOptionals.length === 0) && 
+                                !preferredType;
+
+        if (allPreferencesNull) {
+            /* return the first available cars */
+            return this.getCarList().slice(0, number); // take the first indicated cars
+        }
+
+        // Filtra le auto basandosi sulle preferenze
+        const cars = this.getCarList().filter(car => {
+            const matchesEngine = preferredEngine ? car.getEngine() === preferredEngine : true;
+            const matchesDoors = preferredDoorsNumber ? car.getDoorsNumber() === preferredDoorsNumber : true;
+            const matchesColor = preferredColors && preferredColors.length > 0 
+                ? preferredColors.includes(car.getColorsAvailable()) 
+                : true;
+            const matchesOptionals = preferredOptionals && preferredOptionals.length > 0 
+                ? preferredOptionals.every(optional =>
+                    car.getOptionalList().some(carOptional => carOptional.getName() === optional))
+                : true;
+            const matchesType = preferredType ? car.getType() === preferredType : true;
+
+            return matchesEngine && matchesDoors && matchesColor && matchesOptionals && matchesType;
+        });
+
+        /* set the car according to the user preferences */
+        return cars.sort((carA, carB) => {
+            const scoreA = this.calculateMatchScore(carA, userPreferences);
+            const scoreB = this.calculateMatchScore(carB, userPreferences);
+            return scoreB - scoreA; // sort by reverse order
+        }).slice(0, number); // slice and take only the number of cars given by the user
+    }
+
+    /**
+     * Calculate the point a car will score
+     * based on the user preferences
+     * @param {Car} car - car to evaluate
+     * @param {object} userPreferences - user preferences
+     * @returns {number} corresponding score
+     */
+    calculateMatchScore(car, userPreferences) {
+        const { preferredEngine, preferredDoorsNumber, preferredColors, preferredOptionals, preferredType } = userPreferences;
+        let score = 0;
+
+        if (preferredEngine && car.getEngine() === preferredEngine) score += 3;
+        if (preferredDoorsNumber && car.getDoorsNumber() === preferredDoorsNumber) score += 2;
+        if (preferredColors && preferredColors.includes(car.getColorsAvailable())) score += 1;
+        if (preferredOptionals && preferredOptionals.some(optional =>
+            car.getOptionalList().some(carOptional => carOptional.getName() === optional))) score += 2;
+        if (preferredType && car.getType() === preferredType) score += 3;
+
+        return score;
+    }
+
+    /**
      * Saves the showroom data to local storage.
      */
     saveToLocalStorage() {

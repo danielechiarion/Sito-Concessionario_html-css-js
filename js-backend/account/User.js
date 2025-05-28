@@ -175,6 +175,74 @@ export default class User {
     }
 
     /**
+     * Finds the preferences based on the purchases.
+     * If the user hasn't bought preferences
+     * @param {Car[]} purchasedCars car list bought by the user
+     * @returns {object} Preferenze dell'utente.
+     */
+    findUserPreferences() {
+        const purchasedCars = this.#purchaseList;
+
+        if (!Array.isArray(purchasedCars) || purchasedCars.length === 0) {
+            /* if there are no purchases, the code will return 
+            null */
+            const firstCars = this.getCarList().slice(0, 5); // take the first five cars
+            return {
+                preferredEngine: firstCars[0]?.getEngine() || null,
+                preferredDoorsNumber: firstCars[0]?.getDoorsNumber() || null,
+                preferredColors: firstCars[0]?.getColorsAvailable() || [],
+                preferredOptionals: firstCars[0]?.getOptionalList().map(optional => optional.getName()) || [],
+                preferredType: firstCars[0]?.getType() || null
+            };
+        }
+
+        /* calculate preferences based on the frequence
+        of the different items */
+        const preferredEngine = this.#findMostCommon(purchasedCars.map(car => car.getEngine()));
+        const preferredDoorsNumber = this.#findMostCommon(purchasedCars.map(car => car.getDoorsNumber()));
+        const preferredColors = this.#findMostCommonArray(purchasedCars.flatMap(car => car.getColorsAvailable()));
+        const preferredOptionals = this.#findMostCommonArray(
+            purchasedCars.flatMap(car => car.getOptionalList().map(optional => optional.getName()))
+        );
+        const preferredType = this.#findMostCommon(purchasedCars.map(car => car.getType()));
+
+        return {
+            preferredEngine,
+            preferredDoorsNumber,
+            preferredColors,
+            preferredOptionals,
+            preferredType
+        };
+    }
+
+    /**
+     * Find the most common element in an
+     * array
+     * @param {Array} array - arry of elemets
+     * @returns {any} most common element
+     */
+    #findMostCommon(array) {
+        const frequency = array.reduce((acc, item) => {
+            acc[item] = (acc[item] || 0) + 1;
+            return acc;
+        }, {});
+        return Object.keys(frequency).reduce((a, b) => (frequency[a] > frequency[b] ? a : b));
+    }
+
+    /**
+     * Find the most common element in an array
+     * @param {Array} array array of elements
+     * @returns {Array} most common elements
+     */
+    #findMostCommonArray(array) {
+        const frequency = array.reduce((acc, item) => {
+            acc[item] = (acc[item] || 0) + 1;
+            return acc;
+        }, {});
+        return Object.keys(frequency).filter(key => frequency[key] === Math.max(...Object.values(frequency)));
+    }    
+
+    /**
      * Checks if this user is equal to another user based on their username.
      * @param {User} otherUser 
      * @returns {boolean} TRUE if the usernames are the same, FALSE otherwise.
