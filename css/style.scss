@@ -174,7 +174,7 @@ h5{
     }
 }
 
-.shopping-cart-button, .wish-list-botton{
+.shopping-cart-button, .wish-list-button, .remove-wish-button, .remove-shopping-cart-button{
     border-radius: 20px;
     border-color: $secondary;
     border-width: 5px;
@@ -193,6 +193,14 @@ h5{
     border-radius: 20px;
     .shopping-cart-icon, .wish-list-icon{
         filter: invert(1);
+    }
+
+    &:hover{
+        background-color: green;
+        color: inherit;
+        box-shadow: inherit;
+        cursor: inherit;
+        transform: none;
     }
 }
 

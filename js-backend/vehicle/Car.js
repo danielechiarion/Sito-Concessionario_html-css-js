@@ -74,12 +74,11 @@ export default class Car{
         this.setID(ID);
         this.#optionalList = optionalList;
         this.#colorsAvailable = colorsAvailable;
-        this.#htmlDetailsPage = this.#brand.getName()+"-"+this.#model+"_"+this.#ID;
     }
 
     /* private setters to check possible errors */
     #setBrand(newBrand){
-        if(!(newBrand instanceof Brand))
+        if(!(newBrand instanceof Brand) && newBrand !== null)
             throw new TypeError("brand requires an object of type Brand");
 
         this.#brand = newBrand;
@@ -180,6 +179,14 @@ export default class Car{
     }
 
     /**
+     * Set the color of the car
+     * @param {string} color 
+     */
+    setColor(color){
+        this.#colorsAvailable = color;
+    }
+
+    /**
      * sets a new main image
      * @param {string} newMainImage 
      */
@@ -219,6 +226,8 @@ export default class Car{
      * @returns html page name
      */
     getHtmlNamePage(){
+        if(this.#htmlDetailsPage === null)
+            this.#htmlDetailsPage = this.#brand.getName()+"-"+this.#model+"_"+this.#ID;
         return this.#htmlDetailsPage;
     }
 
@@ -243,7 +252,8 @@ export default class Car{
      * @returns {number}
      */
     getInitialValue() {
-        return this.#initialValue;
+        const value = Number(this.#initialValue);
+        return parseFloat(value.toFixed(2));
     }
 
     /**
@@ -368,7 +378,7 @@ export default class Car{
             if(optional.getStatus())
                 price += optional.getPrice();
         }
-        return price;
+        return parseFloat(price.toFixed(2));
     }
 
     /**
@@ -445,7 +455,7 @@ export default class Car{
             json.initialValue,
             json.seats,
             json.doorsNumber,
-            json.quantityAvailable,
+            parseInt(json.quantityAvailable),
             json.mainImage,
             json.detailsImage,
             json.optionalList.map(optional => Optional.fromJson(optional)),

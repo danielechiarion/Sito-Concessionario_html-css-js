@@ -36,6 +36,7 @@ if(localStorage.getItem("accountManager") === null){
 in that case it means the user want to log out */
 accountManager = AccountManager.loadLocalStorage();
 if(localStorage.getItem("loggedUser") !== null) {
+    accountManager.logoutAccount(User.fromJson(JSON.parse(localStorage.getItem("loggedUser"))));
     document.getElementById("login-message").innerHTML = TemplateParts.getSuccessMessage("Logout effettuato con successo");
     localStorage.removeItem("loggedUser");
 }

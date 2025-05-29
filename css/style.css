@@ -12051,25 +12051,32 @@ h5, .h5 {
   z-index: 20;
 }
 
-.shopping-cart-button {
+.shopping-cart-button, .wish-list-button, .remove-wish-button, .remove-shopping-cart-button {
   border-radius: 20px;
   border-color: #ff0000;
   border-width: 5px;
 }
-.shopping-cart-button:hover {
+.shopping-cart-button:hover, .wish-list-button:hover, .remove-wish-button:hover, .remove-shopping-cart-button:hover {
   background-color: #ff0000;
 }
-.shopping-cart-button:hover .shopping-cart-icon, .shopping-cart-button:hover .wish-list-icon {
+.shopping-cart-button:hover .shopping-cart-icon, .shopping-cart-button:hover .wish-list-icon, .wish-list-button:hover .shopping-cart-icon, .wish-list-button:hover .wish-list-icon, .remove-wish-button:hover .shopping-cart-icon, .remove-wish-button:hover .wish-list-icon, .remove-shopping-cart-button:hover .shopping-cart-icon, .remove-shopping-cart-button:hover .wish-list-icon {
   filter: invert(1);
 }
 
-.shopping-cart-button-selected {
+.card-button-selected {
   background-color: green;
   border: 5px solid green;
   border-radius: 20px;
 }
-.shopping-cart-button-selected .shopping-cart-icon, .shopping-cart-button-selected .wish-list-icon {
+.card-button-selected .shopping-cart-icon, .card-button-selected .wish-list-icon {
   filter: invert(1);
+}
+.card-button-selected:hover {
+  background-color: green;
+  color: inherit;
+  box-shadow: inherit;
+  cursor: inherit;
+  transform: none;
 }
 
 .brand-card-zoom {

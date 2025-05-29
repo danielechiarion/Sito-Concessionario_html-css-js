@@ -1,4 +1,5 @@
 import Car from '../vehicle/Car.js';
+import Purchase from '../operation/Purchase.js';
 
 export default class User {
     /* define private attributes */
@@ -192,7 +193,7 @@ export default class User {
     removeWish(car){
         const index = this.#wishList.findIndex(currentCar => currentCar.equals(car));
         if(index === -1) {
-            throw new Error("Car not found in wish list");
+            throw new Error("Car not found in the wish list");
         }
 
         this.#wishList.splice(index, 1);
@@ -204,32 +205,6 @@ export default class User {
      */
     addPurchase(purchase) {
         this.#purchaseList.push(purchase);
-    }
-
-    /**
-     * Adds a item to the shopping cart
-     * @param car
-     * @throws {Error} if the car already exists
-     */
-    addItemShoppingCart(car){
-        if(this.#shoppingCart.some(currentCar => car.equals(car)))
-            throw new Error("Car already exists in the shopping cart");
-
-        this.#shoppingCart.push(car);
-    }
-
-    /**
-     * Remove an item from the shopping cart
-     * @param {Car} car
-     * @throws {Error} if the car is not found in the wish list 
-     */
-    removeItemShoppingCart(car){
-        const index = this.#shoppingCart.findIndex(currentCar => currentCar.equals(car));
-        if(index === -1) {
-            throw new Error("Car not found in wish list");
-        }
-
-        this.#shoppingCart.splice(index, 1);
     }
 
     /**
@@ -246,6 +221,39 @@ export default class User {
      */
     setPurchaseList(purchaseList) {
         this.#purchaseList = purchaseList;
+    }
+
+    /**
+     * Function to empty the user's shopping cart
+     */
+    emptyShoppingCart(){
+        this.#shoppingCart = [];
+    }
+
+    
+    /**
+     * Method to purchase cars and move them
+     * from the shopping cart to the purchase list
+     */
+    purchaseCars(){
+        /* copy a clone of the cars in the purchase list */
+        for(const car of this.#shoppingCart)
+            this.addPurchase(new Purchase(car.clone(), new Date()));
+
+        this.emptyShoppingCart();
+    }
+
+    /**
+     * Method that returns the overall price
+     * of the shopping cart
+     * @returns {number} price of the cars
+     */
+    getShoppingCartPrice(){
+        let price = 0;
+        for(const car of this.#shoppingCart)
+            price += car.getPrice();
+
+        return price;
     }
 
     /**

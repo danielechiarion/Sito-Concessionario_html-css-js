@@ -443,6 +443,64 @@ export function getCarCard(car){
 }
 
 /**
+ * Returns a car for the wish-list
+ * @param {Car} car 
+ * @returns formatted string with the car
+ */
+export function getCarCardWish(car){
+  return `<div class="card car-card card-zoom me-3" style="width: 18rem;" data-car-id="${car.getID()}">
+              <img src="${car.getMainImage()}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">${car.getBrand().getName()} ${car.getModel()}</h5>
+                <p class="card-text">
+                  <ul class="card-ul">
+                    <li><span class="card-descriptor">Motore: </span>${car.getEngine()}</li>
+                    <li><span class="card-descriptor">Potenza: </span>${car.getMinPower()}KW</li>
+                    <li><span class="card-descriptor">Posti: </span>${car.getSeats()}</li>
+                    <li><span class="card-descriptor">Porte: </span>${car.getDoorsNumber()}</li>
+                  </ul>
+                </p>
+                <p class="price">${car.getInitialValue()}€</p>
+                <div class="d-flex align-items-center justify-content-end gap-1">
+                  <button type="button" class="remove-wish-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
+                    <img src="../../img/static/bin.svg" class="wish-list-icon">
+                  </button>
+                  <a href="../posts/${car.getHtmlNamePage()}" class="btn btn-secondary btn-card-details">Dettagli</a>
+                </div>
+              </div>
+            </div>`;
+}
+
+/**
+ * Return card used for shopping cart purchases
+ * @param {Car} car 
+ * @returns formatted string with the car for the shopping cart
+ */
+export function getCarCardShoppingCart(car){
+  return `<div class="card car-card card-zoom me-3" style="width: 18rem;" data-car-id="${car.getID()}">
+              <img src="${car.getMainImage()}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">${car.getBrand().getName()} ${car.getModel()}</h5>
+                <p class="card-text">
+                  <ul class="card-ul">
+                    <li><span class="card-descriptor">Motore: </span>${car.getEngine()}</li>
+                    <li><span class="card-descriptor">Potenza: </span>${car.getMinPower()}KW</li>
+                    <li><span class="card-descriptor">Posti: </span>${car.getSeats()}</li>
+                    <li><span class="card-descriptor">Porte: </span>${car.getDoorsNumber()}</li>
+                  </ul>
+                </p>
+                <p class="price">${car.getInitialValue()}€</p>
+                <div class="d-flex align-items-center justify-content-end gap-1">
+                  <button type="button" class="remove-shopping-cart-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
+                    <img src="../../img/static/bin.svg" class="wish-list-icon">
+                  </button>
+                  <a href="../posts/${car.getHtmlNamePage()}" class="btn btn-secondary btn-card-details">Dettagli</a>
+                </div>
+              </div>
+            </div>`;
+}
+
+/**
  * Function to get a carousel
  * for mobile devices
  * @param {string} content mobile carousel
@@ -683,4 +741,84 @@ export function getHomeLinkPagesAdmin(){
             </div>
           </div>
         </div>`
+}
+
+/**
+ * Function that returns all the result using a grid
+ * @param {any[]} elements elements to be printed
+ * @param {number} sizeMobile size of an item for mobile devices
+ * @param {number} sizeTablet size of an item for tablets
+ * @param {number} sizeDesktop size of an item for a PC
+ * @returns formatted string with the elements
+ */
+export function getResultGridView(elements, sizeMobile, sizeTablet, sizeDesktop){
+  let output = "";
+  for(const element of elements){
+    output += `<div class="col-sm-${sizeMobile} col-md-${sizeTablet} col-lg-${sizeDesktop}">
+      ${element}
+    </div>`
+  }
+
+  return output;
+}
+
+/**
+ * Function to get the color picker with
+ * custom colors
+ * @param {string[]} colors color available
+ * @param {number} id id of the color-picker
+ * @returns 
+ */
+export function getColorPicker(colors, id){
+  let content = "";
+  
+  for(let color of colors)
+    content += `<div class="color-option" style="background-color: ${color};" data-color="#${color}"></div>`
+
+  return `<div class="color-picker" id="${id}">
+            ${content}
+          </div>`
+}
+
+/**
+ * Returns the shopping cart table with
+ * all the information about the car
+ * @param {Car[]} shoppingCart 
+ * @returns formatted string with the values of the car
+ */
+export function getTableShoppingCart(shoppingCart){
+  let content = '';
+  
+  for(let i=0;i<shoppingCart.length;i++){
+    content += `<tr>
+      <th>${i+1}</th>
+      <td>${shoppingCart[i].getBrand().getName()}</td>
+      <td>${shoppingCart[i].getModel()}</td>
+      <td>${shoppingCart[i].getEngine()}</td>
+      <td>${shoppingCart[i].getSeats()} posti - ${shoppingCart[i].getDoorsNumber()} porte</td>
+      <td>${getColorPicker(shoppingCart[i].getColorsAvailable(), "color-picker-"+(i+1))}</td>
+      <td class="car-optionals">${getSwitchOption(shoppingCart[i].getOptionalList().map(optional => optional.getName() + " + " + optional.getPrice()+"€"))}</td>
+      <td class="car-price">${shoppingCart[i].getPrice()}</td>
+      <td><input type="number" class="input-car-quantity" name="quantity" min="1"></td>
+    </tr>`
+  }
+
+  return `<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <th>#</th>
+                <td>Marca</td>
+                <td>Modello</td>
+                <td>Motore</td>
+                <td>Capienza</td>
+                <td>Colore</td>
+                <td>Optional</td>
+                <td>Prezzo</td>
+                <td>Quantità</td>
+              </thead>
+              <tbody>
+                ${content}
+              </tbody>
+            </table>
+          </div>`
 }

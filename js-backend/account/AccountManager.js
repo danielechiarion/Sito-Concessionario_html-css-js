@@ -34,6 +34,25 @@ export default class AccountManager {
     }
 
     /**
+     * Substitutes the old information of the user
+     * with the new one and saves the account manager
+     * in the localStorage
+     * @param {User} account 
+     * @throws {TypeError} if the account is not a User instance
+     * @throws {Error} if the account is not found
+     */
+    logoutAccount(account){
+        if(!(account instanceof User))
+            throw new TypeError("account must be an instance of User");
+
+        const index = this.#accountList.findIndex(currentAccount => account.equals(currentAccount));
+        if(index === -1)
+            throw new Error("account hasn't been found");
+        this.#accountList[index] = account;
+        this.saveLocalStorage();
+    }
+
+    /**
      * Remove an account from the account list.
      * @param {User} account 
      * @throws {TypeError} If the argument is not an instance of User.

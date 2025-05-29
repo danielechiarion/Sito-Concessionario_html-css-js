@@ -66,3 +66,8 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 28/05/2025	18:02	Daniele Chiarion	Completed most sold cars output section.
 28/05/2025	18:21	Daniele Chiarion	Completed user advice output section.
 28/05/2025	20:00	Daniele Chiarion	Completed brand-show section and custom link to other pages.
+29/05/2025	10:36	Daniele Chiarion	Completed .js to manage the button of the cards.
+29/05/2025	14:48	Daniele Chiarion	Completed .js for wish-list page.
+29/05/2025	17:04	Daniele Chiarion	Add methods to complete the purchase part for the user.
+29/05/2025	20:50	Daniele Chiarion	Finished shopping cart-page. It needs to be checked.
+29/05/2025	21:23	Daniele Chiarion	Add first part profile page to complete.
