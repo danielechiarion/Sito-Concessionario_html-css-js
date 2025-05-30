@@ -71,3 +71,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 29/05/2025	17:04	Daniele Chiarion	Add methods to complete the purchase part for the user.
 29/05/2025	20:50	Daniele Chiarion	Finished shopping cart-page. It needs to be checked.
 29/05/2025	21:23	Daniele Chiarion	Add first part profile page to complete.
+30/05/2025	17:11	Daniele Chiarion	Complete .js part to manage the profile page.
+30/05/2025	17:55	Daniele Chiarion	Complete .js part for the purchase list of the user.
+30/05/2025	21:03	Daniele Chiarion	Complete .js code for car-configurator. 

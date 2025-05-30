@@ -1,6 +1,7 @@
 import Car from './Car.js';
 import Brand from './Brand.js';
 import Optional from './Optional.js';
+import CarSearch from './CarSearch.js';
 
 /**
  * Class representing a showroom that contains cars, brands, and optionals. 
@@ -239,6 +240,22 @@ export default class Showroom {
         if (preferredType && car.getType() === preferredType) score += 3;
 
         return score;
+    }
+
+    /**
+     * Search similar cars in the car list
+     * @param {CarSearch} carSearch 
+     * @returns array with the results given
+     */
+    searchSimilarCars(carSearch){
+        let results = []; //create an array where to save the results
+
+        for(const car of this.#carList){
+            if(carSearch.isSimilarTo(car))
+                results.push(car.clone());
+        }
+
+        return results;
     }
 
     /**

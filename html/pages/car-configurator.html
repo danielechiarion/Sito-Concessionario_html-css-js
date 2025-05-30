@@ -33,7 +33,7 @@
                     <h5 class="form-input-section">Alimentazione</h5>
                     <div class="input-group mb-3 form-input-item">
                         <select class="form-select" aria-label="Example select with button addon" id="choice-engine">
-                          <option selected>Scegli il motore</option>
+                          <option selected value="0">Scegli il motore</option>
                           <option value="1">Benzina</option>
                           <option value="2">Diesel</option>
                           <option value="3">Metano</option>
@@ -42,8 +42,8 @@
                           <option value="7">Elettrico</option>
                         </select>
                     </div>
-                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Autonomia (km con un pieno) <span class="range-value" id="output-displacement"></span></label>
-                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="input-displacement">
+                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Autonomia (km con un pieno) <span class="range-value" id="output-autonomy"></span></label>
+                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="input-autonomy">
                 </div>    
                 <div class="col-md-6 mt-3">
                     <h5>Tipologia</h5>
@@ -225,7 +225,7 @@
                     </div>
                     <div class="input-group mb-3 form-input-item">
                         <select class="form-select" aria-label="Example select with button addon" id="choice-seats">
-                          <option selected>Numero posti</option>
+                          <option selected value="0">Numero posti</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="4">4</option>
@@ -236,7 +236,7 @@
                     </div>
                     <div class="input-group mb-3 form-input-item">
                         <select class="form-select" aria-label="Example select with button addon" id="choice-doors">
-                          <option selected>Numero porte</option>
+                          <option selected value="0">Numero porte</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="5">5</option>
@@ -245,35 +245,12 @@
                     </div>
 
                     <h5 class="form-input-section">Optional</h5>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 1</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 2</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 3</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 4</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 5</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">Optional 6</label>
-                        </div>
+                    <div id="optional-container"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="d-grid gap-2 d-flex justify-content-center">
-                    <button class="btn btn-secondary command-button" type="button" id="inputSubmit">Ricerca</button>
+                    <button class="btn btn-secondary command-button" type="button" id="input-submit">Ricerca</button>
                 </div>
             </div>
         </div>
@@ -285,106 +262,7 @@
                 </div>
             </div>
             <div class="row mb-5" id="result-section">
-                <div class="col-lg-3 col-md-6 mb-0">
-                    <div class="d-flex overflow-visible">
-                        <div class="card card-zoom me-3" style="width: 18rem;">
-                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Fiat Panda</h5>
-                            <p class="card-text">
-                              <ul class="card-ul">
-                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                                <li><span class="card-descriptor">Posti: </span>5</li>
-                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                              </ul>
-                            </p>
-                            <p class="price">€12.000,00</p>
-                            <div class="d-flex align-items-center justify-content-end gap-2">
-                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-                              <button type="button" class="shopping-cart-button">
-                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-0">
-                    <div class="d-flex overflow-visible">
-                        <div class="card card-zoom me-3" style="width: 18rem;">
-                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Fiat Panda</h5>
-                            <p class="card-text">
-                              <ul class="card-ul">
-                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                                <li><span class="card-descriptor">Posti: </span>5</li>
-                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                              </ul>
-                            </p>
-                            <p class="price">€12.000,00</p>
-                            <div class="d-flex align-items-center justify-content-end gap-2">
-                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-                              <button type="button" class="shopping-cart-button">
-                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-0">
-                    <div class="d-flex overflow-visible">
-                        <div class="card card-zoom me-3" style="width: 18rem;">
-                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Fiat Panda</h5>
-                            <p class="card-text">
-                              <ul class="card-ul">
-                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                                <li><span class="card-descriptor">Posti: </span>5</li>
-                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                              </ul>
-                            </p>
-                            <p class="price">€12.000,00</p>
-                            <div class="d-flex align-items-center justify-content-end gap-2">
-                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-                              <button type="button" class="shopping-cart-button">
-                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-0">
-                    <div class="d-flex overflow-visible">
-                        <div class="card card-zoom me-3" style="width: 18rem;">
-                          <img src="../../img/variable/fiat-panda.jfif" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Fiat Panda</h5>
-                            <p class="card-text">
-                              <ul class="card-ul">
-                                <li><span class="card-descriptor">Motore: </span>Benzina</li>
-                                <li><span class="card-descriptor">Cilindrata: </span>1200cc</li>
-                                <li><span class="card-descriptor">Posti: </span>5</li>
-                                <li><span class="card-descriptor">Potenza: </span>85kW</li>
-                              </ul>
-                            </p>
-                            <p class="price">€12.000,00</p>
-                            <div class="d-flex align-items-center justify-content-end gap-2">
-                              <a href="../posts/fiat-panda.html" class="btn btn-secondary btn-card-details">Dettagli</a>
-                              <button type="button" class="shopping-cart-button">
-                                <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                </div>
+                
             </div>
         </div>
 
@@ -446,6 +324,8 @@
         <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script type="module" src="../../js-frontend/pagination.js"></script>
         <script type="module" src="../../js-frontend/custom-navbar.js"></script>
-        <script type="module" src="../../js-frontend/print-sliders_configurator.js"></script>
+        <script type="module" src="../../js-frontend/print-items_configurator.js"></script>
+        <script type="module" src="../../js-frontend/page_car-configurator.js"></script>
+        <script type="module" src="../../js-frontend/card-manager.js"></script>
     </body>
 </html>

@@ -32,6 +32,23 @@ export default class Purchase {
     }
 
     /**
+     * Return a clone of the car in the purchase list
+     * @returns clone of the car
+     */
+    getCar(){
+        return this.#car.clone();
+    }
+
+    /**
+     * Returns a formatted string for the date in Italian
+     * @returns formatted string with dd month yyyy Italian date
+     */
+    toStringDate(){
+        const options = {day: 'numeric', month: 'long', year: 'numeric'};
+        return new Intl.DateTimeFormat("it-IT", options).format(this.#date);
+    }
+
+    /**
      * Returns a clone of the purchase made.
      * @returns clone of the purchase
      */

@@ -135,7 +135,7 @@ export default class User {
      * @returns {Purchase[]}
      */
     getPurchaseList() {
-        this.#purchaseList.map(purchase => purchase.clone());
+        return this.#purchaseList.map(purchase => purchase.clone());
     }
     
 
@@ -262,7 +262,7 @@ export default class User {
      * @returns {object} Preferenze dell'utente.
      */
     findUserPreferences() {
-        const allCars = [...this.#purchaseList, ...this.#wishList, ...this.#shoppingCart];
+        const allCars = [...this.#purchaseList.map(purchase => purchase.getCar()), ...this.#wishList, ...this.#shoppingCart];
 
         if (!Array.isArray(allCars) || allCars.length === 0) {
             /* if there are no purchases, the code will return 

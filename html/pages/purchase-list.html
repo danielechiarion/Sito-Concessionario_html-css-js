@@ -1,203 +1,86 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <title>Storico Acquisti - Concessionario Laghi</title>
-    <link rel="stylesheet" type="text/css" href="../../css/structure.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-</head>
-<body>
-		<div class="container mt-5 pt-5">
-        <h2>Storico degli acquisti</h2>
-        <div class="purchase-list mt-4">
-		
-		
-		 <!-- Navbar telephone -->
-		<nav class="navbar navbar-light bg-light fixed-bottom d-block d-md-none">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-              <!-- Home icon -->
-              <a href="index.html" class="navbar-brand m-0 p-0">
-                <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
-              </a>
-              <!-- Profile icon -->
-              <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-                <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
-              </a>
-              <!-- Hamburger with the site links-->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <!-- Search - car configurator -->
-              <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-                <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
-              </a>
-              <!-- Dark/Light switch -->
-              <label class="switch mb-0">
-                <input type="checkbox">
-                <span class="slider round"></span>
-              </label>
-            </div>
-          </nav>
-    <!-- Navbar desktop -->
-	  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
-          <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link-desktop" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Per te
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
-                    <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <div class="collapse navbar-collapse nav-item-right-desktop" id="navbarNavLightDropdown">
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item dropdown">
-                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="../../img/static/profile.svg" class="nav-icon-desktop">
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-light">
-                      <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
-                      <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
-                      <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="nav-item-right-desktop">
-                <img src="../../img/static/light.svg" class="nav-icon-desktop">
-                <!-- Dark/Light switch -->
-                <label class="switch mb-0">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-                <img src="../../img/static/dark.svg" class="nav-icon-desktop">
-              </div>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
+  <head>
+      <meta charset="UTF-8">
+      <title>Storico Acquisti - Concessionario Laghi</title>
+      <link rel="stylesheet" type="text/css" href="../../css/structure.css">
+      <link rel="icon" href="../../img/static/logo.svg">
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <div id="navbar-spacer-top"></div>
+
+    
+      <div class="container mb-5">
+        <div class="row mb-4">
+          <div class="col-12">
+            <h2>Storico degli acquisti</h2>
           </div>
-      </nav>
-
-
-  <table class="table table-hover align-middle">
-    <thead class="table-light">
-      <tr>
-        <th scope="col">Immagine</th>
-        <th scope="col">Modello</th>
-        <th scope="col">Motore</th>
-        <th scope="col">Cilindrata</th>
-        <th scope="col">Prezzo</th>
-        <th scope="col">Data Acquisto</th>
-        <th scope="col">Azioni</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Acquisto 1 -->
-      <tr>
-        <td><img src="../../img/variable/fiat-panda.jfif" alt="Fiat Panda" style="width: 100px;"></td>
-        <td>Fiat Panda</td>
-        <td>Benzina</td>
-        <td>1200cc</td>
-        <td>€12.000,00</td>
-        <td>10 marzo 2025</td>
-        <td><a href="../posts/fiat-panda.html" class="btn btn-sm btn-secondary">Mostra dettagli</a></td>
-      </tr>
-
-      <!-- Acquisto 2 -->
-      <tr>
-        <td><img src="../../img/variable/fiat-500.jpg" alt="Fiat 500" style="width: 100px;"></td>
-        <td>Fiat 500</td>
-        <td>Ibrido</td>
-        <td>1000cc</td>
-        <td>€15.500,00</td>
-        <td>5 gennaio 2025</td>
-        <td><a href="../posts/fiat-500.html" class="btn btn-sm btn-secondary">Mostra dettagli</a></td>
-      </tr>
-
-      <!-- Acquisto 3 -->
-      <tr>
-        <td><img src="../../img/variable/jeep-renegade.jpg" alt="Jeep Renegade" style="width: 100px;"></td>
-        <td>Jeep Renegade</td>
-        <td>Diesel</td>
-        <td>1600cc</td>
-        <td>€22.800,00</td>
-        <td>20 dicembre 2024</td>
-        <td><a href="../posts/jeep-renegade.html" class="btn btn-sm btn-secondary">Mostra dettagli</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-            <!-- Altri acquisti (puoi duplicare e cambiare le informazioni) -->
-            
-
         </div>
-    </div>
-    
-
-    <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    
-</body>
-<footer>
-  <div class="container">
-    <div class="row normal-text">
-      <div class="col-md-6 col-lg-3 footer-column">
-        <h5>Autori</h5>
-        <ul class="unordered-list_no-pointed">
-          <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
-          <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
-          <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
-        </ul>
-      </div>
-      <div class="col-md-6 col-lg-6 footer-column">
-        <h5 align="center">La scuola</h5>
         <div class="row">
-          <div class="col-3 d-flex justify-content-end align-items-center">
-            <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
-          </div>
-          <div class="col-9">
-            <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
-            <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+          <div class="col-12" id="table-container">
+
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3 footer-column">
-        <h5>I nostri servizi</h5>
-        <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
-        <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
-        <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
-        <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+
+    <div id="body-spacer"></div>
+
+    <footer>
+      <div class="container">
+        <div class="row normal-text">
+          <div class="col-md-6 col-lg-3 footer-column">
+            <h5>Autori</h5>
+            <ul class="unordered-list_no-pointed">
+              <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
+              <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
+              <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-6 footer-column">
+            <h5 align="center">La scuola</h5>
+            <div class="row">
+              <div class="col-3 d-flex justify-content-end align-items-center">
+                <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
+              </div>
+              <div class="col-9">
+                <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+                <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 footer-column">
+            <h5>I nostri servizi</h5>
+            <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
+            <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
+            <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
+            <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+          </div>
+        </div>
+        <div class="row normal-text">
+          <div class="col-12 gx-3 mb-3">
+            <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+          </div>
+        </div>
+        <div class="row normal-text">
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon">
+          </div>
+          <div class="col-8 d-flex justify-content-start align-items-center">
+            <h1 align="center">Concessionario Laghi</h1>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row normal-text">
-      <div class="col-12 gx-3 mb-3">
-        <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
-      </div>
-    </div>
-    <div class="row normal-text">
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon">
-      </div>
-      <div class="col-8 d-flex justify-content-start align-items-center">
-        <h1 align="center">Concessionario Laghi</h1>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
+
+    <div id="navbar-spacer-bottom"></div>
+
+    <!-- Add more .css -->
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <!-- Add .js scripts -->
+    <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../js-frontend/pagination.js"></script>
+    <script type="module" src="../../js-frontend/custom-navbar.js"></script>
+    <script type="module" src="../../js-frontend/page_purchase-list.js"></script>
+  </body>
 </html>

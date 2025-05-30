@@ -63,7 +63,7 @@ printBrands();
 window.addEventListener("resize", printBrands);
 
 /* manage link to other pages */
-if(user === null || user.getRole === AccountRole.AccountRole.CLIENT)
+if(user === null || user.getRole() === AccountRole.AccountRole.CLIENT)
     document.getElementById("home-link-pages").innerHTML = TemplateParts.getHomeLinkPagesNormal();
 else
     document.getElementById("home-link-pages").innerHTML = TemplateParts.getHomeLinkPagesAdmin();

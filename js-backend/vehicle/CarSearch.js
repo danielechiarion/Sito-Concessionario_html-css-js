@@ -27,8 +27,8 @@ export default class CarSearch extends Car {
      * @param {Optional[]} optionalList
      * @param {string} color 
      */
-    constructor(brandName, model, type, engine, minPower, maxPower, engineAutonomy, initialValue, maxPrice, seats, doorsNumber, optionalList, color){
-        super(new Brand(brandName, null), model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, null, null, null, optionalList, [color], null);
+    constructor(brandName, model, type, engine, minPower, maxPower, engineAutonomy, initialValue, maxPrice, seats, doorsNumber, optionalList, colors){
+        super(new Brand(brandName, null), model, type, engine, minPower, engineAutonomy, initialValue, seats, doorsNumber, -1, null, null, optionalList, colors, -1);
         this.#setMaxPower(maxPower);
         this.#setMaxPrice(maxPrice);
     }
@@ -58,13 +58,13 @@ export default class CarSearch extends Car {
         if(!(anotherCar instanceof Car))
             throw new TypeError("Argument must be an instance of CarSearch");
 
-        if(this.getBrand().getName!==null && this.getBrand().getName() !== anotherCar.getBrand().getName())
+        if(this.getBrand().getName() !=="" && this.getBrand().getName() !== anotherCar.getBrand().getName())
             return false;
-        if(this.getModel() !== null && this.getModel() !== anotherCar.getModel())
+        if(this.getModel() !== "" && this.getModel() !== anotherCar.getModel())
             return false;
-        if(this.getType() !== null && this.getType() !== anotherCar.getType())
+        if(this.getType() !== CarType.CarType.NOTHING && this.getType() !== anotherCar.getType())
             return false;
-        if(this.getEngine() !== null && this.getEngine() !== anotherCar.getEngine())
+        if(this.getEngine() !== Engine.Engine.NOTHING && this.getEngine() !== anotherCar.getEngine())
             return false;
         if(this.getMinPower()>0 && anotherCar.getMinPower() < this.getMinPower())
             return false;
@@ -80,9 +80,9 @@ export default class CarSearch extends Car {
             return false;
         if(this.getDoorsNumber() > 0 && anotherCar.getDoorsNumber() !== this.getDoorsNumber())
             return false;
-        if(this.getOptionalList() !== null && this.getOptionalList().every(optional =>  anotherCar.getOptionalList().some(optional2 => optional2.equals(optional))))
+        if(this.getOptionalList().length != 0 && !this.getOptionalList().every(optional =>  anotherCar.getOptionalList().some(optional2 => optional2.equals(optional))))
             return false;
-        if(this.getColorsAvailable() != null && !anotherCar.getColorsAvailable().includes(this.getColorsAvailable()[0]))
+        if (this.getColorsAvailable().length !== 0 && this.getColorsAvailable().some(color => anotherCar.getColorsAvailable().includes(color)))
             return false;
 
         return true;

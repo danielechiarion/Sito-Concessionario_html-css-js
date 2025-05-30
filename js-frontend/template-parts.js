@@ -754,12 +754,21 @@ export function getHomeLinkPagesAdmin(){
 export function getResultGridView(elements, sizeMobile, sizeTablet, sizeDesktop){
   let output = "";
   for(const element of elements){
-    output += `<div class="col-sm-${sizeMobile} col-md-${sizeTablet} col-lg-${sizeDesktop}">
+    output += `<div class="col-sm-${sizeMobile} col-md-${sizeTablet} col-lg-${sizeDesktop} mb-3">
       ${element}
     </div>`
   }
 
   return output;
+}
+
+/**
+ * Returns a single circle color-picker
+ * @param {string} color 
+ * @returns formatted string for a single color-picker
+ */
+function getSingleColorPicker(color){
+  return `<div class="color-option" style="background-color: ${color};" data-color="#${color}"></div>`;
 }
 
 /**
@@ -773,7 +782,7 @@ export function getColorPicker(colors, id){
   let content = "";
   
   for(let color of colors)
-    content += `<div class="color-option" style="background-color: ${color};" data-color="#${color}"></div>`
+    content += getSingleColorPicker(color);
 
   return `<div class="color-picker" id="${id}">
             ${content}
@@ -820,5 +829,51 @@ export function getTableShoppingCart(shoppingCart){
                 ${content}
               </tbody>
             </table>
-          </div>`
+          </div>`;
+}
+
+/**
+ * Returns a formatted table with the last purchases made 
+ * by the user
+ * @param {Purchase} purchases 
+ * @returns formatted table with all the required data
+ */
+export function getTablePurchaseList(purchases){
+  let content = "";
+
+  for(const purchase of purchases){
+    content += `<tr>
+            <td><img src="${purchase.getCar().getMainImage()}" style="width: 100px;"></td>
+            <td>${purchase.getCar().getBrand().getName()} ${purchase.getCar().getModel()}</td>
+            <td>${purchase.getCar().getEngine()}</td>
+            <td>${getSingleColorPicker(purchase.getCar().getColorsAvailable()[0])}</td>
+            <td>${purchase.getCar().getSeats()} posti - ${purchase.getCar().getDoorsNumber()} porte</td>
+            <td>€${purchase.getCar().getPrice()}</td>
+            <td>${purchase.getCar().getQuantityAvailable()}</td>
+            <td>${purchase.toStringDate()}</td>
+            <td><a href="../post/${purchase.getCar().getHtmlNamePage()}" class="btn btn-sm btn-secondary">Dettagli auto</a></td>
+          </tr>`
+  }
+
+  return `<div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Immagine</th>
+              <th scope="col">Modello</th>
+              <th scope="col">Motore</th>
+              <th scope="col">Colore</th>
+              <th scope="col">Capienza</th>
+              <th scope="col">Prezzo</th>
+              <th scope="col">Quantità</th>
+              <th scope="col">Data Acquisto</th>
+              <th scope="col">Azioni</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${content}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
 }
