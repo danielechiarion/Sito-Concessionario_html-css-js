@@ -80,12 +80,13 @@ function buyCars(){
         }
 
         shoppingCart[i].setColor(colorPicker.dataset.color); //set a new color to the car
+        console.log(colorPicker.dataset.color);
 
         /* input of the car number and
         check it's not over the quantity available */
         const quantityAvailable = showroom.getCarList()[index].getQuantityAvailable();
         const quantityInput = parseInt(carRows[i].querySelector(".input-car-quantity").value);
-        if(quantityInput === null || quantityInput<1)
+        if(quantityInput === "" || quantityInput<1)
             quantityInput = 1;
         if(quantityInput>quantityAvailable){
             document.getElementById("buy-message").innerHTML = TemplateParts.getErrorMessage("Auto #"+(i+1)+": il massimo disponibile è "+quantityAvailable);
@@ -98,10 +99,16 @@ function buyCars(){
     /* set the user shopping cart and complete the purchase */
     user.setShoppingCart(shoppingCart);
     user.purchaseCars();
+    showroom.purchaseCars(shoppingCart); //update the showroom with the new cars purchased
+    
+    /* save the data into the local storage and
+    return the messages */
     localStorage.setItem("loggedUser", JSON.stringify(user.toJson()));
+    showroom.saveToLocalStorage();
     document.getElementById("buy-message").innerHTML = TemplateParts.getSuccessMessage("Acquisto completato");
-    setTimeout(() => {}, 10000);
-    location.reload();
+    setTimeout(() => {
+        location.reload();
+    }, 5000);
 }
 
 function emptyShoppingCart(){

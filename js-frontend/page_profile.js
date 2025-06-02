@@ -62,7 +62,8 @@ function removeAccount(){
         }
 
         accountManager.removeAccount(user); // delete the account
-        accountManager.loadLocalStorage();
+        accountManager.saveLocalStorage();
+        localStorage.removeItem("loggedUser"); // remove the user from local storage
         window.location.href = "login.html"; // return to the login page
     });
 }    

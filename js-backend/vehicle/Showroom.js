@@ -51,7 +51,7 @@ export default class Showroom {
      * Add a car to the showroom.
      * @param {Car} car 
      * @throws {TypeError} If the argument is not an instance of Car.
-     */
+     */[Car]
     addCar(car) {
         if(!(car instanceof Car)) {
             throw new TypeError("Argument must be an instance of Car");
@@ -85,27 +85,28 @@ export default class Showroom {
 
     /**
      * Change the quantity of a car in the showroom after a purchase.
-     * @param {Car} car 
-     * @param {number} quantity 
+     * @param {Car} car array of cars to purchase
      * @throws {Error} If the car is not found in the showroom.
      * @throws {RangeError} If the quantity is greater than the available quantity.
      * @throws {TypeError} If the arguments are not of the expected types.
      */
-    purchaseCar(car, quantity) {
-        if(!(car instanceof Car) || typeof quantity !== 'number') {
-            throw new TypeError("Arguments required are Car and number");
+    purchaseCars(car) {
+        if(!Array.isArray(car) || !car.every(c => c instanceof Car)) {
+            throw new TypeError("Arguments required are Car[]");
         }
 
-        const index = this.#carList.findIndex(c => c.equals(car));
-        if(index === -1) {
-            throw new Error("Car not found in showroom");
-        }
+        for(const currentCar of car){
+            const index = this.#carList.findIndex(c => c.equals(currentCar));
+            if(index === -1) {
+                throw new Error("Car not found in showroom");
+            }
 
-        if(this.#carList[index].getQuantityAvailable() < quantity) {
-            throw new RangeError("Not enough cars available");
-        }
+            if(this.#carList[index].getQuantityAvailable() < currentCar.getQuantityAvailable()) {
+                throw new RangeError("Not enough cars available");
+            }
 
-        this.#carList[index].setQuantityAvailable(this.#carList[index].getQuantityAvailable() - quantity);
+            this.#carList[index].setQuantityAvailable(this.#carList[index].getQuantityAvailable() - currentCar.getQuantityAvailable());
+        }  
     }
 
     /**

@@ -74,3 +74,6 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 30/05/2025	17:11	Daniele Chiarion	Complete .js part to manage the profile page.
 30/05/2025	17:55	Daniele Chiarion	Complete .js part for the purchase list of the user.
 30/05/2025	21:03	Daniele Chiarion	Complete .js code for car-configurator. 
+02/06/2025	17:55	Daniele Chiarion	Fix bug color purchaseList.
+02/06/2025	18:10	Daniele Chiarion	Add .js file for car-details tools. 
+02/06/2025	21:16	Daniele Chiarion	Started car-details page.

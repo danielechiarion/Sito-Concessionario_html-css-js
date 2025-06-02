@@ -12181,4 +12181,16 @@ textarea {
   max-width: 600px;
 }
 
+/* car details section */
+.mini-carousel-car-details {
+  width: 100%;
+  height: auto;
+}
+
+.mini-carousel-car-details img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /*# sourceMappingURL=structure.css.map */

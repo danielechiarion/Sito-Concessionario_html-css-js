@@ -9,7 +9,11 @@ let currentAccount = localStorage.getItem("loggedUser");
 if(currentAccount !== null) 
     currentAccount = User.fromJson(JSON.parse(currentAccount));
 
-if(currentAccount !== null && currentAccount.getRole() === AccountRole.AccountRole.ADMIN)
+if(currentAccount !== null && currentAccount.getRole() === AccountRole.AccountRole.ADMIN && !window.location.href.includes("/pages/"))
+    document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarAdminWithoutPages();
+else if(currentAccount !== null && currentAccount.getRole() === AccountRole.AccountRole.ADMIN)
     document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarAdmin();
-else
-    document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarCustomer();
+else if(!window.location.href.includes("/pages/"))
+    document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarCostumerPosts();
+else    
+    document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarCostumer();

@@ -12240,6 +12240,20 @@ input[type=range]::-moz-range-track {
   filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%);
 }
 
+.command-button-selected {
+  margin-bottom: 10px;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  background-color: red;
+  color: white;
+}
+.command-button-selected img {
+  font-size: 18px;
+  font-weight: bold;
+  filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%);
+}
+
 .command-button img {
   filter: invert(1);
 }

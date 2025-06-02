@@ -183,7 +183,7 @@ export default class Car{
      * @param {string} color 
      */
     setColor(color){
-        this.#colorsAvailable = color;
+        this.#colorsAvailable = [color];
     }
 
     /**

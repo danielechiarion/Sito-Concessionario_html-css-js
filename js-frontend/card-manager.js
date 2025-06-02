@@ -86,17 +86,18 @@ if(localStorage.getItem("loggedUser")!==null)
 showroom = Showroom.loadFromLocalStorage(JSON.parse(localStorage.getItem("showroom")));
 
 cards.forEach(card => {
+    const cardID = parseInt(card.getAttribute("data-car-id"), 10);
+    const carSearch = new CarByID(cardID); //get the car by the id
+    const carList =  showroom.getCarList()
+    const currentCar = carList[carList.findIndex(car => carSearch.equals(car))]; //get the car by the showroom
+
     /* if the card-details button is clicked, 
     the page where the botton was clicked in kept
     to go back after the page visit */
     card.querySelector(".btn-card-details").addEventListener("click", () => {
         localStorage.setItem("previousPage", window.location.href);
+        localStorage.setItem("carDetails", JSON.stringify(currentCar.toJson()));
     });
-
-    const cardID = parseInt(card.getAttribute("data-car-id"), 10);
-    const carSearch = new CarByID(cardID); //get the car by the id
-    const carList =  showroom.getCarList()
-    const currentCar = carList[carList.findIndex(car => carSearch.equals(car))]; //get the car by the showroom
 
     /* if there is a button to add the car to the shopping-cart,
     manage all the function, such as click and save the status */
