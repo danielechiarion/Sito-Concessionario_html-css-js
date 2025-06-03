@@ -32,15 +32,15 @@ export function getNavbarAdmin(){
     return `<!-- NAVBAR FOR SMARTPHONE -->
     <div id="accordionMenus">
       <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class="p-4">
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/settings.svg" class="nav-icon-desktop">
+            <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="admin_add-items.html">Aggiungi articoli</a>
           </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class="p-4">
           <h4><a class="nav-link-mobile link-group_navMobile" href="profile.html">Il tuo profilo</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="login.html">Accedi / Logout</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="sign-up.html">Registrati</a></h4>
@@ -51,11 +51,11 @@ export function getNavbarAdmin(){
           <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Home icon -->
             <a href="index.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Profile icon -->
             <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Hamburger with the site links-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@ export function getNavbarAdmin(){
             </button>
             <!-- Search - car configurator -->
             <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -79,15 +79,15 @@ export function getNavbarAdmin(){
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/home.svg" class="nav-icon-desktop">
+                <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
                 <a class="nav-link-desktop" href="index.html">Home</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
                 <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
               </li>
               <li class="nav-item dropdown d-flex align-items-center">
-                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav">
+                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav img-dark-invert">
                 <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Per te
                 </a>
@@ -99,10 +99,10 @@ export function getNavbarAdmin(){
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                  <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                  <button class="btn btn-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
                   </button>
-                  <ul class="dropdown-menu dropdown-menu-light">
+                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
                     <li><a class="dropdown-item nav-link-desktop-sub" href="login.html">Accedi / Logout</a></li>
                     <li><a class="dropdown-item nav-link-desktop-sub" href="sign-up.html">Registrati</a></li>
@@ -111,13 +111,13 @@ export function getNavbarAdmin(){
               </ul>
             </div>
             <div class="nav-item-right-desktop d-flex align-items-center">
-              <img src="../../img/static/light.svg" class="nav-icon-desktop">
+              <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
               <!-- Dark/Light switch -->
               <label class="switch mb-0">
                 <input type="checkbox">
                 <span class="slider round"></span>
               </label>
-              <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+              <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
             </div>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -129,31 +129,31 @@ export function getNavbarAdmin(){
 
     <!-- NAVBAR FOR TABLET-->
     <div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
-      <div class="bg-light p-4">
+      <div class=" p-4">
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/home.svg" class="nav-icon-desktop">
+          <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="index.html">Home</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
           <a class="nav-link-mobile" href="car-configurator.html">Configuratore</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/settings.svg" class="nav-icon-desktop">
+          <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="admin_add-items.html">Aggiungi articoli</a>
         </li>
 
         <br>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="profile.html">Profilo personale</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="login.html">Accedi/Login</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="sign-up.html">Registrati</a>
         </li>
       </div>
@@ -166,13 +166,13 @@ export function getNavbarAdmin(){
           </button>
         </div>
         <div class="d-flex align-items-center flex-shrink-0">
-          <img src="../../img/static/light.svg" class="nav-icon-desktop">
+          <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
           <!-- Dark/Light switch -->
           <label class="switch mb-0">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
-          <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+          <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
         </div>
         <!-- Search section -->
         <form class="d-flex" role="search">
@@ -191,23 +191,23 @@ export function getNavbarCostumer(){
     return `<!-- NAVBAR FOR SMARTPHONE -->
     <div id="accordionMenus">
       <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class="p-4">
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+            <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
           </li>
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/gift.svg" class="nav-icon-desktop">
+            <img src="../../img/static/gift.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
           </li>
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
+            <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
           </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class=" p-4">
           <h4><a class="nav-link-mobile link-group_navMobile" href="profile.html">Il tuo profilo</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="login.html">Accedi / Logout</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="sign-up.html">Registrati</a></h4>
@@ -218,11 +218,11 @@ export function getNavbarCostumer(){
           <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Home icon -->
             <a href="index.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Profile icon -->
             <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Hamburger with the site links-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
@@ -230,7 +230,7 @@ export function getNavbarCostumer(){
             </button>
             <!-- Search - car configurator -->
             <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -246,19 +246,19 @@ export function getNavbarCostumer(){
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/home.svg" class="nav-icon-desktop">
+                <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
                 <a class="nav-link-desktop" href="index.html">Home</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop img-dark-invert">
                 <a class="nav-link-desktop" href="shopping-cart.html">Acquista</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
                 <a class="nav-link-desktop" href="car-configurator.html">Configuratore</a>
               </li>
               <li class="nav-item dropdown d-flex align-items-center">
-                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav">
+                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav img-dark-invert">
                 <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Per te
                 </a>
@@ -271,8 +271,8 @@ export function getNavbarCostumer(){
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                  <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                  <button class="btn btn-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
                   </button>
                   <ul class="dropdown-menu dropdown-menu-light">
                     <li><a class="dropdown-item nav-link-desktop-sub" href="profile.html">Vedi Profilo</a></li>
@@ -283,13 +283,13 @@ export function getNavbarCostumer(){
               </ul>
             </div>
             <div class="nav-item-right-desktop d-flex align-items-center">
-              <img src="../../img/static/light.svg" class="nav-icon-desktop">
+              <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
               <!-- Dark/Light switch -->
               <label class="switch mb-0">
                 <input type="checkbox">
                 <span class="slider round"></span>
               </label>
-              <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+              <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
             </div>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -301,39 +301,39 @@ export function getNavbarCostumer(){
 
     <!-- NAVBAR FOR TABLET-->
     <div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
-      <div class="bg-light p-4">
+      <div class=" p-4">
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/home.svg" class="nav-icon-desktop">
+          <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="index.html">Home</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
           <a class="nav-link-mobile" href="car-configurator.html">Configuratore</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+          <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="shopping-cart.html">Vai al carrello</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/gift.svg" class="nav-icon-desktop">
+          <img src="../../img/static/gift.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="wish-list.html">Lista dei desideri</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
+          <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
         </li>
 
         <br>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="profile.html">Profilo personale</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="login.html">Accedi/Login</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="sign-up.html">Registrati</a>
         </li>
       </div>
@@ -346,13 +346,13 @@ export function getNavbarCostumer(){
           </button>
         </div>
         <div class="d-flex align-items-center flex-shrink-0">
-          <img src="../../img/static/light.svg" class="nav-icon-desktop">
+          <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
           <!-- Dark/Light switch -->
           <label class="switch mb-0">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
-          <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+          <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
         </div>
         <!-- Search section -->
         <form class="d-flex" role="search">
@@ -372,23 +372,23 @@ export function getNavbarCostumerPosts() {
     return `<!-- NAVBAR FOR SMARTPHONE -->
     <div id="accordionMenus">
       <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class=" p-4">
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+            <img src="../../img/static/shopping-cart.svg img-dark-invert" class="nav-icon-desktop">
             <a class="nav-link-mobile" href="../pages/shopping-cart.html">Vai al carrello</a>
           </li>
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/gift.svg" class="nav-icon-desktop">
+            <img src="../../img/static/gift.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="../pages/wish-list.html">Lista dei desideri</a>
           </li>
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
+            <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="../pages/purchase-list.html">Lista degli acquisti</a>
           </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class=" p-4">
           <h4><a class="nav-link-mobile link-group_navMobile" href="../pages/profile.html">Il tuo profilo</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="../pages/login.html">Accedi / Logout</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="../pages/sign-up.html">Registrati</a></h4>
@@ -399,11 +399,11 @@ export function getNavbarCostumerPosts() {
           <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Home icon -->
             <a href="../pages/index.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Profile icon -->
             <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Hamburger with the site links-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
@@ -411,7 +411,7 @@ export function getNavbarCostumerPosts() {
             </button>
             <!-- Search - car configurator -->
             <a href="../pages/car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -427,19 +427,19 @@ export function getNavbarCostumerPosts() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/home.svg" class="nav-icon-desktop">
+                <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
                 <a class="nav-link-desktop" href="../pages/index.html">Home</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+                <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop img-dark-invert">
                 <a class="nav-link-desktop" href="../pages/shopping-cart.html">Acquista</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
                 <a class="nav-link-desktop" href="../pages/car-configurator.html">Configuratore</a>
               </li>
               <li class="nav-item dropdown d-flex align-items-center">
-                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav">
+                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav img-dark-invert">
                 <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Per te
                 </a>
@@ -452,8 +452,8 @@ export function getNavbarCostumerPosts() {
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                  <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                  <button class="btn btn-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
                   </button>
                   <ul class="dropdown-menu dropdown-menu-light">
                     <li><a class="dropdown-item nav-link-desktop-sub" href="../pages/profile.html">Vedi Profilo</a></li>
@@ -464,13 +464,13 @@ export function getNavbarCostumerPosts() {
               </ul>
             </div>
             <div class="nav-item-right-desktop d-flex align-items-center">
-              <img src="../../img/static/light.svg" class="nav-icon-desktop">
+              <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
               <!-- Dark/Light switch -->
               <label class="switch mb-0">
                 <input type="checkbox">
                 <span class="slider round"></span>
               </label>
-              <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+              <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
             </div>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -482,39 +482,39 @@ export function getNavbarCostumerPosts() {
 
     <!-- NAVBAR FOR TABLET-->
     <div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
-      <div class="bg-light p-4">
+      <div class=" p-4">
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/home.svg" class="nav-icon-desktop">
+          <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/index.html">Home</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
           <a class="nav-link-mobile" href="../pages/car-configurator.html">Configuratore</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop">
+          <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/shopping-cart.html">Vai al carrello</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/gift.svg" class="nav-icon-desktop">
+          <img src="../../img/static/gift.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/wish-list.html">Lista dei desideri</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/dollar.svg" class="nav-icon-desktop">
+          <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/purchase-list.html">Lista degli acquisti</a>
         </li>
 
         <br>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/profile.html">Profilo personale</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/login.html">Accedi/Login</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/sign-up.html">Registrati</a>
         </li>
       </div>
@@ -527,13 +527,13 @@ export function getNavbarCostumerPosts() {
           </button>
         </div>
         <div class="d-flex align-items-center flex-shrink-0">
-          <img src="../../img/static/light.svg" class="nav-icon-desktop">
+          <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
           <!-- Dark/Light switch -->
           <label class="switch mb-0">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
-          <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+          <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
         </div>
         <!-- Search section -->
         <form class="d-flex" role="search">
@@ -551,15 +551,15 @@ export function getNavbarAdminPosts(){
     return `<!-- NAVBAR FOR SMARTPHONE -->
     <div id="accordionMenus">
       <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class="p-4">
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/settings.svg" class="nav-icon-desktop">
+            <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="../pages/admin_add-items.html">Aggiungi articoli</a>
           </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
-        <div class="bg-light p-4">
+        <div class="p-4">
           <h4><a class="nav-link-mobile link-group_navMobile" href="../pages/profile.html">Il tuo profilo</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="../pages/login.html">Accedi / Logout</a></h4>
           <h4><a class="nav-link-mobile link-group_navMobile" href="../pages/sign-up.html">Registrati</a></h4>
@@ -570,11 +570,11 @@ export function getNavbarAdminPosts(){
           <div class="container-fluid d-flex justify-content-between align-items-center">
             <!-- Home icon -->
             <a href="../pages/index.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/home.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Profile icon -->
             <a href="#" class="navbar-brand m-0 p-0" data-bs-toggle="collapse" data-bs-target="#menuProfile" aria-controls="#menuProfile" aria-expanded="false" aria-label="Toogle navigation">
-              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/profile.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Hamburger with the site links-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuHamburger" aria-controls="#menuHamburger" aria-expanded="false" aria-label="Toggle navigation">
@@ -582,7 +582,7 @@ export function getNavbarAdminPosts(){
             </button>
             <!-- Search - car configurator -->
             <a href="../pages/car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile">
+              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -598,15 +598,15 @@ export function getNavbarAdminPosts(){
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/home.svg" class="nav-icon-desktop">
+                <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
                 <a class="nav-link-desktop" href="../pages/index.html">Home</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+                <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
                 <a class="nav-link-desktop" href="../pages/car-configurator.html">Configuratore</a>
               </li>
               <li class="nav-item dropdown d-flex align-items-center">
-                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav">
+                <img src="../../img/static/index.svg" class="nav-icon-desktop index-icon_nav img-dark-invert">
                 <a class="nav-link dropdown-toggle nav-link-desktop" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Per te
                 </a>
@@ -618,8 +618,8 @@ export function getNavbarAdminPosts(){
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                  <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+                  <button class="btn btn-nav dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
                   </button>
                   <ul class="dropdown-menu dropdown-menu-light">
                     <li><a class="dropdown-item nav-link-desktop-sub" href="../pages/profile.html">Vedi Profilo</a></li>
@@ -630,13 +630,13 @@ export function getNavbarAdminPosts(){
               </ul>
             </div>
             <div class="nav-item-right-desktop d-flex align-items-center">
-              <img src="../../img/static/light.svg" class="nav-icon-desktop">
+              <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
               <!-- Dark/Light switch -->
               <label class="switch mb-0">
                 <input type="checkbox">
                 <span class="slider round"></span>
               </label>
-              <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+              <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
             </div>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -648,31 +648,31 @@ export function getNavbarAdminPosts(){
 
     <!-- NAVBAR FOR TABLET-->
     <div class="collapse collapse-tablet" id="hamburgerTablet" data-bs-theme="light">
-      <div class="bg-light p-4">
+      <div class="p-4">
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/home.svg" class="nav-icon-desktop">
+          <img src="../../img/static/home.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/index.html">Home</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav">
+          <img src="../../img/static/car.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
           <a class="nav-link-mobile" href="../pages/car-configurator.html">Configuratore</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/settings.svg" class="nav-icon-desktop">
+          <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/admin_add-items.html">Aggiungi articoli</a>
         </li>
 
         <br>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/profile.html">Profilo personale</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/login.html">Accedi/Login</a>
         </li>
         <li class="d-flex align-items-center link-group_navMobile">
-          <img src="../../img/static/profile.svg" class="nav-icon-desktop">
+          <img src="../../img/static/profile.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/sign-up.html">Registrati</a>
         </li>
       </div>
@@ -685,13 +685,13 @@ export function getNavbarAdminPosts(){
           </button>
         </div>
         <div class="d-flex align-items-center flex-shrink-0">
-          <img src="../../img/static/light.svg" class="nav-icon-desktop">
+          <img src="../../img/static/light.svg" class="nav-icon-desktop img-dark-invert">
           <!-- Dark/Light switch -->
           <label class="switch mb-0">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
-          <img src="../../img/static/dark.svg" class="nav-icon-desktop">
+          <img src="../../img/static/dark.svg" class="nav-icon-desktop img-dark-invert">
         </div>
         <!-- Search section -->
         <form class="d-flex" role="search">
@@ -768,11 +768,11 @@ export function getCarCard(car){
                   </ul>
                 </p>
                 <p class="price">${car.getInitialValue()}€</p>
-                <div class="d-flex align-items-center justify-content-end gap-1">
+                <div class="d-flex align-items-center justify-content-end">
                   <button type="button" class="shopping-cart-button" id="123456-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Macchina aggiunta al carrello!">
                     <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
                   </button>
-                  <button type="button" class="wish-list-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
+                  <button type="button" class="wish-list-button me-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
                     <img src="../../img/static/gift.svg" class="wish-list-icon">
                   </button>
                   <a href="../posts/car-details_showroom.html" class="btn btn-secondary btn-card-details">Dettagli</a>
@@ -989,7 +989,7 @@ export function getHomeLinkPagesNormal(){
               <div class="card-body">
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img src="../../img/static/shopping-cart.svg" class="pagelink-card">
+                    <img src="../../img/static/shopping-cart.svg" class="pagelink-card img-dark-invert">
                   </div>
                   <div class="col-8">
                     <p class="card-text">Rivedi gli articoli che hai aggiunto e decidi quali scartare e quali acquistare...</p>
@@ -1006,7 +1006,7 @@ export function getHomeLinkPagesNormal(){
               <div class="card-body">
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img src="../../img/static/car.svg" class="pagelink-card">
+                    <img src="../../img/static/car.svg" class="pagelink-card img-dark-invert">
                   </div>
                   <div class="col-8">
                     <p class="card-text">Ricerca l'auto più adatta ai tuoi gusti e alle tue esigenze...</p>
@@ -1025,7 +1025,7 @@ export function getHomeLinkPagesNormal(){
               <div class="card-body">
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img src="../../img/static/gift.svg" class="pagelink-card">
+                    <img src="../../img/static/gift.svg" class="pagelink-card img-dark-invert">
                   </div>
                   <div class="col-8">
                     <p class="card-text">Scegli le auto da tenere d'occhio. Il tuo sogno potrebbe trasformarsi in realtà...</p>
@@ -1042,7 +1042,7 @@ export function getHomeLinkPagesNormal(){
               <div class="card-body">
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img src="../../img/static/dollar.svg" class="pagelink-card">
+                    <img src="../../img/static/dollar.svg" class="pagelink-card img-dark-invert">
                   </div>
                   <div class="col-8">
                     <p class="card-text">Controlla gli ultimi bolidi che hai acquistato!</p>
@@ -1069,7 +1069,7 @@ export function getHomeLinkPagesAdmin(){
               <div class="card-body">
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img src="../../img/static/settings.svg" class="pagelink-card">
+                    <img src="../../img/static/settings.svg" class="pagelink-card img-dark-invert">
                   </div>
                   <div class="col-8">
                     <p class="card-text">Aggiungi macchine, marchi e optional al concessionario...</p>
@@ -1196,7 +1196,7 @@ export function getTablePurchaseList(purchases){
 
   return `<div class="table-responsive">
         <table class="table table-hover align-middle">
-          <thead class="table-light">
+          <thead>
             <tr>
               <th scope="col">Immagine</th>
               <th scope="col">Modello</th>

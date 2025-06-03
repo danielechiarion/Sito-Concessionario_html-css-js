@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="it">
     <head>
-        <title>Registrati</title>
+        <title>Risultati ricerca</title>
         <link rel="stylesheet" type="text/css" href="../../css/structure.css">
         <link rel="icon" href="../../img/static/logo.svg">
     </head>
@@ -9,28 +9,13 @@
         <div id="navbar-container"></div>
         <div id="navbar-spacer-top"></div>
 
-        <!-- Sign up section -->
         <div class="container">
             <div class="row mb-4">
-                <div class="col-12 mb-3 d-flex justify-content-center">
-                    <h2>Registrazione</h2>
-                </div>
-                <!-- Form input part -->
-                <div class="col-12 mb-3 d-flex align-items-center flex-column">
-                    <input class="form-control form-input-item textInput-field" type="text" placeholder="Inserisci il nome" aria-label="default input example" id="input-name">
-                    <input class="form-control form-input-item textInput-field" type="text" placeholder="Inserisci il cognome" aria-label="default input example" id="input-surname">
-                    <input class="form-control form-input-item textInput-field" type="text" placeholder="Inserisci lo username" aria-label="default input example" id="input-username">
-                    <input type="password" class="form-control form-input-item textInput-field" id="input-first-password" placeholder="Inserisci la password" id="input-password">
-                    <input type="password" class="form-control form-input-item textInput-field" id="input-second-password" placeholder="Conferma la password" id="input-second-password">
-                </div>
-                <div class="col-12 mb-3 d-flex justify-content-center">
-                    <button type="button" class="btn btn-secondary command-button form-input-item" id="input-submit">Conferma</button>
+                <div class="col-12">
+                    <h2>Risultati ricerca</h2>
                 </div>
             </div>
-            <div class="row mb-5">
-                <div class="col-12 d-flex justify-content-center align-items-center errorContainer" id="signup-message">
-                    
-                </div>
+            <div class="row" id="result-search-container">
             </div>
         </div>
 
@@ -85,15 +70,16 @@
         </footer>
 
         <div id="navbar-spacer-bottom"></div>
-
-        <!-- Add .css style files -->
+        
+        <!-- Include the .css style -->
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
-        <!-- Add js scripts -->
+        <!-- Include .js scripts -->
         <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script type="module" src="../../js-frontend/pagination.js"></script>
         <script type="module" src="../../js-frontend/custom-navbar.js"></script>
-        <script type="module" src="../../js-frontend/page_sign-up.js"></script>
         <script type="module" src="../../js-frontend/theme.js"></script>
+        <script type="module" src="../../js-frontend/search-input.js"></script>
+        <script type="module" src="../../js-frontend/page_search.js"></script>
         <script type="module" src="../../js-frontend/search-input.js"></script>
     </body>
 </html>

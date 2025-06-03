@@ -60,6 +60,7 @@ if(localStorage.getItem("showroom") === null){
 
 let car;
 let carResults;
+document.getElementById("result-section").innerHTML = TemplateParts.getResultGridView(showroom.getCarList().map(currentCar => TemplateParts.getCarCard(currentCar)), 12, 6, 3);
 document.getElementById("input-submit").addEventListener("click", () => {
     car = getCar();
     carResults = showroom.searchSimilarCars(car);

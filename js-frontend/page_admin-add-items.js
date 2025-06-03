@@ -18,7 +18,24 @@ async function addCar() {
 
     /* model */
     const model = document.getElementById("input-model").value;
+    if(model === "")
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il modello dell'auto");
 
+    /* check if all the number inputs are typed */
+    if(power === "")
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire la potenza dell'auto");
+    if(price === "")
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il prezzo dell'auto");
+    if(engineAutonomy === "")
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire l'autonomia dell'auto");
+    if(seats == 0)
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire i posti dell'auto");
+    if(doors == 0)
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire le porte dell'auto");
+    if(quantity === "")
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il numero di vetture disponibili");
+    
+    
     /* power, price, quantity,
     all number inputs */
     const power = parseInt(document.getElementById("input-power").value, 10);
@@ -30,6 +47,8 @@ async function addCar() {
 
     /* engine selection */
     const engineSelect = document.getElementById("choice-engine");
+    if(engineSelect == 0)
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima selezionare il motore dell'auto");
     const engineIndex = engineSelect.selectedIndex - 1; // -1 perché la prima è "Scegli il motore"
     const engineKeys = Object.keys(Engine.Engine);
     const engine = engineIndex >= 0 ? Engine.Engine[engineKeys[engineIndex]] : Engine.Engine.NOTHING;
@@ -43,10 +62,13 @@ async function addCar() {
         );
         const carTypeKeys = Object.keys(CarType.CarType);
         if (carTypeIndex >= 0) carType = CarType.CarType[carTypeKeys[carTypeIndex]];
+        else document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima selezionare il tipo di auto");
     }
 
     /* colors */
     const colorElements = document.querySelectorAll(".color-option-clicked");
+    if(colorElements.length === 0)
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima selezionare almeno un colore per l'auto");
     const colorsAvailable = Array.from(colorElements).map(el => el.dataset.color);
 
     /* optionals */
@@ -60,6 +82,8 @@ async function addCar() {
 
     /* main image */
     const mainImageInput = document.getElementById("file-main-image");
+    if (!mainImageInput.files[0])
+        document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire l'immagine principale dell'auto");
     const mainImage = mainImageInput.files[0] ? await FilePath.fileToBase64(mainImageInput.files[0]) : "";
 
     /* secondary images */

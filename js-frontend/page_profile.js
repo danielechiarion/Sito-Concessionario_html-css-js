@@ -1,5 +1,6 @@
 import User from "../js-backend/account/User.js";
 import AccountManager from "../js-backend/account/AccountManager.js";
+import * as AccountRole from "../js-backend/account/AccountRole.js";
 
 import * as TemplateParts from "./template-parts.js";
 
@@ -50,6 +51,11 @@ function changeData(){
 }
 
 function removeAccount(){
+    if(user.getRole() === AccountRole.AccountRole.ADMIN){
+        document.getElementById("delete-account-error").innerHTML = TemplateParts.getErrorMessage("Non puoi eliminare un account amministratore");
+        return;
+    }
+
     document.getElementById("input-part-delete-account").classList.remove("d-none");
     
     /* wait till the password isn't typed */

@@ -1,8 +1,8 @@
-// import custom .scss files
-@import './custom-variables';
-
 // import modules and structures layouts from Bootstrap
 @import '../bootstrap/scss/bootstrap.scss';
+
+// import custom .scss files
+@import './custom-variables';
 
 .slider:before {
     position: absolute;
@@ -138,12 +138,14 @@ h2{
 }
 
 .btn-secondary{
-    color: white;
+    color: white !important;
+    background-color: $secondary !important;
     border-radius: 10px;
+    border-color: red !important;
 
     &:hover{
-        background-color: white;
-        color: $secondary;
+        background-color: white !important;
+        color: $secondary !important;
         transition-duration: 0.3s;
     }
 }
@@ -188,23 +190,23 @@ h5{
 }
 
 .card-button-selected{
-    background-color: green;
-    border: 5px solid green;
-    border-radius: 20px;
+    background-color: green !important;
+    border: 5px solid green !important;
+    border-radius: 20px !important;
     .shopping-cart-icon, .wish-list-icon{
-        filter: invert(1);
+        filter: invert(1) !important;
     }
 
     &:hover{
-        background-color: green;
-        color: inherit;
-        box-shadow: inherit;
-        cursor: inherit;
-        transform: none;
+        background-color: green !important;
+        color: inherit !important;
+        box-shadow: inherit !important;
+        cursor: inherit !important;
+        transform: none !important;
     }
 }
 
-.brand-card-zoom{
+.brand-card{
     transform-origin: top left;
 
     &:hover{
@@ -224,6 +226,18 @@ h5{
     background-color: $secondary;
     color: white;
     text-align: center;
+}
+
+.car-card .card-img-top{
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.brand-card .card-img-top{
+    width:100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 /* normal text definition */
@@ -374,8 +388,8 @@ input[type=range]::-moz-range-track {
     align-items: center;
     width: 300px;
     height:40px;
-    background-color: white;
-    color: red; 
+    background-color: white !important;
+    color: red !important; 
 
     img{
         font-size: 18px;
@@ -389,8 +403,8 @@ input[type=range]::-moz-range-track {
 }
 
 .btn-secondary-clicked{
-    background-color: white;
-    color: $secondary;
+    background-color: white !important;
+    color: $secondary !important;
 }
 
 .color-option:hover, .color-option-clicked{
@@ -418,4 +432,60 @@ input[type=range]::-moz-range-track {
 
 .successContainer img{
     filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(90deg) brightness(97%) contrast(101%);
+}
+
+/* create mixin for body dark-theme */
+body.dark-theme{
+    background-color: $bg-color-dark !important;
+    color: $text-color-dark;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.dark-theme .collapse{
+    background-color:#333131 !important;
+}
+
+@mixin dark-theme{
+    a{
+        color: $text-color-dark;
+        transition: color 0.3s ease-in-out;
+    }
+
+    h1,h2,h4,h5,p, .normal-text, li{
+        color: $text-color-dark;
+    }
+
+    .dropdown-menu{
+        background-color: #333131 !important;
+        color: $text-color-dark;
+    }
+
+    nav, footer{
+        background-color: #333131 !important;
+    }
+
+    .img-dark-invert, .navbar-toggler-icon{
+        filter: invert(1);
+    }
+
+    .card{
+        background-color: $bg-color-dark !important;
+    }
+
+    .car-card, .brand-card{
+        box-shadow: 0 0 16px 4px white;
+    }
+
+    .purchase-toolbar{
+        background-color: #333131 !important;
+    }
+}
+
+.dark-theme{
+    @include dark-theme;
+}
+
+/* result page section */
+.card.search-result{
+    border: none !important;
 }
