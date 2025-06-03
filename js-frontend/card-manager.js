@@ -2,6 +2,7 @@ import User from '../js-backend/account/User.js';
 import CarByID from '../js-backend/vehicle/CarByID.js';
 import Showroom from '../js-backend/vehicle/Showroom.js';
 import Car from '../js-backend/vehicle/Car.js';
+import * as AccountRole from '../js-backend/account/AccountRole.js';
 
 let user = null;
 let cards;
@@ -20,7 +21,7 @@ function manageShoppingCartButton(user, currentCar, button){
             return;
         }
 
-        if(button.classList.contains("card-button-selected")) //continue only if the car hasn't been added
+        if(user.getRole() === AccountRole.AccountRole.ADMIN || button.classList.contains("card-button-selected")) //continue only if the car hasn't been added
             return;
 
         /* then add the car to the shopping cart */
@@ -46,7 +47,7 @@ function manageWishListButton(user, currentCar, button){
             return;
         }
 
-        if(button.classList.contains("card-button-selected")) //continue only if the car hasn't been added
+        if(user.getRole() === AccountRole.AccountRole.ADMIN || button.classList.contains("card-button-selected")) //continue only if the car hasn't been added
             return;
 
         /* then add the car to the wish-list */

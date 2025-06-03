@@ -374,13 +374,13 @@ input[type=range]::-moz-range-track {
     align-items: center;
     width: 300px;
     height:40px;
-    background-color: red;
-    color: white;
+    background-color: white;
+    color: red; 
 
     img{
         font-size: 18px;
         font-weight: bold; 
-        filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%); 
+        filter: invert(16%) sepia(94%) saturate(7493%) hue-rotate(-1deg) brightness(97%) contrast(101%) !important; 
     }
 }
 

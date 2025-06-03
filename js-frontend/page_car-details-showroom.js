@@ -23,43 +23,46 @@ function printCarDetails(){
 }
 
 function manageShoppingCartButton(){
-    button = document.getElementById("shopping-cart-button"); //find the button
+    const button = document.getElementById("shopping-cart-button"); //find the button
 
-    if(user.getShoppingCart()!= null && user.getShoppingCart().some(currentCar => car.equals(currentCar))){
-        button.classList.add(".command-button-selected");
-        button.innerText = "Aggiunto al carrello"
+    if(user!==null && user.getShoppingCart()!= null && user.getShoppingCart().some(currentCar => car.equals(currentCar))){
+        button.classList.add("command-button-selected");
+        document.getElementById("shopping-cart-button-text").innerText = "Aggiunto al carrello"
     }else{
-        button.classList.remove(".command-button-selected");
-        button.innerText = "Aggiungi al carrello";
+        button.classList.remove("command-button-selected");
+        document.getElementById("shopping-cart-button-text").innerText = "Aggiungi al carrello";
     }
 
     button.addEventListener("click", () => {
-        if(button.classList.contains("command-button-selected")){
+        if(user === null)
+            window.location.href = "../pages/login.html";
+        if(button.classList.contains("command-button-selected"))
             return;
-        }
 
-        user.setShoppingCart(user.addToShoppingCart(car));
+        user.addToShoppingCart(car);
         localStorage.setItem('loggedUser', JSON.stringify(user.toJson()));
     });
 }
 
 function manageWishListButton(){
-    button = document.getElementById("wish-list-button"); //find the button
+    const button = document.getElementById("wish-list-button"); //find the button
 
     if(user.getShoppingCart()!= null && user.getWishList().some(currentCar => car.equals(currentCar))){
-        button.classList.add(".command-button-selected");
-        button.innerText = "Aggiunto ai desideri"
+        button.classList.add("command-button-selected");
+        document.getElementById("wish-list-button-text").innerText = "Aggiunto ai desideri"
     }else{
-        button.classList.remove(".command-button-selected");
-        button.innerText = "Lista dei desideri";
+        button.classList.remove("command-button-selected");
+        document.getElementById("wish-list-button-text").innerText = "Lista dei desideri";
     }
 
     button.addEventListener("click", () => {
-        if(button.classList.contains("command-button-selected")){
-            return;
-        }
+        if(user === null)
+            window.location.href = "../pages/login.html";
 
-        user.setShoppingCart(user.addToShoppingCart(car));
+        if(button.classList.contains("command-button-selected"))
+            return;
+
+        user.addWish(car);
         localStorage.setItem('loggedUser', JSON.stringify(user.toJson()));
     });
 }
@@ -74,7 +77,6 @@ if (user !== null)
 /* fuctions to manage the different
 car function on the page */
 document.getElementById("carousel-container").innerHTML = TemplateParts.getMiniCarouselForCarDetails(car.getMainImage(), car.getDetailsImage());
-CarDetailsTools.clearMemory();
 printCarDetails();
 CarDetailsTools.previousPage();
 manageShoppingCartButton();

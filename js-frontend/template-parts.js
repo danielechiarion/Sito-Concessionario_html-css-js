@@ -1190,7 +1190,7 @@ export function getTablePurchaseList(purchases){
             <td>€${purchase.getCar().getPrice()}</td>
             <td>${purchase.getCar().getQuantityAvailable()}</td>
             <td>${purchase.toStringDate()}</td>
-            <td><a href="../post/${purchase.getCar().getHtmlNamePage()}" class="btn btn-sm btn-secondary">Dettagli auto</a></td>
+            <td><a href="../posts/car-details_purchase-list.html" class="btn btn-sm btn-secondary">Dettagli auto</a></td>
           </tr>`
   }
 
