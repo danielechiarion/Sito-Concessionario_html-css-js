@@ -74,6 +74,10 @@ function removeAccount(){
     });
 }    
 
+if(localStorage.getItem("loggedUser") === null){
+    window.location.href = "login.html";
+}
+
 user = User.fromJson(JSON.parse(localStorage.getItem("loggedUser")));
 accountManager = AccountManager.loadLocalStorage();
 

@@ -18,23 +18,36 @@ async function addCar() {
 
     /* model */
     const model = document.getElementById("input-model").value;
-    if(model === "")
+    if(model === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il modello dell'auto");
+        return;
+    }
 
     /* check if all the number inputs are typed */
-    if(power === "")
+    if(document.getElementById("input-power").value === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire la potenza dell'auto");
-    if(price === "")
+        return null;
+    }
+    if(document.getElementById("input-price").value === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il prezzo dell'auto");
-    if(engineAutonomy === "")
+        return null;
+    }
+    if(document.getElementById("input-autonomy").value === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire l'autonomia dell'auto");
-    if(seats == 0)
+        return null;
+    }
+    if(document.getElementById("choice-seats").value === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire i posti dell'auto");
-    if(doors == 0)
+        return null;
+    }
+    if(document.getElementById("choice-doors").value === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire le porte dell'auto");
-    if(quantity === "")
+        return null;
+    }
+    if(document.getElementById("input-car-quantity").value === ""){
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il numero di vetture disponibili");
-    
+        return null;
+    }    
     
     /* power, price, quantity,
     all number inputs */
