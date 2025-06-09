@@ -1,1 +1,2 @@
-Per vedere il sito con .js funzionante eseguire il file .java nella cartella server_localhost
+Per avviare il sito fare doppio click sul collegamento. 
+Assicurarsi di avere la JDK installata.
