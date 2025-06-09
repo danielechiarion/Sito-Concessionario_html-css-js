@@ -81,3 +81,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 03/06/2025	11:20	Daniele Chiarion	Completed .js frontend part for the details of a car bought by the user.
 03/06/2025	18:49	Daniele Chiarion	Completed .js code for theme page. 
 03/06/2025	21:47	Daniele Chiarion	Completed .js for car search.
+09/06/2025	16:47	Daniele Chiarion	Add contents in html to add items from .xlsx and .xls files

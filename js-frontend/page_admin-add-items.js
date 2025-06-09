@@ -8,6 +8,7 @@ import * as FilePath from '../js-backend/file/FilePath.js';
 
 import * as TemplateParts from './template-parts.js';
 import * as PrintPage from './print-items_admin-add-items.js';
+import * as Spreadsheet from '../js-backend/file/Spreadsheets.js';
 
 let showroom;
 
@@ -201,3 +202,7 @@ to be added by the admin */
 document.getElementById("add-car-submit").addEventListener("click", addCar);
 document.getElementById("add-brand-submit").addEventListener("click", addBrand);
 document.getElementById("add-optional-submit").addEventListener("click", addOptional);
+document.getElementById("add-cars-spreadsheet").addEventListener("click", async () => {
+    const fileContent = await Spreadsheet.readExcelFile(document.getElementById("file-spreadsheet-cars").files[0]);
+    console.log(Spreadsheet.getSheetCells(fileContent));
+});

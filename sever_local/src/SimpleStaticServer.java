@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class SimpleStaticServer {
     private static final AtomicLong lastPingTime = new AtomicLong(System.currentTimeMillis());
-    private static final long TIMEOUT = 15_000; // 15 seconds
-    private static final long GRACE_PERIOD = 10_000; // 10 seconds
+    private static final long TIMEOUT = 3600_000; // 1 hour
+    private static final long GRACE_PERIOD = 5_000; // 5 seconds
 
     public static void main(String[] args) throws Exception {
         long serverStartTime = System.currentTimeMillis();

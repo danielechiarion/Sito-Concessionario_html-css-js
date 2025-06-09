@@ -295,7 +295,7 @@
         </div>
 
         <!-- Add new optional -->
-        <div class="container mb-5">
+        <div class="container mb-4">
             <div class="row">
                 <div class="col-12">
                     <h2>Aggiungi optional</h2>
@@ -317,6 +317,54 @@
                 <div class="col-12 error-container" id="add-optional-message">
                 </div>
             </div>
+        </div>
+
+        <!-- Space to import items by files -->
+        <div class="container mb-5">
+          <div class="row">
+            <div class="col-12">
+              <h2>Importa da file</h2>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <h5 class="form-input-section">Aggiungi macchine</h5>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control form-input-item" type="file" id="file-spreadsheet-cars" accept=".xlsx,.xls">
+            </div>
+            <div class="col-md-6 d-flex align-items-center gap-3">
+              <button class="btn btn-secondary" id="add-cars-spreadsheet">Carica risorse</button>
+              <button class="btn btn-secondary" id="download-cars-spreadsheet">Scarica template</button>
+            </div>
+            <div class="col-12" id="alert-cars-spreadsheet"></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <h5 class="form-input-section">Aggiungi Marchi</h5>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control form-input-item" type="file" id="file-spreadsheet-brands" accept=".xlsx,.xls">
+            </div>
+            <div class="col-md-6 d-flex align-items-center gap-3">
+              <button class="btn btn-secondary" id="add-brands-spreadsheet">Carica risorse</button>
+              <button class="btn btn-secondary" id="download-brands-spreadsheet">Scarica template</button>
+            </div>
+            <div class="col-12" id="alert-brands-spreadsheet"></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <h5 class="form-input-section">Aggiungi Optional</h5>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control form-input-item" type="file" id="file-spreadsheet-optionals" accept=".xlsx,.xls">
+            </div>
+            <div class="col-md-6 d-flex align-items-center gap-3">
+              <button class="btn btn-secondary" id="add-optionals-spreadsheet">Carica risorse</button>
+              <button class="btn btn-secondary" id="download-optionals-spreadsheet">Scarica template</button>
+            </div>
+            <div class="col-12" id="alert-optionals-spreadsheet"></div>
+          </div>
         </div>
             
         <div id="body-spacer"></div>
@@ -375,6 +423,7 @@
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
         <!-- Add js scripts -->
         <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
         <script type="module" src="../../js-frontend/pagination.js"></script>
         <script type="module" src="../../js-frontend/custom-navbar.js"></script>
         <script type="module" src="../../js-frontend/print-items_admin-add-items.js"></script>
