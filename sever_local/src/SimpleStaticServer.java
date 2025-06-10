@@ -14,8 +14,11 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class SimpleStaticServer {
     private static final AtomicLong lastPingTime = new AtomicLong(System.currentTimeMillis());
-    private static final long TIMEOUT = 3600_000; // 1 hour
-    private static final long GRACE_PERIOD = 5_000; // 5 seconds
+    private static final long TIMEOUT_AFTER_CLOSE = 10_000;
+    private static final long TIMEOUT_AFTER_LOAD = 30_000;
+    private static volatile boolean pageClosed = false;
+    private static volatile long closeTime = 0;
+    private static volatile long loadTime = 0;
 
     public static void main(String[] args) throws Exception {
         long serverStartTime = System.currentTimeMillis();
@@ -32,12 +35,21 @@ public class SimpleStaticServer {
         new Thread(() -> {
             while (true) {
                 long currentTime = System.currentTimeMillis();
-                if (currentTime - serverStartTime > GRACE_PERIOD &&
-                        currentTime - lastPingTime.get() > TIMEOUT) {
-                    System.out.println("No ping received. Shutting down the server...");
+
+                // 1. if a load message has never been received, shutdown after TIMEOUT_AFTER_LOAD
+                if (loadTime == 0 && currentTime-serverStartTime > TIMEOUT_AFTER_LOAD) {
+                    System.out.println("Timeout: la pagina non è mai stata caricata. Shutting down the server...");
                     server.stop(0);
                     System.exit(0);
                 }
+
+                // 2. if a close message has arrived, shutdown after TIMEOUT_AFTER_CLOSE
+                if (pageClosed && (currentTime - closeTime > TIMEOUT_AFTER_CLOSE) && lastPingTime.get() < closeTime) {
+                    System.out.println("Timeout dopo chiusura pagina. Shutting down the server...");
+                    server.stop(0);
+                    System.exit(0);
+                }
+
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -90,7 +102,17 @@ public class SimpleStaticServer {
     public static class PingHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            lastPingTime.set(System.currentTimeMillis());
+            String query = exchange.getRequestURI().getQuery();
+            if (query != null && query.contains("event=close")) {
+                pageClosed = true;
+                closeTime = System.currentTimeMillis();
+                System.out.println("Ricevuto evento di chiusura pagina.");
+            } else if (query != null && query.contains("event=load")) {
+                loadTime = System.currentTimeMillis();
+                System.out.println("Ricevuto evento di caricamento pagina.");
+            } else {
+                lastPingTime.set(System.currentTimeMillis());
+            }
             String response = "OK";
             exchange.sendResponseHeaders(200, response.length());
             try (OutputStream os = exchange.getResponseBody()) {
