@@ -191,6 +191,82 @@ function addOptional(){
     }
 }
 
+function manageBrandByFile(){
+    /* manage the download of the template file */
+    document.getElementById("download-brands-spreadsheet").addEventListener("click", () => {
+        const a = document.createElement("a");
+        a.href = Spreadsheet.getBrandTemplate();
+        a.download = "brand-template.xlsx";
+        a.click();
+        document.removeChild(a);
+    });
+
+    let downloadMode = false;
+    let fileError; // declare the variable to store the file errors
+    /* manage the control of brands spreadsheet
+    and return the possible errors */
+    document.getElementById("add-brands-spreadsheet").addEventListener("click", async() => {
+        if(!document.getElementById("file-spreadsheet-brands").files[0])
+            return;
+
+        if(!downloadMode){
+            const workbook = await Spreadsheet.readExcelFile(document.getElementById("file-spreadsheet-brands").files[0]);
+            const fileContent = Spreadsheet.getSheetCells(workbook);
+            fileError = JSON.parse(JSON.stringify(fileContent)); //copy of the file content for errors
+            const brandList = Spreadsheet.getBrandData(fileContent, fileError);
+            if(brandList.length < fileContent.length -1){
+                document.getElementById("alert-brands-spreadsheet").innerHTML = TemplateParts.getErrorMessage("Ci sono degli errori nel file. Scaricalo per visualizzarli"); //alert of possible errors
+                document.getElementById("add-brands-spreadsheet").innerText = "Ci sono degli errori. Scarica il file";
+                downloadMode = true;
+            }else{
+                /* copy all the brands into the showroom */
+                for(const singleBrand of brandList){
+                    try{
+                        showroom.addBrand(singleBrand);
+                    }catch(error){}
+                }
+                showroom.saveToLocalStorage();
+                /* output of a success message */
+                document.getElementById("alert-brands-spreadsheet").innerHTML = TemplateParts.getSuccessMessage("Marchi aggiunti con successo");
+            }
+        }else{
+            /* download the file */
+            const a = document.createElement("a");
+            a.href = Spreadsheet.generateDownloadLinkFile(fileError);
+            a.download = "brand-errors.xlsx";
+            a.click();
+            //document.removeChild(a);
+
+            /* change the download mode and the name
+            of the button */
+            document.getElementById("add-brands-spreadsheet").innerText = "Carica risorse";
+            downloadMode = false;
+        }
+    });
+}
+
+function manageOptionalByFile(){
+    /* manage the download of the template file */
+    document.getElementById("download-optionals-spreadsheet").addEventListener("click", () => {
+        const a = document.createElement("a");
+        a.href = Spreadsheet.getOptionalTemplate();
+        a.download = "optional-template.xlsx";
+        a.click();
+        document.removeChild(a);
+    });
+}
+
+function manageCarByFile(){
+    /* manage the download of the template file */
+    document.getElementById("download-cars-spreadsheet").addEventListener("click", () => {
+        const a = document.createElement("a");
+        a.href = Spreadsheet.getCarTemplate();
+        a.download = "car-template.xlsx";
+        a.click();
+        document.removeChild(a);
+    });
+}
+
 /* check if the showroom already exists */
 if(localStorage.getItem("showroom") === null)
     showroom = new Showroom();
@@ -202,7 +278,6 @@ to be added by the admin */
 document.getElementById("add-car-submit").addEventListener("click", addCar);
 document.getElementById("add-brand-submit").addEventListener("click", addBrand);
 document.getElementById("add-optional-submit").addEventListener("click", addOptional);
-document.getElementById("add-cars-spreadsheet").addEventListener("click", async () => {
-    const fileContent = await Spreadsheet.readExcelFile(document.getElementById("file-spreadsheet-cars").files[0]);
-    console.log(Spreadsheet.getSheetCells(fileContent));
-});
+manageBrandByFile();
+manageOptionalByFile();
+manageCarByFile();

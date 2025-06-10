@@ -81,4 +81,7 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 03/06/2025	11:20	Daniele Chiarion	Completed .js frontend part for the details of a car bought by the user.
 03/06/2025	18:49	Daniele Chiarion	Completed .js code for theme page. 
 03/06/2025	21:47	Daniele Chiarion	Completed .js for car search.
-09/06/2025	16:47	Daniele Chiarion	Add contents in html to add items from .xlsx and .xls files
+09/06/2025	16:47	Daniele Chiarion	Add contents in html to add items from .xlsx and .xls files.
+10/06/2025	16:57	Daniele Chiarion	First attemp to download a brand file template succeeded. 
+10/06/2025	17:06	Daniele Chiarion	Finished adding commands to download all the template files available.
+10/06/2025	18:31	Daniele Chiarion	Completed sections to add brands by file. File name needs to be checked.
