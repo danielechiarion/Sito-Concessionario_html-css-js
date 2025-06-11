@@ -12045,7 +12045,7 @@ h5, .h5 {
 }
 
 .card-zoom {
-  transform-origin: top left;
+  transform-origin: top center;
 }
 .card-zoom:hover {
   transform: scale(1.1) !important;
@@ -12081,9 +12081,6 @@ h5, .h5 {
   transform: none !important;
 }
 
-.brand-card {
-  transform-origin: top left;
-}
 .brand-card:hover {
   transform: scale(0.8) !important;
   transition-duration: 0.5s;
@@ -12110,7 +12107,7 @@ h5, .h5 {
 .brand-card .card-img-top {
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* normal text definition */
