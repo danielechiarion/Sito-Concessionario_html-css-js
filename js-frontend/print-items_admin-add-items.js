@@ -57,7 +57,11 @@ function printChoiceCar(){
 
 function getBrandPreview(){
     const name = document.getElementById("input-brand-name").value;
-    let logo = document.getElementById("file-brand-logo").files[0];
+    let logo;
+    if(!document.getElementById("url-brand-image").value)
+        logo = document.getElementById("file-brand-logo").files[0];
+    else
+        logo = document.getElementById("url-brand-image").value;
 
     if(!logo)
         logo="../img/static/car.svg";
@@ -83,6 +87,7 @@ printChoiceCar(); //manage the car selection
 
 document.getElementById("input-brand-name").addEventListener("input", getBrandPreview);
 document.getElementById("file-brand-logo").addEventListener("change", getBrandPreview);
+document.getElementById("url-brand-image").addEventListener("change", getBrandPreview);
 
 /* manage sliders */
 sliders.forEach(slider => {

@@ -85,3 +85,7 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 10/06/2025	16:57	Daniele Chiarion	First attemp to download a brand file template succeeded. 
 10/06/2025	17:06	Daniele Chiarion	Finished adding commands to download all the template files available.
 10/06/2025	18:31	Daniele Chiarion	Completed sections to add brands by file. File name needs to be checked.
+10/06/2025	16:00	Daniele Chiarion	Completed section to add optionals by file. When it's required a file input you can add a logo. 
+12/06/2025	11:15	Daniele Chiarion	Completed writing the function to get the cars by the data of the spreadsheet. 
+13/06/2025	15:33	Daniele Chiarion	Completed part of the site to add a car using files.
+13/06/2025	15:57	Daniele Chiarion	Add modal for information about uploading content from files.

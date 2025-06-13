@@ -65,8 +65,10 @@
                           <option selected>Numero posti</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
+                          <option value="3">3</option>
                           <option value="4">4</option>
                           <option value="5">5</option>
+                          <option value="6">6</option>
                           <option value="7">7</option>
                           <option value="8">8</option>
                         </select>
@@ -250,6 +252,12 @@
                         <h5 class="form-input-section">Immagini macchina</h5>
                         <label for="formFileMultiple" class="form-label">Inserisci una foto della macchina</label>
                         <input class="form-control form-input-item" type="file" id="file-main-image" accept="image/*">
+                        <div class="input-group">
+                          <span class="input-group-text">https://</span>
+                          <input type="text" class="form-control" id="url-car-main-image" aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                        <div class="form-text normal-text small-text" id="basic-addon4">Se vuoi puoi inserire l'URL al posto del percorso del file</div>
+                        <br>
                         <label for="formFileMultiple" class="form-label">Inserisci i dettagli della macchina</label>
                         <input class="form-control form-input-item" type="file" id="file-secondary-images" accept="image/*" multiple>
                 </div>
@@ -276,7 +284,12 @@
                     <input class="form-control form-input-item" type="text" placeholder="Inserisci il nome del marchio" aria-label="default input example" id="input-brand-name">
                     <br>
                     <label for="formFile" class="form-label form-input-item">Inserisci logo marchio</label>
-                    <input class="form-control" type="file" accept="image/*" id="file-brand-logo">
+                    <input class="form-control form-input-item" type="file" accept="image/*" id="file-brand-logo">
+                    <div class="input-group">
+                        <span class="input-group-text">https://</span>
+                        <input type="text" class="form-control" id="url-brand-image" aria-describedby="basic-addon3 basic-addon4">
+                    </div>
+                    <div class="form-text normal-text small-text" id="basic-addon4">Se vuoi puoi inserire l'URL al posto del percorso del file</div>
                 </div>
                 <div class="col-md-5 d-flex flex-column justify-content-center ms-3">
                     <h5 class="form-input-section" id="brand-title-preview">Anteprima</h5>
@@ -316,14 +329,50 @@
                 </div>
                 <div class="col-12 error-container" id="add-optional-message">
                 </div>
-            </div>
+            </div> 
         </div>
 
         <!-- Space to import items by files -->
         <div class="container mb-5">
-          <div class="row">
-            <div class="col-12">
+          <div class="row mb-4">
+            <div class="col-12 mb-3">
               <h2>Importa da file</h2>
+            </div>
+            <div class="col-12">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Clicca per maggiori info
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title fs-5" id="exampleModalLabel">Indicazioni per l'utilizzo dei file</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="normal-text">
+                        In questa sezione è possibile aggiungere i vari articoli del concessionario utilizzando file Excel (.xlsx e .xls).<br>
+                        Per ognuno di questi file è obbligatorio seguire l'ordine degli attributi previsto, consultabile scaricando il template per ogni articolo. <br>
+                        <br><br>
+                        Per una corretta lettura, non spostare l'intestazioene e i dati verticalmente o orizzontalmente.<br>
+                        In caso di dati in eccesso, questi verranno ignorati.
+                        <br><br>
+                        In alcuni campi come i colori della macchina, gli optional e i dettagli della macchina, è possibile aggiungere più di un elemento. <br>
+                        Per inserire colori e optional è possibile riportare rispettivamente i vari codici RGB e nomi degli optional separati da una virgola. <br>
+                        Per le immagini, invece, separare i vari elementi con uno spazio. 
+                        <br><br>
+                        Sempre per quanto riguarda i file, nell'importazione da Excel è sempre consigliabile utilizzare i link alle immagini anzichè un percorso in locale.
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row mb-3">

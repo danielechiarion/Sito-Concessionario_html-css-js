@@ -32,7 +32,7 @@ function printPreferredUserCars(){
 in the showroom */
 function printBrands(){
     const elements = showroom.getBrandList().map(brand => TemplateParts.getBrandCard(brand));
-    document.getElementById("brand-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 3, 5, "brands");
+    document.getElementById("brand-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 3, 4, "brands");
 }
 
 /* read the showroom and the account */

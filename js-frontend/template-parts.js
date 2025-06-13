@@ -921,7 +921,7 @@ export function getCarouselItem(index, content) {
       attribute = "active";
 
   return `<div class="carousel-item ${attribute}">
-              <div class="d-flex justify-content-center align-items-center g-0">
+              <div class="d-flex justify-content-center align-items-center">
                   ${content}
               </div>
           </div>`;

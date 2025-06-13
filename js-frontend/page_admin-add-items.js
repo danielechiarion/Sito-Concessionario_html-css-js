@@ -137,14 +137,18 @@ async function addBrand(){
         document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il nome del brand");
         return;
     }
-    if(!document.getElementById("file-brand-logo").files[0]){
+    if(!document.getElementById("file-brand-logo").files[0] && !document.getElementById("url-brand-image").value){
         document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire il logo del brand");
         return;
     }
 
     /* get the data of the brand */
     const name = document.getElementById("input-brand-name").value;
-    const logo = await FilePath.fileToBase64(document.getElementById("file-brand-logo").files[0]);
+    let logo;
+    if(!document.getElementById("url-brand-image").value)
+        logo = await FilePath.fileToBase64(document.getElementById("file-brand-logo").files[0]);
+    else
+        logo = document.getElementById("url-brand-image").value;
 
     /* create the brand and check if 
     it's possible to add it */
@@ -216,7 +220,7 @@ function manageBrandByFile(){
             const brandList = Spreadsheet.getBrandData(fileContent, fileError);
             if(brandList.length < fileContent.length -1){
                 document.getElementById("alert-brands-spreadsheet").innerHTML = TemplateParts.getErrorMessage("Ci sono degli errori nel file. Scaricalo per visualizzarli"); //alert of possible errors
-                document.getElementById("add-brands-spreadsheet").innerText = "Ci sono degli errori. Scarica il file";
+                document.getElementById("add-brands-spreadsheet").innerText = "Vedi gli errori";
                 downloadMode = true;
             }else{
                 /* copy all the brands into the showroom */
@@ -228,6 +232,7 @@ function manageBrandByFile(){
                 showroom.saveToLocalStorage();
                 /* output of a success message */
                 document.getElementById("alert-brands-spreadsheet").innerHTML = TemplateParts.getSuccessMessage("Marchi aggiunti con successo");
+                PrintPage.printBrandSelect(showroom.getBrandList());
             }
         }else{
             /* download the file */
@@ -254,6 +259,50 @@ function manageOptionalByFile(){
         a.click();
         document.removeChild(a);
     });
+
+    let downloadMode = false;
+    let fileError; // declare the variable to store the file errors
+    /* manage the control of optionals spreadsheet
+    and return the possible errors */
+    document.getElementById("add-optionals-spreadsheet").addEventListener("click", async() => {
+        if(!document.getElementById("file-spreadsheet-optionals").files[0])
+            return;
+
+        if(!downloadMode){
+            const workbook = await Spreadsheet.readExcelFile(document.getElementById("file-spreadsheet-optionals").files[0]);
+            const fileContent = Spreadsheet.getSheetCells(workbook);
+            fileError = JSON.parse(JSON.stringify(fileContent)); //copy of the file content for errors
+            const optionalList = Spreadsheet.getOptionalData(fileContent, fileError);
+            if(optionalList.length < fileContent.length -1){
+                document.getElementById("alert-optionals-spreadsheet").innerHTML = TemplateParts.getErrorMessage("Ci sono degli errori nel file. Scaricalo per visualizzarli"); //alert of possible errors
+                document.getElementById("add-optionals-spreadsheet").innerText = "Vedi gli errori";
+                downloadMode = true;
+            }else{
+                /* copy all the optionals into the showroom */
+                for(const singleOptional of optionalList){
+                    try{
+                        showroom.addOptional(singleOptional);
+                    }catch(error){}
+                }
+                showroom.saveToLocalStorage();
+                /* output of a success message */
+                document.getElementById("alert-optionals-spreadsheet").innerHTML = TemplateParts.getSuccessMessage("Optional aggiunti con successo");
+                PrintPage.printCarOptionals(showroom.getOptionalList());
+            }
+        }else{
+            /* download the file */
+            const a = document.createElement("a");
+            a.href = Spreadsheet.generateDownloadLinkFile(fileError);
+            a.download = "optional-errors.xlsx";
+            a.click();
+            //document.removeChild(a);
+
+            /* change the download mode and the name
+            of the button */
+            document.getElementById("add-optionals-spreadsheet").innerText = "Carica risorse";
+            downloadMode = false;
+        }
+    });
 }
 
 function manageCarByFile(){
@@ -264,6 +313,47 @@ function manageCarByFile(){
         a.download = "car-template.xlsx";
         a.click();
         document.removeChild(a);
+    });
+
+    let downloadMode = false;
+    let fileError; // declare the variable to store the file errors
+    /* manage the control of optionals spreadsheet
+    and return the possible errors */
+    document.getElementById("add-cars-spreadsheet").addEventListener("click", async() => {
+        if(!document.getElementById("file-spreadsheet-cars").files[0])
+            return;
+
+        if(!downloadMode){
+            const workbook = await Spreadsheet.readExcelFile(document.getElementById("file-spreadsheet-cars").files[0]);
+            const fileContent = Spreadsheet.getSheetCells(workbook);
+            fileError = JSON.parse(JSON.stringify(fileContent)); //copy of the file content for errors
+            const carList = Spreadsheet.getCarData(fileContent, fileError, showroom);
+            if(carList.length < fileContent.length -1){
+                document.getElementById("alert-cars-spreadsheet").innerHTML = TemplateParts.getErrorMessage("Ci sono degli errori nel file. Scaricalo per visualizzarli"); //alert of possible errors
+                document.getElementById("add-cars-spreadsheet").innerText = "Vedi gli errori";
+                downloadMode = true;
+            }else{
+                /* copy all the cars into the showroom */
+                for(const singleCar of carList){
+                    showroom.addCar(singleCar);
+                }
+                showroom.saveToLocalStorage();
+                /* output of a success message */
+                document.getElementById("alert-cars-spreadsheet").innerHTML = TemplateParts.getSuccessMessage("Macchine aggiunte con successo");
+            }
+        }else{
+            /* download the file */
+            const a = document.createElement("a");
+            a.href = Spreadsheet.generateDownloadLinkFile(fileError);
+            a.download = "car-errors.xlsx";
+            a.click();
+            //document.removeChild(a);
+
+            /* change the download mode and the name
+            of the button */
+            document.getElementById("add-cars-spreadsheet").innerText = "Carica risorse";
+            downloadMode = false;
+        }
     });
 }
 
