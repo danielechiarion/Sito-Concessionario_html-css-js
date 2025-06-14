@@ -95,10 +95,13 @@ async function addCar() {
     });
 
     /* main image */
-    const mainImageInput = document.getElementById("file-main-image");
-    if (!mainImageInput.files[0])
+    if (!document.getElementById("file-main-image").files[0] && !document.getElementById("url-car-main-image").value)
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima inserire l'immagine principale dell'auto");
-    const mainImage = mainImageInput.files[0] ? await FilePath.fileToBase64(mainImageInput.files[0]) : "";
+    let mainImage;
+    if(document.getElementById("url-car-main-image").value)
+        mainImage = "https://"+document.getElementById("url-car-main-image").value;
+    else
+        mainImage = await FilePath.fileToBase64(document.getElementById("file-main-image").files[0]);
 
     /* secondary images */
     const secondaryImagesInput = document.getElementById("file-secondary-images");
@@ -148,7 +151,7 @@ async function addBrand(){
     if(!document.getElementById("url-brand-image").value)
         logo = await FilePath.fileToBase64(document.getElementById("file-brand-logo").files[0]);
     else
-        logo = document.getElementById("url-brand-image").value;
+        logo = "https://"+document.getElementById("url-brand-image").value;
 
     /* create the brand and check if 
     it's possible to add it */

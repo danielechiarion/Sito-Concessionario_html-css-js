@@ -89,3 +89,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 12/06/2025	11:15	Daniele Chiarion	Completed writing the function to get the cars by the data of the spreadsheet. 
 13/06/2025	15:33	Daniele Chiarion	Completed part of the site to add a car using files.
 13/06/2025	15:57	Daniele Chiarion	Add modal for information about uploading content from files.
+14/06/2025	16:45	Daniele Chiarion	Finished admin add items page with the possibility to add images as links by the graphic interface.

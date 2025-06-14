@@ -58,15 +58,12 @@ function printChoiceCar(){
 function getBrandPreview(){
     const name = document.getElementById("input-brand-name").value;
     let logo;
-    if(!document.getElementById("url-brand-image").value)
-        logo = document.getElementById("file-brand-logo").files[0];
+    if(!document.getElementById("url-brand-image").value && document.getElementById("file-brand-logo").files[0])
+        logo = URL.createObjectURL(document.getElementById("file-brand-logo").files[0]);
+    else if(document.getElementById("url-brand-image").value)
+        logo = "https://"+document.getElementById("url-brand-image").value;
     else
-        logo = document.getElementById("url-brand-image").value;
-
-    if(!logo)
-        logo="../img/static/car.svg";
-    else
-        logo = URL.createObjectURL(logo);
+        logo = "../../img/static/car.svg";
 
     const brand = new Brand(name, logo);
     document.getElementById("brand-card-preview-container").innerHTML = TemplateParts.getBrandCard(brand);
@@ -87,7 +84,7 @@ printChoiceCar(); //manage the car selection
 
 document.getElementById("input-brand-name").addEventListener("input", getBrandPreview);
 document.getElementById("file-brand-logo").addEventListener("change", getBrandPreview);
-document.getElementById("url-brand-image").addEventListener("change", getBrandPreview);
+document.getElementById("url-brand-image").addEventListener("input", getBrandPreview);
 
 /* manage sliders */
 sliders.forEach(slider => {
