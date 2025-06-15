@@ -60,7 +60,7 @@ async function addCar() {
     const quantity = parseInt(document.getElementById("input-car-quantity").value, 10);
 
     /* engine selection */
-    const engineSelect = document.getElementById("choice-engine");
+    const engineSelect = document.getElementById("choice-engine").value;
     if(engineSelect == 0)
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima selezionare il motore dell'auto");
     const engineIndex = engineSelect.selectedIndex - 1; // -1 perché la prima è "Scegli il motore"

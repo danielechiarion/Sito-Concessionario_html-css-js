@@ -34,7 +34,7 @@ export default class Brand{
 
     /**
      * Sets a new path for the brand logo
-     * @param {*} newPath 
+     * @param {string} newPath 
      */
     setLogoPath(newPath){
         this.#logoPath = newPath;

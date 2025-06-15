@@ -181,6 +181,42 @@ export default class Showroom {
     }
 
     /**
+     * Change the optional characteristics
+     * @param {Optional} optional 
+     * @throws {TypeError} if the optional is not an instance of Optional
+     * @throws {Error} if the optional has not been found
+     */
+    changeOptional(optional){
+        if(!(optional instanceof Optional))
+            throw new TypeError("optional must be an instance of Optional");
+
+        if(!this.#optionalList.find(singleOptional => optional.equals(singleOptional)))
+            throw new Error("Optional not found");
+        
+        /* remove the optional and add it again */
+        this.#optionalList.splice(this.#optionalList.findIndex(singleOptional => singleOptional.equals(optional)), 1);
+        this.#optionalList.push(optional);
+    }
+
+    /**
+     * Change the brand characteristics
+     * @param {Brand} brand
+     * @throws {TypeError} if the brand is not an instance of Brand
+     * @throws {Error} if the brand has not been found
+     */
+    changeBrand(brand){
+        if(!(brand instanceof Brand))
+            throw new TypeError("brand must be an instance of Brand");
+
+        if(!this.#brandList.find(singleBrand => brand.equals(singleBrand)))
+            throw new Error("Brand not found");
+        
+        /* remove the brand and add it again */
+        this.#brandList.splice(this.#brandList.findIndex(singleBrand => singleBrand.equals(brand)), 1);
+        this.#brandList.push(brand);
+    }
+
+    /**
      * Returns the most sold cars 
      * @param {number} carsNumber 
      * @returns most sold cars

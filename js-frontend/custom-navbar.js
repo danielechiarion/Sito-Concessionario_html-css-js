@@ -10,7 +10,7 @@ if(currentAccount !== null)
     currentAccount = User.fromJson(JSON.parse(currentAccount));
 
 if(currentAccount !== null && currentAccount.getRole() === AccountRole.AccountRole.ADMIN && !window.location.href.includes("/pages/"))
-    document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarAdminWithoutPages();
+    document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarAdminPosts();
 else if(currentAccount !== null && currentAccount.getRole() === AccountRole.AccountRole.ADMIN)
     document.getElementById("navbar-container").innerHTML = TemplateParts.getNavbarAdmin();
 else if(!window.location.href.includes("/pages/"))

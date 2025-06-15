@@ -12323,6 +12323,9 @@ body.dark-theme .collapse {
 .dark-theme h1, .dark-theme .h1, .dark-theme h2, .dark-theme .h2, .dark-theme h4, .dark-theme .h4, .dark-theme h5, .dark-theme .h5, .dark-theme p, .dark-theme .normal-text, .dark-theme .small-text, .dark-theme li {
   color: #ffffff;
 }
+.dark-theme table li {
+  color: black;
+}
 .dark-theme .dropdown-menu {
   background-color: #333131 !important;
   color: #ffffff;
