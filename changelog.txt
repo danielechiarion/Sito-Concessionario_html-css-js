@@ -91,3 +91,5 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 13/06/2025	15:57	Daniele Chiarion	Add modal for information about uploading content from files.
 14/06/2025	16:45	Daniele Chiarion	Finished admin add items page with the possibility to add images as links by the graphic interface.
 15/06/2025	11:20	Daniele Chiarion	Add html part for brand and optional in the admin page for changing items.
+16/06/2025	16:08	Daniele Chiarion	Completed change part for a brand.
+16/06/2025	16:39	Daniele Chiarion	Completed change part for an optional.

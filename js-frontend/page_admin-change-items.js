@@ -5,6 +5,7 @@ import Car from "../js-backend/vehicle/Car.js";
 import * as FilePath from "../js-backend/file/FilePath.js";
 
 import * as TemplateParts from "./template-parts.js";
+import * as PrintPage from "./print-items_admin-change-items.js";
 
 let showroom;
 
@@ -13,6 +14,9 @@ function printBrandCard(brand){
 }
 
 function changeBrand(){
+    if(showroom.getBrandList().length === 0)
+        return;
+
     /* show the different parts of the form before hidden */
     document.getElementById("brand-change-section").classList.remove("d-none");
     document.getElementById("brand-card-preview").classList.remove("d-none");
@@ -24,6 +28,15 @@ function changeBrand(){
     const indexSelected = parseInt(document.getElementById("brand-choice-brand").value, 10);
 
     printBrandCard(brandList[indexSelected]); //print the actual brand
+
+    /* remove old event listeners to avoid problems */
+    const buttonChange = document.getElementById("btn-change-brand");
+    const buttonCancel = document.getElementById("btn-cancel-brand");
+    const buttonDelete = document.getElementById("btn-delete-brand");
+
+    buttonChange.replaceWith(buttonChange.cloneNode(true));
+    buttonCancel.replaceWith(buttonCancel.cloneNode(true));
+    buttonDelete.replaceWith(buttonDelete.cloneNode(true));
 
     /* change the brand card every time a new path has been 
     given */
@@ -40,8 +53,95 @@ function changeBrand(){
 
     /* add actions based on which button has been clicked */
     document.getElementById("btn-change-brand").addEventListener("click", () => {
-        showroom.setBrandList(brandList);
-    })
+        showroom.changeBrand(brandList[indexSelected]); //change the brand
+        showroom.saveToLocalStorage(); //save the changes
+
+        /* success output message and reload the page */
+        document.getElementById("brand-change-alert").innerHTML = TemplateParts.getSuccessMessage("Marchio modificato con successo!");
+        setTimeout(function() {
+            window.location.reload();
+        }, 5000);
+    });
+
+    document.getElementById("btn-cancel-brand").addEventListener("click", () => {
+        window.location.reload(); //the only thing I can do is realoading the page
+    });
+
+    document.getElementById("btn-delete-brand").addEventListener("click", () => {
+        /* change the showroom removing the brand */
+        showroom.removeBrand(brandList[indexSelected]);
+        showroom.saveToLocalStorage();
+        /* output of the message
+        and then reload the page */
+        document.getElementById("brand-change-alert").innerHTML = TemplateParts.getSuccessMessage("Marchio rimosso con successo!");
+        setTimeout(function() {
+            window.location.reload();
+        }, 5000);
+    });
+}
+
+function changeOptional(){
+    if(showroom.getOptionalList().length === 0)
+        return;
+
+    /* display the parts of the optional
+    form for changing it */
+    document.getElementById("optional-change-section").classList.remove("d-none");
+    document.getElementById("submit-optional-section").classList.remove("d-none");
+
+    /* get the optionalList and the index of the value */
+    const optionalList = showroom.getOptionalList();
+    const indexSelected = parseInt(document.getElementById("optional-choice-optional").value, 10);
+
+    /* fill the parts of the form with the current
+    data of the optional */
+    document.getElementById("input-optional-description").value = optionalList[indexSelected].getDescription();
+    document.getElementById("input-optional-price").value = optionalList[indexSelected].getPrice();
+    PrintPage.printSliders();
+
+    /* delete previous event listeners to
+    avoid the amount of many event listeners */
+    const buttonChange = document.getElementById("btn-change-optional");
+    const buttonCancel = document.getElementById("btn-cancel-optional");
+    const buttonDelete = document.getElementById("btn-delete-optional");
+
+    buttonChange.replaceWith(buttonChange.cloneNode(true));
+    buttonCancel.replaceWith(buttonCancel.cloneNode(true));
+    buttonDelete.replaceWith(buttonDelete.cloneNode(true));
+
+    /* add event listener for every button is clicked */
+    document.getElementById("btn-change-optional").addEventListener("click", () => {
+        /* change the value of the optional */
+        optionalList[indexSelected].setDescription(document.getElementById("input-optional-description").value);
+        optionalList[indexSelected].setPrice(parseInt(document.getElementById("input-optional-price").value, 10));
+
+        /* save it on the showroom */
+        showroom.changeOptional(optionalList[indexSelected]);
+        showroom.saveToLocalStorage();
+
+        /* success message */
+        document.getElementById("optional-change-alert").innerHTML = TemplateParts.getSuccessMessage("Optional modificato con successo!");
+        setTimeout(function(){
+            window.location.reload();
+        }, 5000);
+    });
+
+    document.getElementById("btn-cancel-optional").addEventListener("click", () => {
+        window.location.reload();
+    });
+
+    document.getElementById("btn-delete-optional").addEventListener("click", () => {
+        /* remove the optional and save the showroom */
+        showroom.removeOptional(optionalList[indexSelected]);
+        showroom.saveToLocalStorage();
+
+        /* output message */
+        /* success message */
+        document.getElementById("optional-change-alert").innerHTML = TemplateParts.getSuccessMessage("Optional eliminato con successo!");
+        setTimeout(function(){
+            window.location.reload();
+        }, 5000);
+    });
 }
 
 showroom = Showroom.loadFromLocalStorage(); //read the showroon from local storage
@@ -50,6 +150,15 @@ document.getElementById("brand-change-section").classList.add("d-none");
 document.getElementById("brand-card-preview").classList.add("d-none");
 document.getElementById("submit-brand-section").classList.add("d-none");
 
+/* hide some part of the optional
+before some of them is chosen */
+document.getElementById("optional-change-section").classList.add("d-none");
+document.getElementById("submit-optional-section").classList.add("d-none");
+
 /* add event listener when a brand is selected */
 document.getElementById("brand-choice-brand").addEventListener("change", changeBrand);
 document.getElementById("brand-choice-brand").addEventListener("click", changeBrand);
+
+/* add event listener when an optional is selected */
+document.getElementById("optional-choice-optional").addEventListener("change", changeOptional);
+document.getElementById("optional-choice-optional").addEventListener("click", changeOptional);

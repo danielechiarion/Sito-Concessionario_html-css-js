@@ -20,6 +20,12 @@ function printCarBrands(){
     document.getElementById("brand-choice-brand").innerHTML = TemplateParts.getFormSelectOptions(outputBrands);
 }
 
+export function printSliders(){
+    /* print all the sliders and use the function
+    to update the value the input changes */
+    sliders.forEach(slider => SliderTools.printSliderValue(slider));
+}
+
 /* instantiate the sliders to print the value */
 const sliders = [
     new Slider("input-optional-price", "output-optional-price", "€")
@@ -27,9 +33,7 @@ const sliders = [
 /* read the values from the showroom */
 showroom = Showroom.loadFromLocalStorage();
 
-/* print all the sliders and use the function
-to update the value the input changes */
-sliders.forEach(slider => SliderTools.printSliderValue(slider));
+printSliders();
 
 /* print the optionals and the changed brands */
 printOptionals();
