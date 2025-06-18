@@ -405,11 +405,11 @@ export default class Car{
         between the two cars */
         if(otherCar.#brand.getName() !== this.#brand.getName())
             return false;
-        if(otherCar.#model !== this.#model)
+        if(otherCar.#model !== "" && otherCar.#model !== this.#model)
             return false;
-        if(otherCar.#engine !== this.#engine)
+        if(otherCar.#engine !== "" && otherCar.#engine !== this.#engine)
             return false;   
-        if(otherCar.#doorsNumber !== this.#doorsNumber)
+        if(otherCar.#doorsNumber>0 && otherCar.#doorsNumber !== this.#doorsNumber)
             return false;  
 
         return true;

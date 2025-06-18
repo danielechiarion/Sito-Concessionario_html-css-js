@@ -15,6 +15,101 @@
                     <h2>Modifica auto</h2>
                 </div>
             </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="formFile" class="form-label form-input-item" id="label-car-brand">Scegli il marchio</label>
+                    <select class="form-select" aria-label="Default select example" id="car-choice-brand"></select>
+                    <label for="formFile" class="form-label form-input-item" id="label-car-model">Scegli il modello</label>
+                    <select class="form-select" aria-label="Default select example" id="car-choice-model"></select>
+                    <br>
+                    <select class="form-select form-input-item" aria-label="Example select with button addon" id="choice-engine">
+                        <option selected>Scegli il motore</option>
+                        <option value="1">Benzina</option>
+                        <option value="2">Metano</option>
+                        <option value="3">Diesel</option>
+                        <option value="5">GPL</option>
+                        <option value="6">Ibrido</option>
+                        <option value="7">Elettrico</option>
+                    </select>
+                    <select class="form-select" aria-label="Example select with button addon" id="choice-doors">
+                        <option selected>Numero porte</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center" id="car-preview-container">
+                    <h5 class="form-input-section">Anteprima</h5>
+                    <div id="car-card-container"></div>
+                </div>
+            </div>
+            <div class="row mb-3" id="car-change-section">
+                <div class="col-12">
+                    <h5 class="form-input-section">Modifica auto</h5>
+                </div>
+                <div class="col-md-6">
+                    <div id="car-type-carousel"></div>
+                    <label class="form-label">Colori disponibili</label>
+                    <div class="color-picker" id="choice-color">
+                        <div class="color-option" style="background-color: #ffffff;" data-color="#ffffff"></div>
+                        <div class="color-option" style="background-color: #000000;" data-color="#000000"></div>
+                        <div class="color-option" style="background-color: #808080;" data-color="#808080"></div>
+                        <div class="color-option" style="background-color: #ff0000;" data-color="#ff0000"></div>
+                        <div class="color-option" style="background-color: #f09b59;" data-color="#f09b59"></div>
+                        <div class="color-option" style="background-color: #fffd55;" data-color="#fffd55"></div>
+                        <div class="color-option" style="background-color: #000c7b;" data-color="#000c7b"></div>
+                        <div class="color-option" style="background-color: #73fbfd;" data-color="#73fbfd"></div>
+                        <div class="color-option" style="background-color: #377e47;" data-color="#377e47"></div>
+                    </div>    
+                    <br>
+
+                    <label for="formFileMultiple" class="form-label">Inserisci una foto della macchina</label>
+                        <input class="form-control form-input-item" type="file" id="file-main-image" accept="image/*">
+                        <div class="input-group">
+                          <span class="input-group-text">https://</span>
+                          <input type="text" class="form-control" id="url-car-main-image" aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                        <div class="form-text normal-text small-text" id="basic-addon4">Se vuoi puoi inserire l'URL al posto del percorso del file</div>
+                        <br>
+                        <label for="formFileMultiple" class="form-label">Inserisci i dettagli della macchina</label>
+                        <input class="form-control form-input-item" type="file" id="file-secondary-images" accept="image/*" multiple>
+                </div>
+                <div class="col-md-6">
+                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Potenza <span class="range-value" id="output-car-power"></span></label>
+                    <input type="range" class="form-range form-input-item" min="30" max="400" step="10" id="input-car-power">
+                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Prezzo <span class="range-value" id="output-car-price"></span></label>
+                    <input type="range" class="form-range form-input-item" min="5000" max="200000" step="1000" id="input-car-price">
+                    <label for="customRange3" class="form-label form-input-item d-flex justify-content-between align-items-center">Autonomia (km con un pieno) <span class="range-value" id="output-car-autonomy"></span></label>
+                    <input type="range" class="form-range form-input-item" min="300" max="1500" step="50" id="input-car-autonomy">
+                    <br>
+                    <label for="quantity" class="form-input-item d-flex justify-content-between align-items-center" style="margin-top: 25px;">Numero: </label>
+                    <input type="number" id="input-car-quantity" name="quantity" min="1">
+                    <br><br>
+                    <select class="form-select" aria-label="Example select with button addon" id="choice-seats">
+                        <option selected>Numero posti</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <br>
+                    <label class="form-label">Optional attivabili</label>
+                    <div id="car-optional-available"></div>
+                </div>
+            </div>
+            <div class="row" id="submit-car-section">
+                <div class="col-12 mb-2 d-flex justify-content-center gap-2">
+                    <button class="btn btn-secondary" id="btn-change-car">Conferma modifiche</button>
+                    <button class="btn btn-secondary" id="btn-cancel-car">Annulla modifiche</button>
+                    <button class="btn btn-secondary" id="btn-delete-car">Elimina marchio</button>
+                </div>
+                <div class="col-12" id="car-change-alert"></div>
+            </div>
         </div>
 
         <div class="container mb-5">

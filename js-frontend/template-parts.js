@@ -1270,3 +1270,174 @@ export function getUL(elements){
     ${content}
   </ul>`;
 }
+
+/**
+ * Function that returns the car type carousel based on
+ * the size of the device
+ * @returns formatted html part for carousel
+ */
+export function getCarTypeCarousel(){
+  if(window.innerWidth>=SizeDevice.getBootstrapBreakPointValue("lg"))
+    return ` <!-- Card type slide for computers-->
+                    <div id="carouselExample" class="carousel slide d-none d-md-flex">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/city-car.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">City-car</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/sedan.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Berlina</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/suv.avif" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Suv</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/coupe.webp" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Coupé</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/station-wagon.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Station Wagon</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/van.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Commerciale</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>`;
+
+    else
+      return `<!-- Card type slide for smartphone and tablets-->
+                    <div id="carouselExample2" class="carousel slide d-block d-md-none">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 1 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/city-car.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">City-car</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 2 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/sedan.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Berlina</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 3 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/suv.avif" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Suv</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 4 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/coupe.webp" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Coupé</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 5 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/station-wagon.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Station Wagon</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row d-flex justify-content-center gap-2">
+                              <!-- Card 6 -->
+                              <div class="card card-car-type">
+                                <img src="../../img/static/van.png" class="card-img-top" alt="...">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                  <h5 class="card-title">Commerciale</h5>
+                                  <button class="btn btn-secondary btn-card-details">Scegli</button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>`;
+}

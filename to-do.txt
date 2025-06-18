@@ -1,0 +1,8 @@
+X Aggiusta carosello macchina lavorando solo con quelli effettivamente attivi. 
+2. Aggiungi termini e condizioni con testo vero. 
+3. Aggiungi il flag termini e condizioni quando crei un account. 
+4. Rimuovi macchina dei dettagli salvata e pagina precedente su localStorage quando si preme il pulsante indietro. 
+5. Dai la possibilità alle immagini del brand di utilizzare la possibilità di inversione nella modalità scuro. 
+6. Mostra nella home un messaggio di errore quando non è presente alcun brand o marchio. 
+7. Aggiungi la pagina di guida con le indicazioni per l'utente e gli optional disponibili. 
+8. Mostra messaggio di errore in caso di mancanza di optional, macchine o brand nella pagina delle modifiche. 

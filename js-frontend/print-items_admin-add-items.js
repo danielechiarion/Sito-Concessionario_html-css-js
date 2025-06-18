@@ -77,6 +77,8 @@ if(localStorage.getItem("showroom") === null){
 }else
     showroom = Showroom.loadFromLocalStorage(JSON.parse(localStorage.getItem("showroom")));
 
+document.getElementById("car-type-carousel").innerHTML = TemplateParts.getCarTypeCarousel(); //show the carousel of car types
+
 printBrandSelect(showroom.getBrandList()); //change the selection of brands
 printCarOptionals(showroom.getOptionalList()); //change the car optionals
 printChoiceColors(); //manage the color selection
@@ -85,6 +87,9 @@ printChoiceCar(); //manage the car selection
 document.getElementById("input-brand-name").addEventListener("input", getBrandPreview);
 document.getElementById("file-brand-logo").addEventListener("change", getBrandPreview);
 document.getElementById("url-brand-image").addEventListener("input", getBrandPreview);
+window.addEventListener("resize", () => {
+    document.getElementById("car-type-carousel").innerHTML = TemplateParts.getCarTypeCarousel();
+});
 
 /* manage sliders */
 sliders.forEach(slider => {

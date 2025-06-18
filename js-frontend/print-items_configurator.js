@@ -64,6 +64,12 @@ if(localStorage.getItem("showroom") === null){
 
 let optionalList = showroom.getOptionalList();
 
+document.getElementById("car-type-carousel").innerHTML = TemplateParts.getCarTypeCarousel();
+
 printCarOptionals(optionalList);
 printChoiceCar();
 printChoiceColors();
+
+window.addEventListener("resize", () => {
+    document.getElementById("car-type-carousel").innerHTML = TemplateParts.getCarTypeCarousel();
+});

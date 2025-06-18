@@ -1,8 +1,8 @@
 import Showroom  from "../js-backend/vehicle/Showroom.js";
-import Brand from "../js-backend/vehicle/Brand.js";
-import Optional from "../js-backend/vehicle/Optional.js";
 import Car from "../js-backend/vehicle/Car.js";
 import * as FilePath from "../js-backend/file/FilePath.js";
+import * as CarType from "../js-backend/vehicle/CarType.js";
+import * as Engine from "../js-backend/vehicle/Engine.js";
 
 import * as TemplateParts from "./template-parts.js";
 import * as PrintPage from "./print-items_admin-change-items.js";
@@ -144,6 +144,34 @@ function changeOptional(){
     });
 }
 
+function searchCar(){
+    /* variable declaration */
+    let carShowroomBrands = [];
+    let carSearch, brand, model, seats, engine;
+    let results = [];
+
+    /* collect all the brands it's possible to find in the showroom */
+    for(let singleCar of showroom.getCarList()){
+        if(carShowroomBrands.length === 0 || !carShowroomBrands.find(currentBrand => currentBrand.equals(singleCar.getBrand())))
+            carShowroomBrands.push(singleCar.getBrand());
+    }
+
+    /* get the brand and do the first search */
+    /* first find the cars with the same brand */
+    brand = carShowroomBrands[parseInt(document.getElementById("car-choice-brand").value, 10)];
+    carSearch = new Car(brand, "", CarType.CarType.NOTHING, Engine.Engine.NOTHING, -1, -1, -1, -1, -1, -1, "", null, null, null, -1);
+    results = showroom.getCarList().filter(currentCar => currentCar.equals(carSearch));
+
+    document.getElementById("label-car-model").classList.remove("d-none");
+    document.getElementById("car-choice-model").classList.remove("d-none");
+    document.getElementById("car-choice-model").innerHTML = TemplateParts.getFormSelectOptions(results.map(currentCar => currentCar.getModel()));
+
+    if(results.size === 1)
+        return results[0];
+
+    /* then find the car based on the model */
+}
+
 showroom = Showroom.loadFromLocalStorage(); //read the showroon from local storage
 /* hide some parts of the input before a brand is chosen */
 document.getElementById("brand-change-section").classList.add("d-none");
@@ -155,6 +183,15 @@ before some of them is chosen */
 document.getElementById("optional-change-section").classList.add("d-none");
 document.getElementById("submit-optional-section").classList.add("d-none");
 
+/* hide some part of the car before nothing is chosen */
+document.getElementById("label-car-model").classList.add("d-none");
+document.getElementById("car-choice-model").classList.add("d-none");
+document.getElementById("choice-engine").classList.add("d-none");
+document.getElementById("choice-doors").classList.add("d-none");
+document.getElementById("car-preview-container").classList.add("d-none");
+document.getElementById("car-change-section").classList.add("d-none");
+document.getElementById("submit-car-section").classList.add("d-none");
+
 /* add event listener when a brand is selected */
 document.getElementById("brand-choice-brand").addEventListener("change", changeBrand);
 document.getElementById("brand-choice-brand").addEventListener("click", changeBrand);
@@ -162,3 +199,13 @@ document.getElementById("brand-choice-brand").addEventListener("click", changeBr
 /* add event listener when an optional is selected */
 document.getElementById("optional-choice-optional").addEventListener("change", changeOptional);
 document.getElementById("optional-choice-optional").addEventListener("click", changeOptional);
+
+/* add all action when a car
+has some attributes to be changed */
+let car;
+document.getElementById("car-choice-brand").addEventListener("change", () => {
+    car = searchCar();
+});
+document.getElementById("car-choice-brand").addEventListener("click", () => {
+    car = searchCar();
+});
