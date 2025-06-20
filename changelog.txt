@@ -93,3 +93,7 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 15/06/2025	11:20	Daniele Chiarion	Add html part for brand and optional in the admin page for changing items.
 16/06/2025	16:08	Daniele Chiarion	Completed change part for a brand.
 16/06/2025	16:39	Daniele Chiarion	Completed change part for an optional.
+16/06/2025	14:18	Daniele Chiarion	Using .js to add car-type carousel to select it during adding items, research and change.
+16/06/2025	15:10	Daniele Chiarion	Completed html and .js output part for car-change. 
+20/06/2025	15:06	Daniele Chiarion	Completed search car in the admin change items.
+20/06/2025	17:22	Daniele Chiarion	Completed car change section.

@@ -144,10 +144,100 @@ function changeOptional(){
     });
 }
 
-function searchCar(){
+function hideCarChangeSections(){
+    document.getElementById("car-preview-container").classList.add("d-none");
+    document.getElementById("car-change-section").classList.add("d-none");
+    document.getElementById("submit-car-section").classList.add("d-none");
+}
+
+function searchCarDoors(arrayCars, onFound){
+    onFound(arrayCars[parseInt(document.getElementById("choice-doors").value, 10)]);
+    return;
+}
+
+function searchCarEngine(arrayCars, arrayEngines, onFound){
+    let finalResult = null;
+    
+    /* choose the engine and find 
+    the corresponding cars */
+    const engine = arrayEngines[parseInt(document.getElementById("choice-engine").value, 10)];
+    let results = arrayCars.filter(currentCar => currentCar.getEngine() === engine);
+
+    if(results.length === 1){
+        onFound(results[0]);
+        return;
+    }
+
+    const doorsNumber = results.map(car => car.getDoorsNumber());
+
+    /* show the doors number and prepare for the return value */
+    const oldSelect = document.getElementById("choice-doors");
+    const newSelect = oldSelect.cloneNode(true);
+    oldSelect.parentNode.replaceChild(newSelect, oldSelect);
+
+    document.getElementById("choice-doors").classList.remove("d-none");
+    document.getElementById("choice-doors").innerHTML = TemplateParts.getFormSelectOptions(doorsNumber);
+    document.getElementById("choice-doors").addEventListener("click", () => {
+        searchCarDoors(results, function(finalResult){
+            onFound(finalResult);
+        });
+    });
+    document.getElementById("choice-doors").addEventListener("change", () => {
+        hideCarChangeSections();
+        searchCarDoors(results, function(finalResult){
+            onFound(finalResult);
+        });
+    });
+
+    return finalResult;
+}
+
+function searchCarModel(arrayCars, arrayModels, onFound){
+    let finalResult = null;
+
+    /* get the model and filter the results */
+    let model = arrayModels[parseInt(document.getElementById("car-choice-model").value, 10)];
+    let results = arrayCars.filter(currentCar => currentCar.getModel() === model);
+
+    /* if we already have the car
+    the result is returned */
+    if(results.length === 1){
+        onFound(results[0]);
+        return;
+    }
+
+    /* search the different engines */
+    let engineTypes = results.map(car => car.getEngine());
+    engineTypes = engineTypes.filter((currentEngine, index, array) => array.findIndex(e => e === currentEngine)===index); //remove repetition
+    document.getElementById("choice-engine").innerHTML = TemplateParts.getFormSelectOptions(engineTypes);
+
+    /* otherwise the program will continue 
+    the research */
+    const oldSelect = document.getElementById("choice-engine");
+    const newSelect = oldSelect.cloneNode(true);
+    oldSelect.parentNode.replaceChild(newSelect, oldSelect);
+
+    document.getElementById("choice-engine").classList.remove("d-none");
+    document.getElementById("choice-engine").addEventListener("click", () => {
+        searchCarEngine(results, engineTypes, function(finalResult){
+            onFound(finalResult);
+        });
+    });
+    document.getElementById("choice-engine").addEventListener("change", () => {
+        document.getElementById("choice-doors").classList.add("d-none");
+        hideCarChangeSections();
+        searchCarEngine(results, engineTypes, function(finalResult){
+            onFound(finalResult);
+        });
+    });
+
+    return finalResult;
+}
+
+function searchCar(onFound){
     /* variable declaration */
     let carShowroomBrands = [];
-    let carSearch, brand, model, seats, engine;
+    let carSearch, brand, finalResult = null;
     let results = [];
 
     /* collect all the brands it's possible to find in the showroom */
@@ -160,16 +250,200 @@ function searchCar(){
     /* first find the cars with the same brand */
     brand = carShowroomBrands[parseInt(document.getElementById("car-choice-brand").value, 10)];
     carSearch = new Car(brand, "", CarType.CarType.NOTHING, Engine.Engine.NOTHING, -1, -1, -1, -1, -1, -1, "", null, null, null, -1);
-    results = showroom.getCarList().filter(currentCar => currentCar.equals(carSearch));
+    results = showroom.getCarList().filter(currentCar => currentCar.getBrand().equals(carSearch.getBrand()));
+    const modelNames = results.filter((currentCar, index, array) => array.findIndex(c => c.getModel() === currentCar.getModel()) === index).map(car => car.getModel()); // remove repetitions
 
     document.getElementById("label-car-model").classList.remove("d-none");
     document.getElementById("car-choice-model").classList.remove("d-none");
-    document.getElementById("car-choice-model").innerHTML = TemplateParts.getFormSelectOptions(results.map(currentCar => currentCar.getModel()));
+    document.getElementById("car-choice-model").innerHTML = TemplateParts.getFormSelectOptions(modelNames);
 
-    if(results.size === 1)
-        return results[0];
+    if(results.size === 1){
+        onFound(results[0]);
+        return;
+    }
 
     /* then find the car based on the model */
+    const oldSelect = document.getElementById("car-choice-model");
+    const newSelect = oldSelect.cloneNode(true);
+    oldSelect.parentNode.replaceChild(newSelect, oldSelect);
+
+    document.getElementById("car-choice-model").addEventListener("click", () => {
+       searchCarModel(results, modelNames, function(finalResult){
+            onFound(finalResult);
+        });
+    });
+    document.getElementById("car-choice-model").addEventListener("change", () => {
+        /* hide all the other fields to be sure they won't be displayed */
+        document.getElementById("choice-engine").classList.add("d-none");
+        document.getElementById("choice-doors").classList.add("d-none");
+        hideCarChangeSections();
+
+        searchCarModel(results, modelNames, function(finalResult){
+            onFound(finalResult);
+        });
+    });
+
+    return finalResult;
+}
+
+function displayCarSection(car){
+    /* than display alla the sections 
+    in order to change the car */
+    document.getElementById("car-preview-container").classList.remove("d-none");
+    document.getElementById("submit-car-section").classList.remove("d-none");
+    document.getElementById("car-change-section").classList.remove("d-none");
+        
+    document.getElementById("car-card-container").innerHTML = TemplateParts.getCarCardAdminChanges(car); //display the changes
+    localStorage.setItem("carDetails", JSON.stringify(car.toJson())); //force car details
+    
+    /* in the change value display the current values
+    so as to see where it's possible to change */
+    const carTypes = Array.from(document.querySelectorAll(".card-car-type .btn-card-details"));
+    carTypes.forEach(singleCarType => singleCarType.classList.remove("btn-secondary-clicked"));
+    if(CarType.getPositionCarType(car.getType())>=0)
+        carTypes[CarType.getPositionCarType(car.getType())].classList.add("btn-secondary-clicked"); //change the car-type
+
+    /* select the colors */
+    const colorsAvailable = car.getColorsAvailable();
+    document.querySelectorAll(".color-option").forEach(option => {
+        if(colorsAvailable.includes(option.getAttribute("data-color")))
+            option.classList.add("color-option-clicked");
+        else
+            option.classList.remove("color-option-clicked");
+    });
+
+    /* print all the sliders values */
+    document.getElementById("input-car-price").value = car.getInitialValue();
+    document.getElementById("input-car-power").value = car.getMinPower();
+    document.getElementById("input-car-autonomy").value = car.getEngineAutonomy();
+    PrintPage.printSliders(); //refresh the slider to display the current values
+
+    /* change the quantity available
+    and the numbers of seats */
+    document.getElementById("input-car-quantity").value = car.getQuantityAvailable();
+    document.getElementById("choice-seats").value = car.getSeats();
+
+    /* select the optionals that have been
+    activated before */
+    const carOptionals = car.getOptionalList();
+    const optionalSwitches = Array.from(document.querySelectorAll(".car-single-optional"));
+    showroom.getOptionalList().forEach((optional, index) => {
+        if(carOptionals.find(singleOptional => singleOptional.equals(optional)))
+            optionalSwitches[index].checked = true;
+        else
+            optionalSwitches[index].checked = false;
+    });
+}
+
+async function getNewCar(car){
+    /* generate a car clone */
+    let carClone = car;
+
+    /* read the data from the car.
+    It's too difficult to verify if something has changed.
+    So all the data will be read for a second time and set a the new values, 
+    no matter if they are already in the car. 
+    
+    The only things the program will check are possible errors */
+    
+    /* get the car type */
+    const carTypeIndex = Array.from(document.querySelectorAll(".card-car-type .btn-card-details")).findIndex(button => button.classList.contains("btn-secondary-clicked"));
+    const carTypeValues = Object.values(CarType.CarType);
+    if(carTypeIndex>=0 && carTypeIndex<carTypeValues.length)
+        carClone.setType(carTypeValues[carTypeIndex]);
+
+    /* get car colors */
+    const colorsSelected = Array.from(document.querySelectorAll(".color-option-clicked"));
+    if(colorsSelected.length === 0){
+        document.getElementById("car-change-alert").innerHTML = TemplateParts.getErrorMessage("Devi prima selezionare almeno un colore");
+        throw new Error("invalid colors selected");
+    }
+    carClone.setColorsAvailable(colorsSelected.map(el => el.dataset.color));
+
+    /* read if there are some files to be changed */
+    if(document.getElementById("file-main-image").files.length !== 0)
+        carClone.setMainImage(await FilePath.fileToBase64(document.getElementById("file-main-image").files[0]));
+
+    if(document.getElementById("url-car-main-image").value)
+        carClone.setMainImage("https://"+document.getElementById("url-car-main-image").value);
+
+    if(document.getElementById("file-secondary-images").files.length !== 0){
+        const files = Array.from(document.getElementById("file-secondary-images").files);
+        const secondaryImagesPaths = await Promise.all(files.map(singleFile => FilePath.fileToBase64(singleFile)));
+        carClone.setDetailsImage(secondaryImagesPaths);
+    }
+    /* set the sliders value */
+    carClone.setInitialValue(parseInt(document.getElementById("input-car-price").value, 10));
+    carClone.setMinPower(parseInt(document.getElementById("input-car-power").value, 10));
+    carClone.setEngineAutonomy(parseInt(document.getElementById("input-car-autonomy").value, 10));
+
+    /* read the quantity available and the number of seats */
+    if(parseInt(document.getElementById("input-car-quantity").value, 10)<0){
+        document.getElementById("car-change-alert").innerHTML = TemplateParts.getErrorMessage("Non è possibile inserire una quantità negativa");
+        throw new Error("invalid car quantity");
+    }
+    carClone.setQuantityAvailable(parseInt(document.getElementById("input-car-quantity").value, 10));
+
+    carClone.setSeats(parseInt(document.getElementById("choice-seats").value, 10));
+
+    /* read the optionals */
+    const switchOptionals = Array.from(document.querySelectorAll(".car-single-optional"));
+    const showroomOptionals = showroom.getOptionalList();
+    let carOptionals = [];
+
+    for(let i=0;i<switchOptionals.length;i++){
+        if(switchOptionals[i].checked)
+            carOptionals.push(showroomOptionals[i]);
+    }
+
+    carClone.setOptionalList(carOptionals);
+
+    return carClone;
+}
+
+function changeCar(){
+    searchCar(function(car){
+        displayCarSection(car);
+
+        /* delete previous event listeners to
+        avoid the amount of many event listeners */
+        const buttonChange = document.getElementById("btn-change-car");
+        const buttonCancel = document.getElementById("btn-cancel-car");
+        const buttonDelete = document.getElementById("btn-delete-car");
+
+        buttonChange.replaceWith(buttonChange.cloneNode(true));
+        buttonCancel.replaceWith(buttonCancel.cloneNode(true));
+        buttonDelete.replaceWith(buttonDelete.cloneNode(true));
+
+        /* add event listeners for different buttons */
+        document.getElementById("btn-cancel-car").addEventListener("click", () => {
+            window.location.reload();
+        });
+
+        document.getElementById("btn-delete-car").addEventListener("click", () => {
+            showroom.removeCar(car); //delete the car
+            showroom.saveToLocalStorage(); //save the changes
+
+            /* successful message and reload of the page */
+            document.getElementById("car-change-alert").innerHTML = TemplateParts.getSuccessMessage("Auto rimossa con successo!");
+            setTimeout(function(){
+                window.location.reload();
+            }, 5000);
+        });
+
+        document.getElementById("btn-change-car").addEventListener("click", async () => {
+            car = await getNewCar(car); //read the data of the car
+            showroom.changeCar(car); //change the car
+            showroom.saveToLocalStorage(car); //save the results
+            localStorage.setItem("carDetails", JSON.stringify(car.toJson())); //force car details value
+
+            document.getElementById("car-card-container").innerHTML = TemplateParts.getCarCardAdminChanges(car); //display the results
+            document.getElementById("car-change-alert").innerHTML = TemplateParts.getSuccessMessage("Macchina modificata con successo!"); //get success message
+            setTimeout(function(){
+                window.location.reload() //reload the page after a timeout
+            }, 5000);
+        });
+    });
 }
 
 showroom = Showroom.loadFromLocalStorage(); //read the showroon from local storage
@@ -188,9 +462,7 @@ document.getElementById("label-car-model").classList.add("d-none");
 document.getElementById("car-choice-model").classList.add("d-none");
 document.getElementById("choice-engine").classList.add("d-none");
 document.getElementById("choice-doors").classList.add("d-none");
-document.getElementById("car-preview-container").classList.add("d-none");
-document.getElementById("car-change-section").classList.add("d-none");
-document.getElementById("submit-car-section").classList.add("d-none");
+hideCarChangeSections();
 
 /* add event listener when a brand is selected */
 document.getElementById("brand-choice-brand").addEventListener("change", changeBrand);
@@ -204,8 +476,13 @@ document.getElementById("optional-choice-optional").addEventListener("click", ch
 has some attributes to be changed */
 let car;
 document.getElementById("car-choice-brand").addEventListener("change", () => {
-    car = searchCar();
+    /* hide all the other fields to be sure they won't be displayed */
+    document.getElementById("car-choice-model").classList.add("d-none");
+    document.getElementById("label-car-model").classList.add("d-none");
+    document.getElementById("choice-engine").classList.add("d-none");
+    document.getElementById("choice-doors").classList.add("d-none");
+
+    hideCarChangeSections();
+    changeCar();
 });
-document.getElementById("car-choice-brand").addEventListener("click", () => {
-    car = searchCar();
-});
+document.getElementById("car-choice-brand").addEventListener("click", changeCar);

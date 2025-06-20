@@ -27,3 +27,17 @@ export function getCarType(type){
 
     return null;
 }
+
+
+export function getPositionCarType(type){
+    let index = 0;
+    for(const[key, value] of Object.entries(CarType)){
+        if(value.toLowerCase() === type.toLowerCase())
+            return index;
+        
+        index++;
+    }
+
+    return -1;
+}
+

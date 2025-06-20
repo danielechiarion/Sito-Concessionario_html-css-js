@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dettagli auto</title>
+        <link rel="stylesheet" type="text/css" href="../../css/structure.css">
+        <link rel="icon" href="../../img/static/logo.svg">
+    </head>
+    <body>
+        <div id="navbar-container"></div>
+        <div id="navbar-spacer-top"></div>
+
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h2>Dettagli macchina</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 d-flex align-items-start" id="carousel-container">
+                </div>
+                <div class="col-md-7 d-flex align-items-center car-details-table roundend overflow-hidden border">    
+                    <table class="table table-striped-columns">
+                        <tr>
+                            <th scope="row">Marca</th>
+                            <td id="brand-name"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Modello</th>
+                            <td id="model"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Potenza</th>
+                            <td><span id="power"></span>KW</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Prezzo</th>
+                            <td><span id="price"></span>€</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Quantità acquistata</th>
+                            <td><span id="quantity"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alimentazione</th>
+                            <td id="engine"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Autonomia</th>
+                            <td><span id="engine-autonomy"></span>km con un pieno</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Colore</th>
+                            <td id="color"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Posti</th>
+                            <td id="seats"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Porte</th>
+                            <td id="doors"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tipologia</th>
+                            <td id="car-type"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Optional attivati</th>
+                            <td id="optionals-activated" style="color: black !important;">
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>    
+        </div>
+
+        <div id="body-spacer"></div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+            <div class="row normal-text">
+                <div class="col-md-6 col-lg-3 footer-column">
+                <h5>Autori</h5>
+                <ul class="unordered-list_no-pointed">
+                    <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
+                    <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
+                    <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
+                </ul>
+                </div>
+                <div class="col-md-6 col-lg-6 footer-column">
+                <h5 align="center">La scuola</h5>
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-end align-items-center">
+                    <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
+                    </div>
+                    <div class="col-9">
+                    <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+                    <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer-column">
+                <h5>I nostri servizi</h5>
+                <li><a href="../pages/car-configurator.html" class="footer-link">Configuratore</a></li>
+                <li><a href="../pages/purchase-list.html" class="footer-link">Lista acquisti</a></li>
+                <li><a href="../pages/shopping-cart.html" class="footer-link">Carrello</a></li>
+                <li><a href="../pages/wish-list.html" class="footer-link">Lista dei desideri</a></li>
+                </div>
+            </div>
+            <div class="row normal-text">
+                <div class="col-12 gx-3 mb-3">
+                <a href="../pages/terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+                </div>
+            </div>
+            <div class="row normal-text">
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon">
+                </div>
+                <div class="col-8 d-flex justify-content-start align-items-center">
+                <h1 align="center">Concessionario Laghi</h1>
+                </div>
+            </div>
+            </div>
+        </footer>
+
+        <div id="navbar-spacer-bottom"></div>
+
+        <!-- Add .css style files -->
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
+        <!-- Add js scripts -->
+        <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="../../js-frontend/pagination.js"></script>
+        <script type="module" src="../../js-frontend/custom-navbar.js"></script>
+        <script type="module" src="../../js-frontend/page_car-details-purchase-list.js"></script>
+        <script type="module" src="../../js-frontend/theme.js"></script>
+        <script type="module" src="../../js-frontend/search-input.js"></script>
+        <script src="../../js-frontend/ping-reply.js"></script>
+    </body>
+</html>

@@ -217,6 +217,19 @@ export default class Showroom {
     }
 
     /**
+     * Function that changes a car in the showroom car list
+     * @param {Car} car 
+     */
+    changeCar(car){
+        if(!(car instanceof Car))
+            throw new TypeError("car must be an instance of Car");
+
+        const index = this.#carList.findIndex(currentCar => currentCar.equals(car));
+        this.#carList.splice(index, 1);
+        this.#carList.push(car);
+    }
+
+    /**
      * Returns the most sold cars 
      * @param {number} carsNumber 
      * @returns most sold cars

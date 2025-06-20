@@ -187,6 +187,14 @@ export default class Car{
     }
 
     /**
+     * Sets new colors available for the car
+     * @param {string[]} colors 
+     */
+    setColorsAvailable(colors){
+        this.#colorsAvailable = colors;
+    }
+
+    /**
      * sets a new main image
      * @param {string} newMainImage 
      */

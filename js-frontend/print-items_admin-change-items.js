@@ -12,7 +12,7 @@ function printOptionals(){
     const outputOptional = showroom.getOptionalList().map(singleOptional => singleOptional.getName());
 
     document.getElementById("optional-choice-optional").innerHTML = TemplateParts.getFormSelectOptions(outputOptional);
-    document.getElementById("car-optional-available").innerHTML = TemplateParts.getSwitchOption(showroom.getOptionalList().map(singleOptional => singleOptional.getName()));
+    document.getElementById("car-optional-available").innerHTML = TemplateParts.getSwitchOption(showroom.getOptionalList().map(singleOptional => singleOptional.getName()), "car-single-optional");
 }
 
 function printCarBrands(){

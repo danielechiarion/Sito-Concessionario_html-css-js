@@ -63,7 +63,7 @@ async function addCar() {
     const engineSelect = document.getElementById("choice-engine").value;
     if(engineSelect == 0)
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage("Devi prima selezionare il motore dell'auto");
-    const engineIndex = parseInt(engineSelect) - 1; // -1 perché la prima è "Scegli il motore"
+    const engineIndex = parseInt(engineSelect) - 1; // -1 because trhe first one is choose the engine
     const engineKeys = Object.keys(Engine.Engine);
     const engine = engineIndex >= 0 ? Engine.Engine[engineKeys[engineIndex]] : Engine.Engine.NOTHING;
 

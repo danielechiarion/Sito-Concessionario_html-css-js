@@ -180,6 +180,8 @@ titles and cards */
 
 .card{
     min-width: 18rem !important;
+    margin: none !important;
+    padding: none !important;
 }
 
 @media(max-width: 768px){

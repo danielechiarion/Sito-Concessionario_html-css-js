@@ -22,24 +22,10 @@
                     <label for="formFile" class="form-label form-input-item" id="label-car-model">Scegli il modello</label>
                     <select class="form-select" aria-label="Default select example" id="car-choice-model"></select>
                     <br>
-                    <select class="form-select form-input-item" aria-label="Example select with button addon" id="choice-engine">
-                        <option selected>Scegli il motore</option>
-                        <option value="1">Benzina</option>
-                        <option value="2">Metano</option>
-                        <option value="3">Diesel</option>
-                        <option value="5">GPL</option>
-                        <option value="6">Ibrido</option>
-                        <option value="7">Elettrico</option>
-                    </select>
-                    <select class="form-select" aria-label="Example select with button addon" id="choice-doors">
-                        <option selected>Numero porte</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="7">7</option>
-                    </select>
+                    <select class="form-select form-input-item" aria-label="Example select with button addon" id="choice-engine"></select>
+                    <select class="form-select" aria-label="Example select with button addon" id="choice-doors"></select>
                 </div>
-                <div class="col-md-6 d-flex justify-content-center" id="car-preview-container">
+                <div class="col-md-6 d-flex justify-content-center align-items-center flex-column" id="car-preview-container">
                     <h5 class="form-input-section">Anteprima</h5>
                     <div id="car-card-container"></div>
                 </div>
@@ -238,5 +224,6 @@
         <script src="../../js-frontend/ping-reply.js"></script>
         <script type="module" src="../../js-frontend/print-items_admin-change-items.js"></script>
         <script type="module" src="../../js-frontend/page_admin-change-items.js"></script>
+        <script type="module" src="../../js-frontend/card-manager.js"></script>
     </body>
 </html>

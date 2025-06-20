@@ -840,6 +840,32 @@ export function getCarCardShoppingCart(car){
 }
 
 /**
+ * Get a car card for the admin when a car has been changed
+ * @param {Car} car 
+ * @returns formatted string for a car changes card
+ */
+export function getCarCardAdminChanges(car){
+  return `<div class="card car-card card-zoom me-3" style="width: 18rem;" data-car-id="${car.getID()}">
+              <img src="${car.getMainImage()}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">${car.getBrand().getName()} ${car.getModel()}</h5>
+                <p class="card-text">
+                  <ul class="card-ul">
+                    <li><span class="card-descriptor">Motore: </span>${car.getEngine()}</li>
+                    <li><span class="card-descriptor">Potenza: </span>${car.getMinPower()}KW</li>
+                    <li><span class="card-descriptor">Posti: </span>${car.getSeats()}</li>
+                    <li><span class="card-descriptor">Porte: </span>${car.getDoorsNumber()}</li>
+                  </ul>
+                </p>
+                <p class="price">${car.getInitialValue()}€</p>
+                <div class="d-flex align-items-center justify-content-end">
+                  <a href="../posts/car-details_without-buttons.html" target="_blank" class="btn btn-secondary btn-card-details">Dettagli</a>
+                </div>
+              </div>
+            </div>`;
+}
+
+/**
  * Function to get a carousel
  * for mobile devices
  * @param {string} content mobile carousel
