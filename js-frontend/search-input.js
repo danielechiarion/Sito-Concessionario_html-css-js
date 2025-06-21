@@ -1,5 +1,5 @@
-const buttons = Array.from(document.querySelectorAll("nav .btn-outline-success"));
-const inputs = Array.from(document.querySelectorAll('nav input[type="search"]'));
+const buttons = Array.from(document.querySelectorAll("nav .btn-outline-success, .top-navbar-search .btn-outline-success"));
+const inputs = Array.from(document.querySelectorAll('nav input[type="search"], .top-navbar-search input[type="search"]'));
 
 buttons.forEach((button) => {
     button.addEventListener("click", (event) => {

@@ -47,7 +47,7 @@ function manageShoppingCartButton(){
 function manageWishListButton(){
     const button = document.getElementById("wish-list-button"); //find the button
 
-    if(user.getShoppingCart()!= null && user.getWishList().some(currentCar => car.equals(currentCar))){
+    if(user !== null && user.getWishList().length !== 0 && user.getWishList().some(currentCar => car.equals(currentCar))){
         button.classList.add("command-button-selected");
         document.getElementById("wish-list-button-text").innerText = "Aggiunto ai desideri"
     }else{

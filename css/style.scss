@@ -442,7 +442,7 @@ body.dark-theme{
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-body.dark-theme nav .collapse{
+body.dark-theme .collapse{
     background-color:#333131 !important;
 }
 
@@ -465,7 +465,7 @@ body.dark-theme nav .collapse{
         color: $text-color-dark;
     }
 
-    nav, footer{
+    nav, footer, .top-navbar-search{
         background-color: #333131 !important;
     }
 
@@ -493,6 +493,10 @@ body.dark-theme nav .collapse{
     .modal-header button{
         filter: invert(1);
     }
+
+    .accordion .accordion-item .accordion-collapse{
+        background-color: white !important;
+    }
 }
 
 .dark-theme{
@@ -502,4 +506,10 @@ body.dark-theme nav .collapse{
 /* result page section */
 .card.search-result{
     border: none !important;
+}
+
+/* search part of the mobile navbar */
+.top-navbar-search{
+    background-color: #f8f9fa !important;
+    padding: 7px;
 }

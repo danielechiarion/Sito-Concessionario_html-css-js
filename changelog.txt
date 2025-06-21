@@ -99,3 +99,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 20/06/2025	17:22	Daniele Chiarion	Completed car change section.
 21/06/2025	09:40	Daniele Chiarion	Change car details without buttons and add error messages if there are no items added.
 21/06/2025	10:52	Daniele Chiarion	Add guide page for the user. 
+21/06/2025	16:45	Daniele Chiarion	Update the navbar with the guide, admin change items page and the search banner on top for mobiles.

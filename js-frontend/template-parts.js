@@ -37,6 +37,14 @@ export function getNavbarAdmin(){
             <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="admin_add-items.html">Aggiungi articoli</a>
           </li>
+          <li class="d-flex align-items-center link-group_navMobile">
+            <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
+            <a class="nav-link-mobile" href="admin_change-items.html">Modifica articoli</a>
+          </li>
+          <li class="d-flex align-items-center link-group_navMobile">
+            <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+            <a class="nav-link-mobile" href="guide.html">Guida</a>
+          </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
@@ -63,7 +71,7 @@ export function getNavbarAdmin(){
             </button>
             <!-- Search - car configurator -->
             <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
+              <img src="../../img/static/car.svg" alt="Home" class="nav-icon-mobile img-dark-invert car-icon_nav">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -72,6 +80,13 @@ export function getNavbarAdmin(){
             </label>
           </div>
         </nav>
+      <!-- Search input at the top of the screen -->
+      <div class="d-block d-sm-none d-flex justify-content-center align-items-center gap-2 fixed-top top-navbar-search">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
 
       <!-- NAVBAR FOR PC -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
@@ -93,7 +108,12 @@ export function getNavbarAdmin(){
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item nav-link-desktop-sub" href="admin_add-items.html">Aggiungi articoli</a></li>
+                  <li><a class="dropdown-item nav-link-desktop-sub" href="admin_change-items.html">Modifica articoli</a></li>
                 </ul>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <img src="../../img/static/guide.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
+                <a class="nav-link-desktop" href="guide.html">Guida</a>
               </li>
             </ul>
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
@@ -141,6 +161,14 @@ export function getNavbarAdmin(){
         <li class="d-flex align-items-center link-group_navMobile">
           <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="admin_add-items.html">Aggiungi articoli</a>
+        </li>
+        <li class="d-flex align-items-center link-group_navMobile">
+          <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
+          <a class="nav-link-mobile" href="admin_change-items.html">Modifica articoli</a>
+        </li>
+        <li class="d-flex align-items-center link-group_navMobile">
+          <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+          <a class="nav-link-mobile" href="guide.html">Guida</a>
         </li>
 
         <br>
@@ -204,6 +232,10 @@ export function getNavbarCostumer(){
             <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
           </li>
+          <li class="d-flex align-items-center link-group_navMobile">
+            <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+            <a class="nav-link-mobile" href="guide.html">Guida</a>
+          </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
@@ -230,7 +262,7 @@ export function getNavbarCostumer(){
             </button>
             <!-- Search - car configurator -->
             <a href="car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
+              <img src="../../img/static/car.svg" alt="Home" class="nav-icon-mobile img-dark-invert car-icon_nav">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -239,6 +271,12 @@ export function getNavbarCostumer(){
             </label>
           </div>
         </nav>
+        <div class="d-block d-sm-none d-flex justify-content-center align-items-center gap-2 fixed-top top-navbar-search">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
 
       <!-- NAVBAR FOR PC -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
@@ -266,6 +304,10 @@ export function getNavbarCostumer(){
                   <li><a class="dropdown-item nav-link-desktop-sub" href="wish-list.html">Lista dei desideri</a></li>
                   <li><a class="dropdown-item nav-link-desktop-sub" href="purchase-list.html">Storico acquisti</a></li>
                 </ul>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <img src="../../img/static/guide.svg" class="nav-icon-desktop car-icon_nav img-dark-invert">
+                <a class="nav-link-desktop" href="guide.html">Guida</a>
               </li>
             </ul>
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
@@ -322,6 +364,10 @@ export function getNavbarCostumer(){
           <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="purchase-list.html">Lista degli acquisti</a>
         </li>
+        <li class="d-flex align-items-center link-group_navMobile">
+          <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+          <a class="nav-link-mobile" href="guide.html">Guida</a>
+        </li>
 
         <br>
         <li class="d-flex align-items-center link-group_navMobile">
@@ -374,7 +420,7 @@ export function getNavbarCostumerPosts() {
       <div class="collapse navbar-collapse collapse-mobile" id="menuHamburger" data-bs-theme="light" data-bs-parent="#accordionMenus">
         <div class=" p-4">
           <li class="d-flex align-items-center link-group_navMobile">
-            <img src="../../img/static/shopping-cart.svg img-dark-invert" class="nav-icon-desktop">
+            <img src="../../img/static/shopping-cart.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="../pages/shopping-cart.html">Vai al carrello</a>
           </li>
           <li class="d-flex align-items-center link-group_navMobile">
@@ -384,6 +430,10 @@ export function getNavbarCostumerPosts() {
           <li class="d-flex align-items-center link-group_navMobile">
             <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="../pages/purchase-list.html">Lista degli acquisti</a>
+          </li>
+          <li class="d-flex align-items-center link-group_navMobile">
+            <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+            <a class="nav-link-mobile" href="../pages/guide.html">Guida</a>
           </li>
         </div>
       </div>
@@ -411,7 +461,7 @@ export function getNavbarCostumerPosts() {
             </button>
             <!-- Search - car configurator -->
             <a href="../pages/car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
+              <img src="../../img/static/car.svg" alt="Home" class="nav-icon-mobile img-dark-invert car-icon_nav">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -420,6 +470,13 @@ export function getNavbarCostumerPosts() {
             </label>
           </div>
         </nav>
+        <div class="d-block d-sm-none d-flex justify-content-center align-items-center gap-2 fixed-top top-navbar-search">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+
 
       <!-- NAVBAR FOR PC -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top d-none d-md-block">
@@ -447,6 +504,10 @@ export function getNavbarCostumerPosts() {
                   <li><a class="dropdown-item nav-link-desktop-sub" href="../pages/wish-list.html">Lista dei desideri</a></li>
                   <li><a class="dropdown-item nav-link-desktop-sub" href="../pages/purchase-list.html">Storico acquisti</a></li>
                 </ul>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+                <a class="nav-link-desktop" href="../pages/guide.html">Guida</a>
               </li>
             </ul>
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
@@ -503,6 +564,10 @@ export function getNavbarCostumerPosts() {
           <img src="../../img/static/dollar.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/purchase-list.html">Lista degli acquisti</a>
         </li>
+        <li class="d-flex align-items-center link-group_navMobile">
+          <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+          <a class="nav-link-mobile" href="../pages/guide.html">Guida</a>
+        </li>
 
         <br>
         <li class="d-flex align-items-center link-group_navMobile">
@@ -556,6 +621,14 @@ export function getNavbarAdminPosts(){
             <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
             <a class="nav-link-mobile" href="../pages/admin_add-items.html">Aggiungi articoli</a>
           </li>
+          <li class="d-flex align-items-center link-group_navMobile">
+            <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
+            <a class="nav-link-mobile" href="../pages/admin_change-items.html">Modifica articoli</a>
+          </li>
+          <li class="d-flex align-items-center link-group_navMobile">
+            <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+            <a class="nav-link-mobile" href="../pages/guide.html">Guida</a>
+          </li>
         </div>
       </div>
       <div class="collapse navbar-collapse collapse-mobile" id="menuProfile" data-bs-theme="light" data-bs-parent="#accordionMenus">
@@ -582,7 +655,7 @@ export function getNavbarAdminPosts(){
             </button>
             <!-- Search - car configurator -->
             <a href="../pages/car-configurator.html" class="navbar-brand m-0 p-0">
-              <img src="../../img/static/search.svg" alt="Home" class="nav-icon-mobile img-dark-invert">
+              <img src="../../img/static/car.svg" alt="Home" class="nav-icon-mobile img-dark-invert car-icon_nav">
             </a>
             <!-- Dark/Light switch -->
             <label class="switch mb-0">
@@ -612,7 +685,12 @@ export function getNavbarAdminPosts(){
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item nav-link-desktop-sub" href="../pages/admin_add-items.html">Aggiungi articoli</a></li>
+                  <li><a class="dropdown-item nav-link-desktop-sub" href="../pages/admin_change-items.html">Modifica articoli</a></li>
                 </ul>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+                <a class="nav-link-desktop" href="../pages/guide.html">Guida</a>
               </li>
             </ul>
             <div class="collapse navbar-collapse nav-item-right-desktop" id="profile-menu-dropdown_computer">
@@ -660,6 +738,14 @@ export function getNavbarAdminPosts(){
         <li class="d-flex align-items-center link-group_navMobile">
           <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
           <a class="nav-link-mobile" href="../pages/admin_add-items.html">Aggiungi articoli</a>
+        </li>
+        <li class="d-flex align-items-center link-group_navMobile">
+          <img src="../../img/static/settings.svg" class="nav-icon-desktop img-dark-invert">
+          <a class="nav-link-mobile" href="../pages/admin_change-items.html">Modifica articoli</a>
+        </li>
+        <li class="d-flex align-items-center link-group_navMobile">
+          <img src="../../img/static/guide.svg" class="nav-icon-desktop img-dark-invert">
+          <a class="nav-link-mobile" href="../pages/guide.html">Guide</a>
         </li>
 
         <br>
@@ -1485,7 +1571,7 @@ export function getTableOptionals(optionalList){
     content += `<tr>
                   <td>${singleOptional.getName()}</td>
                   <td>${singleOptional.getDescription()}</td>
-                  <td>${singleOptional.getPrice()}</td>
+                  <td>${singleOptional.getPrice()}€</td>
                 </tr>`
   }
 
