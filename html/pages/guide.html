@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Guida</title>
+        <link rel="stylesheet" type="text/css" href="../../css/structure.css">
+        <link rel="icon" href="../../img/static/logo.svg">
+    </head>
+    <body>
+        <div id="navbar-container"></div>
+        <div id="navbar-spacer-top"></div>
+
+        <div class="container mb-4">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h2>Optional disponibili</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 order-2 order-md-1 mb-2 table-responsive d-flex align-items-center" id="optional-table-container"></div>
+                <div class="col-md-6 order-1 order-md-2 d-flex align-items-center">
+                    <p class="normal-text">
+                        Di seguito vengono indicati gli optional configurabili per ogni macchina. Tali optional vengono scelti dal concessionario e indicati al clienti per configurare la propria vettura. <br>
+                        Il prezzo che viene associato all'optional non è incluso al prezzo dell'auto. Va quindi aggiunto in caso di selezione. <br>
+                        Gli optional possono variare nel tempo, quindi torna a consultare questa pagina prima di un nuovo acquisto!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-5">
+            <div class="row mb-3">
+                <h2>Pulsanti delle card</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 order-2 order-md-2 d-flex justify-content-center align-items-center gap-5">
+                    <button type="button" class="button-card-exhibition shopping-cart-button" id="123456-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Macchina aggiunta al carrello!">
+                    <img src="../../img/static/shopping-cart.svg" class="shopping-cart-icon">
+                  </button>
+                  <button type="button" class="button-card-exhibition wish-list-button me-2" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
+                    <img src="../../img/static/gift.svg" class="wish-list-icon">
+                  </button>
+                  <button type="button" class="button-card-exhibition remove-wish-button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aggiunta alla lista dei desideri">
+                    <img src="../../img/static/bin.svg" class="wish-list-icon">
+                  </button>
+                </div>
+                <div class="col-md-6 order-1 order-md-1 d-flex justify-content-center flex-column">
+                    <p class="normal-text">
+                        All'interno di una card di una macchina è possibile trovare alcuni pulsanti con icone. Qui rappresentati sono rispettivamente:
+                        <ul>
+                            <li>Aggiunta al carrello</li>
+                            <li>Aggiunta alla lista dei desideri</li>
+                            <li>Rimozione dell'elemento</li>
+                        </ul>
+                        Una volta cliccati i pulsanti è possibile vedere come diventino verdi, segno che l'operazione è stata completata.<br>
+                        A differenza di questi, però, nelle reali card è possibile annullare l'operazione una volta cliccati i pulsanti nelle rispettive pagine (carrello, desideri ecc.). <br>
+                        Non in tutte le card abbiamo necessariamente questi tre pulsanti, ma vengono mostrati in base al contesto.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-5">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h2>FAQ</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h5 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Cos'è Concessionario Laghi?
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Concessionario Laghi</strong> è un progetto di informatica realizzato da Daniele Chiarion, Mattia Crepaldi e Davide Laghi della classe 4E dell'IIS Viola Marchesini di Rovigo. <br>
+                                Questo progetto simula il comportamento del sito web di un concessionario, dove poter gestire l'inserimento, la modifica e l'acquisto di macchine. <br>
+                                Link alla scuola e agli sviluppatori sono disponibili nella parte bassa della pagina.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                In cosa consiste il configuratore?
+                            </button>
+                            </h5>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Il configuratore</strong> è una pagina dedicata alla ricerca delle macchine all'interno di tutto il concessionario. <br>
+                                Oltre a vedere inizialmente tutti i veicoli che Concessionario Laghi mette in vendita, è possibile filtrare i risultati per più parametri (modello, potenza, prezzo, optional) anche combinati. 
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Una volta aggiunta la macchina posso configurarla come più mi piace?
+                            </button>
+                            </h5>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Certamente!</strong> Una volta aggiunta una macchina al carrello comparirà una finestra per finalizzare l'acquisto dove poter selezionare il colore, il numero di macchine da acquistare e gli optional da attivare, se richiesti. <br>
+                                Per la guida sugli optional è possibile consultare la parte superiore di questa pagina.
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="body-spacer"></div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+            <div class="row normal-text">
+                <div class="col-md-6 col-lg-3 footer-column">
+                <h5>Autori</h5>
+                <ul class="unordered-list_no-pointed">
+                    <li><a href="https://github.com/danielechiarion" target="_blank" class="footer-link">Daniele Chiarion</a></li>
+                    <li><a href="https://github.com/crepaldimattia" target="_blank" class="footer-link">Mattia Crepaldi</a></li>
+                    <li><a href="https://github.com/DavideFocalors79" target="_blank" class="footer-link">Davide Laghi</a></li>
+                </ul>
+                </div>
+                <div class="col-md-6 col-lg-6 footer-column">
+                <h5 align="center">La scuola</h5>
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-end align-items-center">
+                    <img src="https://iisviolamarchesini.edu.it/wp-content/uploads/2023/10/logo.svg" height="80" width="80">
+                    </div>
+                    <div class="col-9">
+                    <p><a href="https://iisviolamarchesini.edu.it" target="_blank" class="footer-link">IIS Viola Marchesini Rovigo</a></p>
+                    <p>Via De Gasperi 21 - 45100 Rovigo (RO)</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer-column">
+                <h5>I nostri servizi</h5>
+                <li><a href="car-configurator.html" class="footer-link">Configuratore</a></li>
+                <li><a href="purchase-list.html" class="footer-link">Lista acquisti</a></li>
+                <li><a href="shopping-cart.html" class="footer-link">Carrello</a></li>
+                <li><a href="wish-list.html" class="footer-link">Lista dei desideri</a></li>
+                </div>
+            </div>
+            <div class="row normal-text">
+                <div class="col-12 gx-3 mb-3">
+                <a href="terms-and-conditions.html" class="footer-link">Termini e condizioni d'uso del sito</a>
+                </div>
+            </div>
+            <div class="row normal-text">
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                <img src="../../img/static/logo.svg" height="80" width="80" class="footer-icon">
+                </div>
+                <div class="col-8 d-flex justify-content-start align-items-center">
+                <h1 align="center">Concessionario Laghi</h1>
+                </div>
+            </div>
+            </div>
+        </footer>
+
+        <div id="navbar-spacer-bottom"></div>
+
+        <!-- Add .css style files -->
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
+        <!-- Add js scripts -->
+        <script src="../../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="../../js-frontend/pagination.js"></script>
+        <script type="module" src="../../js-frontend/custom-navbar.js"></script>
+        <script type="module" src="../../js-frontend/theme.js"></script>
+        <script type="module" src="../../js-frontend/search-input.js"></script>
+        <script src="../../js-frontend/ping-reply.js"></script>
+        <script type="module" src="../../js-frontend/page_guide.js"></script>
+    </body>
+</html>

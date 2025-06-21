@@ -1239,8 +1239,7 @@ export function getTablePurchaseList(purchases){
             ${content}
           </tbody>
         </table>
-      </div>
-    </div>`;
+      </div>`;
 }
 
 /**
@@ -1466,4 +1465,40 @@ export function getCarTypeCarousel(){
                           <span class="visually-hidden">Next</span>
                         </button>
                     </div>`;
+}
+
+/**
+ * Creates a table with the optional available in the showroom
+ * @param {Optional[]} optionalList 
+ * @returns formatted string to add in HTML with the table
+ */
+export function getTableOptionals(optionalList){
+  let content = "";
+  let description;
+
+  for(let singleOptional of optionalList){
+    if(singleOptional.getDescription())
+      description = singleOptional.getDescription();
+    else
+      description = "/";
+
+    content += `<tr>
+                  <td>${singleOptional.getName()}</td>
+                  <td>${singleOptional.getDescription()}</td>
+                  <td>${singleOptional.getPrice()}</td>
+                </tr>`
+  }
+
+  return `<table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Prezzo</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${content}
+            </tbody>
+          </table>`
 }
