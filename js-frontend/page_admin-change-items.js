@@ -465,24 +465,42 @@ document.getElementById("choice-doors").classList.add("d-none");
 hideCarChangeSections();
 
 /* add event listener when a brand is selected */
-document.getElementById("brand-choice-brand").addEventListener("change", changeBrand);
-document.getElementById("brand-choice-brand").addEventListener("click", changeBrand);
+if(showroom.getBrandList().length!==0){
+    document.getElementById("brand-choice-brand").addEventListener("change", changeBrand);
+    document.getElementById("brand-choice-brand").addEventListener("click", changeBrand);
+}else{
+    /* add instructions in case no brands have been created */
+    document.getElementById("brand-choice-brand").classList.add("d-none");
+    document.getElementById("brand-change-alert").innerHTML = TemplateParts.getErrorMessage("Nessun marchio ancora inserito");
+}
 
 /* add event listener when an optional is selected */
-document.getElementById("optional-choice-optional").addEventListener("change", changeOptional);
-document.getElementById("optional-choice-optional").addEventListener("click", changeOptional);
+if(showroom.getOptionalList().length!==0){
+    document.getElementById("optional-choice-optional").addEventListener("change", changeOptional);
+    document.getElementById("optional-choice-optional").addEventListener("click", changeOptional);
+}else{
+    /* add instructions in case no optional have been added */
+    document.getElementById("optional-choice-optional").classList.add("d-none");
+    document.getElementById("optional-change-alert").innerHTML = TemplateParts.getErrorMessage("Nessun optional ancora inserito");
+}
 
 /* add all action when a car
 has some attributes to be changed */
-let car;
-document.getElementById("car-choice-brand").addEventListener("change", () => {
-    /* hide all the other fields to be sure they won't be displayed */
-    document.getElementById("car-choice-model").classList.add("d-none");
-    document.getElementById("label-car-model").classList.add("d-none");
-    document.getElementById("choice-engine").classList.add("d-none");
-    document.getElementById("choice-doors").classList.add("d-none");
+if(showroom.getCarList().length !== 0){
+    document.getElementById("car-choice-brand").addEventListener("change", () => {
+        /* hide all the other fields to be sure they won't be displayed */
+        document.getElementById("car-choice-model").classList.add("d-none");
+        document.getElementById("label-car-model").classList.add("d-none");
+        document.getElementById("choice-engine").classList.add("d-none");
+        document.getElementById("choice-doors").classList.add("d-none");
 
-    hideCarChangeSections();
-    changeCar();
-});
-document.getElementById("car-choice-brand").addEventListener("click", changeCar);
+        hideCarChangeSections();
+        changeCar();
+    });
+    document.getElementById("car-choice-brand").addEventListener("click", changeCar);
+}else{
+    /* add instruction in case no car have been added */
+    document.getElementById("label-car-brand").classList.add("d-none");
+    document.getElementById("car-choice-brand").classList.add("d-none");
+    document.getElementById("car-change-alert").innerHTML = TemplateParts.getErrorMessage("Nessuna macchina ancora inserita");
+}

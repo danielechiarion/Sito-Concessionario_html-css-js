@@ -97,3 +97,4 @@ DATE		HOUR	AUTHOR			DESCRIPTION
 16/06/2025	15:10	Daniele Chiarion	Completed html and .js output part for car-change. 
 20/06/2025	15:06	Daniele Chiarion	Completed search car in the admin change items.
 20/06/2025	17:22	Daniele Chiarion	Completed car change section.
+21/06/2025	09:40	Daniele Chiarion	Change car details without buttons and add error messages if there are no items added.
