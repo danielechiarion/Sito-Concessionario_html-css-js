@@ -12,6 +12,7 @@ export function getCar(){
 
 export function clearMemory(){
     localStorage.removeItem('carDetails');
+    localStorage.removeItem('previousPage');
 }
 
 export function previousPage(){
@@ -20,7 +21,7 @@ export function previousPage(){
         throw new Error('Previous page not found');
 
     document.getElementById('previous-page-button').addEventListener('click', () => {
-        localStorage.removeItem('previousPage');
+        clearMemory();
         window.location.href = path;
     });
 }

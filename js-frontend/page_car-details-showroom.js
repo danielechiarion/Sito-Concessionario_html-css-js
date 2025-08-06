@@ -78,6 +78,6 @@ if (user !== null)
 car function on the page */
 document.getElementById("carousel-container").innerHTML = TemplateParts.getMiniCarouselForCarDetails(car.getMainImage(), car.getDetailsImage());
 printCarDetails();
-CarDetailsTools.previousPage();
 manageShoppingCartButton();
 manageWishListButton();
+CarDetailsTools.previousPage();

@@ -1,7 +1,6 @@
 import * as CarDetailsTools from './car-details_tools.js';
 import * as TemplateParts from './template-parts.js';
 
-import Car from '../js-backend/vehicle/Car.js';
 import User from '../js-backend/account/User.js';
 
 let car;
