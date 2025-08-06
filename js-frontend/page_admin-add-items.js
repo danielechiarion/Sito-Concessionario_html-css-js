@@ -130,6 +130,9 @@ async function addCar() {
         showroom.addCar(car);
         showroom.saveToLocalStorage();
         document.getElementById("add-car-message").innerHTML = TemplateParts.getSuccessMessage("Auto aggiunta con successo");
+        setTimeout(() => {
+            window.location.reload();
+        }, 5000);
     } catch (error) {
         document.getElementById("add-car-message").innerHTML = TemplateParts.getErrorMessage(error);
     }
@@ -162,6 +165,9 @@ async function addBrand(){
         showroom.saveToLocalStorage();
         document.getElementById("add-brand-message").innerHTML = TemplateParts.getSuccessMessage("Marchio aggiunto con successo");
         PrintPage.printBrandSelect(showroom.getBrandList());
+        setTimeout(() => {
+            window.location.reload();
+        }, 5000);
     }catch(error){
         if(!(error instanceof TypeError))
             document.getElementById("add-brand-message").innerHTML = TemplateParts.getErrorMessage("Marchio già esistente");
@@ -191,6 +197,9 @@ function addOptional(){
         showroom.saveToLocalStorage();
         document.getElementById("add-optional-message").innerHTML = TemplateParts.getSuccessMessage("Optional aggiunto con successo");
         PrintPage.printCarOptionals(showroom.getOptionalList());
+        setTimeout(() => {
+            window.location.reload();
+        }, 5000);
     }catch(error){
         if(!(error instanceof TypeError))
             document.getElementById("add-optional-message").innerHTML = TemplateParts.getErrorMessage("Optional già esistente");
