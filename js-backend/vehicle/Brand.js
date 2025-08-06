@@ -5,15 +5,17 @@ export default class Brand{
     /* define private attributes */
     #name;
     #logoPath;
+    #reverseLogoDark;
 
     /**
      * Constructor of a brand
      * @param {String} name name of the brand
      * @param {String} logoPath path of the brand icon
      */
-    constructor(name, logoPath){
+    constructor(name, logoPath, reverseLogoDark){
         this.#name = name;
         this.#logoPath = logoPath;
+        this.setReverseLogoDark(reverseLogoDark);
     }
 
     /**
@@ -41,6 +43,28 @@ export default class Brand{
     }
 
     /**
+     * Return if the logo has to be reversed in color 
+     * in the dark mode
+     * @returns {boolean} TRUE if the logo has to be reversed
+     */
+    getReverseLogoDark(){
+        return this.#reverseLogoDark;
+    }
+
+    /**
+     * Method to set the reverse logo dark mode
+     * @param {boolean} reverseLogoDark new value to be set
+     * @throws {TypeError} if the value is not a boolean
+     */
+    setReverseLogoDark(reverseLogoDark){
+        if(typeof reverseLogoDark !== 'boolean'){
+            throw new TypeError("the value must be a boolean");
+        }
+
+        this.#reverseLogoDark = reverseLogoDark;
+    }
+
+    /**
      * Checks if two objects are equal using the
      * name of the brand
      * @param {Brand} anotherBrand 
@@ -57,7 +81,7 @@ export default class Brand{
      * @returns clone of the brand
      */
     clone(){
-        return new Brand(this.#name, this.#logoPath);
+        return new Brand(this.#name, this.#logoPath, this.#reverseLogoDark);
     }
 
     /**
@@ -66,7 +90,7 @@ export default class Brand{
      * @returns Brand object
      */
     static fromJson(json) {
-        return new Brand(json.name, json.logoPath);
+        return new Brand(json.name, json.logoPath, json.reverseLogoDark ?? false);
     }
 
     /**
@@ -76,7 +100,8 @@ export default class Brand{
     toJson() {
         return {
             name: this.#name,
-            logoPath: this.#logoPath
+            logoPath: this.#logoPath,
+            reverseLogoDark: this.#reverseLogoDark
         };
     }
 }

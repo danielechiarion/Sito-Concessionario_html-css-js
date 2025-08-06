@@ -65,7 +65,7 @@ function getBrandPreview(){
     else
         logo = "../../img/static/car.svg";
 
-    const brand = new Brand(name, logo);
+    const brand = new Brand(name, logo, document.getElementById("reverse-logo-dark").checked);
     document.getElementById("brand-card-preview-container").innerHTML = TemplateParts.getBrandCard(brand);
 }
 
@@ -84,9 +84,11 @@ printCarOptionals(showroom.getOptionalList()); //change the car optionals
 printChoiceColors(); //manage the color selection
 printChoiceCar(); //manage the car selection
 
+/* get every single change of the brand preview */
 document.getElementById("input-brand-name").addEventListener("input", getBrandPreview);
 document.getElementById("file-brand-logo").addEventListener("change", getBrandPreview);
 document.getElementById("url-brand-image").addEventListener("input", getBrandPreview);
+document.getElementById("reverse-logo-dark").addEventListener("change", getBrandPreview);
 window.addEventListener("resize", () => {
     document.getElementById("car-type-carousel").innerHTML = TemplateParts.getCarTypeCarousel();
 });

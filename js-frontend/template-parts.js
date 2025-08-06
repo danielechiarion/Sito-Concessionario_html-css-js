@@ -827,8 +827,12 @@ export function getSwitchOption(values, elementClass){
  * @returns formatted html card for the brand
  */
 export function getBrandCard(brand){
+  let imageClasses = "";
+  if(brand.getReverseLogoDark())
+    imageClasses = "img-dark-invert"
+
   return `<div class="card brand-card d-flex flex-column justify-content-center align-items-center" style="width: 18rem;">
-    <img src=${brand.getLogoPath()} class="card-img-top" alt="...">
+    <img src=${brand.getLogoPath()} class="card-img-top ${imageClasses}" alt="...">
       <div class="card-body">
         <h5 class="card-title" align="center">${brand.getName()}</h5>
       </div>

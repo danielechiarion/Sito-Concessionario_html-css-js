@@ -152,11 +152,12 @@ async function addBrand(){
         logo = await FilePath.fileToBase64(document.getElementById("file-brand-logo").files[0]);
     else
         logo = "https://"+document.getElementById("url-brand-image").value;
+    const reverseLogoDark = document.getElementById("reverse-logo-dark").checked;
 
     /* create the brand and check if 
     it's possible to add it */
     try{
-        const brand = new Brand(name, logo);
+        const brand = new Brand(name, logo, reverseLogoDark);
         showroom.addBrand(brand);
         showroom.saveToLocalStorage();
         document.getElementById("add-brand-message").innerHTML = TemplateParts.getSuccessMessage("Marchio aggiunto con successo");

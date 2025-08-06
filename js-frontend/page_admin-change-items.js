@@ -17,15 +17,18 @@ function changeBrand(){
     if(showroom.getBrandList().length === 0)
         return;
 
+    /* get the brandList and print the brand in the 
+    preview card */
+    const brandList = showroom.getBrandList();
+    const indexSelected = parseInt(document.getElementById("brand-choice-brand").value, 10);
+
     /* show the different parts of the form before hidden */
     document.getElementById("brand-change-section").classList.remove("d-none");
     document.getElementById("brand-card-preview").classList.remove("d-none");
     document.getElementById("submit-brand-section").classList.remove("d-none");
 
-    /* get the brandList and print the brand in the 
-    preview card */
-    const brandList = showroom.getBrandList();
-    const indexSelected = parseInt(document.getElementById("brand-choice-brand").value, 10);
+    /* set the value of the slider */
+    document.getElementById("reverse-logo-dark").checked = brandList[indexSelected].getReverseLogoDark();
 
     printBrandCard(brandList[indexSelected]); //print the actual brand
 
@@ -48,6 +51,11 @@ function changeBrand(){
 
     document.getElementById("url-brand-image").addEventListener("input", () => {
         brandList[indexSelected].setLogoPath("https://"+document.getElementById("url-brand-image").value);
+        printBrandCard(brandList[indexSelected]);
+    });
+
+    document.getElementById("reverse-logo-dark").addEventListener("change", () => {
+        brandList[indexSelected].setReverseLogoDark(document.getElementById("reverse-logo-dark").checked);
         printBrandCard(brandList[indexSelected]);
     });
 
