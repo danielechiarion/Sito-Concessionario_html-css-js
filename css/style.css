@@ -12367,4 +12367,16 @@ body.dark-theme .collapse {
   padding: 7px;
 }
 
+/* terms and conditions container */
+#terms-and-conditions-container input[type=checkbox] {
+  width: 15px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+
+#terms-and-conditions-container a {
+  color: #ff0000;
+}
+
 /*# sourceMappingURL=style.css.map */

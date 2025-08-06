@@ -513,3 +513,15 @@ body.dark-theme .collapse{
     background-color: #f8f9fa !important;
     padding: 7px;
 }
+
+/* terms and conditions container */
+#terms-and-conditions-container input[type="checkbox"] {
+  width: 15px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+
+#terms-and-conditions-container a{
+  color: $secondary;
+}
