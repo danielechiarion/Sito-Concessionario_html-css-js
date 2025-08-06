@@ -1175,7 +1175,7 @@ export function getHomeLinkPagesNormal(){
 export function getHomeLinkPagesAdmin(){
   return  `<div class="row">
           <!-- shopping cart link -->
-          <div class="col-12 d-flex justify-content-center">
+          <div class="col-md-6 d-flex justify-content-center">
             <div class="card card-sitelink">
               <h5 class="card-header card-sitelink-header">Aggiungi articoli</h5>
               <div class="card-body">
@@ -1185,6 +1185,22 @@ export function getHomeLinkPagesAdmin(){
                   </div>
                   <div class="col-8">
                     <p class="card-text">Aggiungi macchine, marchi e optional al concessionario...</p>
+                    <a href="admin_add-items.html" class="btn btn-secondary">Visita</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center">
+            <div class="card card-sitelink">
+              <h5 class="card-header card-sitelink-header">Modifica articoli</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <img src="../../img/static/settings.svg" class="pagelink-card img-dark-invert">
+                  </div>
+                  <div class="col-8">
+                    <p class="card-text">Cambia o elimina macchine, marchi e optional al concessionario...</p>
                     <a href="admin_add-items.html" class="btn btn-secondary">Visita</a>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ X Aggiusta carosello macchina lavorando solo con quelli effettivamente attivi.
 6. Mostra nella home un messaggio di errore quando non è presente alcun brand o marchio. 
 X Aggiungi la pagina di guida con le indicazioni per l'utente e gli optional disponibili. 
 X Mostra messaggio di errore in caso di mancanza di optional, macchine o brand nella pagina delle modifiche. 
-9. Metti una sezione fixed top per smarthone per la ricerca e correggi icona configuratore.
+X Metti una sezione fixed top per smarthone per la ricerca e correggi icona configuratore.
 ?. Metti di nuovo al centro la card anteprima del brand nell'admin add items.
 11. Cambia grafica risultati della ricerca generica
 12. Prova cambio tema per tabelle
