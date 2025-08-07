@@ -13,7 +13,10 @@ let user;
 function printMostSoldCars(){
     const elements = showroom.getMostSoldCars(12).map(car => TemplateParts.getCarCard(car));
 
-    document.getElementById("most-sold-car-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 2, 4, "most-sold-cars");
+    if(elements.length === 0)
+        document.getElementById("most-sold-car-section").innerHTML = TemplateParts.getErrorMessage("Nessuna macchina disponibile");
+    else
+        document.getElementById("most-sold-car-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 2, 4, "most-sold-cars");
 }
 
 /* function to print the cars the user could like */
@@ -25,14 +28,20 @@ function printPreferredUserCars(){
         document.getElementById("advice-container").classList.remove("d-none");
 
     const elements = showroom.findCarsForUser(user.findUserPreferences(), 12).map(car => TemplateParts.getCarCard(car));
-    document.getElementById("advice-section").innerHTML = TemplateParts.getCarouselItems(elements, 1,2,4, "advice");
+    if(elements.length === 0)
+        document.getElementById("advice-section").innerHTML = TemplateParts.getErrorMessage("Nessuna macchina disponibile");
+    else
+        document.getElementById("advice-section").innerHTML = TemplateParts.getCarouselItems(elements, 1,2,4, "advice");
 }
 
 /* function to print the brands registered
 in the showroom */
 function printBrands(){
     const elements = showroom.getBrandList().map(brand => TemplateParts.getBrandCard(brand));
-    document.getElementById("brand-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 3, 4, "brands");
+    if(elements.length === 0)
+        document.getElementById("brand-se tion").innerHTML = TemplateParts.getErrorMessage("Nessun marchio disponibile");
+    else
+        document.getElementById("brand-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 3, 4, "brands");
 }
 
 /* read the showroom and the account */
