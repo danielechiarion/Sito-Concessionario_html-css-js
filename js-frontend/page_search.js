@@ -1,8 +1,8 @@
 /**
- * Cerca una parola chiave in tutte le pagine HTML specificate e restituisce i risultati in stile Google.
- * @param {string} query - La parola chiave da cercare.
- * @param {string[]} pagePaths - Array di percorsi delle pagine HTML da cercare.
- * @returns {Promise<string>} - HTML dei risultati.
+ * Searches for a keyword in all specified HTML pages and returns the results in Google-style format.
+ * @param {string} query - The keyword to search for.
+ * @param {string[]} pagePaths - Array of HTML page paths to search.
+ * @returns {Promise<string>} - HTML of the results.
  */
 async function searchAllPages(query, pagePaths) {
     const results = [];
@@ -13,41 +13,41 @@ async function searchAllPages(query, pagePaths) {
             if (!response.ok) continue;
             const html = await response.text();
 
-            // Estrai il titolo della pagina
+            /* extract the title of the page */
             const titleMatch = html.match(/<title>(.*?)<\/title>/i);
             const title = titleMatch ? titleMatch[1] : path;
 
-            // Cerca la query nel testo della pagina
+            /* search the query into 
+            the text of the page */
             const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
             const bodyText = bodyMatch ? bodyMatch[1].replace(/<[^>]+>/g, ' ') : html.replace(/<[^>]+>/g, ' ');
             const index = bodyText.toLowerCase().indexOf(query.toLowerCase());
 
             if (index !== -1) {
-                // Crea uno snippet attorno alla parola trovata
+                /* creates a snippet around the found word */
                 const snippetStart = Math.max(0, index - 60);
                 const snippetEnd = Math.min(bodyText.length, index + 60);
                 let snippet = bodyText.substring(snippetStart, snippetEnd);
-                snippet = snippet.replace(new RegExp(query, 'gi'), match => `<b>${match}</b>`);
+                snippet = snippet.replace(new RegExp(query, 'gi'), match => `<b style="color:red;">${match}</b>`);
                 results.push({ title, path, snippet });
             }
         } catch (e) {
-            // Ignora errori di fetch
+            // ignores errors during fetch
         }
     }
 
-    // Formatta i risultati in stile Google
+    /* Format the results in Google style */
     if (results.length === 0) {
-        return `<p>Nessun risultato trovato per <b>${query}</b>.</p>`;
+        return `<p>Nessun risultato trovato per <b style="color:red;">${query}</b>.</p>`;
     }
 
     return results.map(r => `
         <div class="col md-6 lg-4">
             <div class="card mb-3 search-result">
                 <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="${r.path}" class="text-decoration-none">${r.title}</a>
-                    </h5>
+                    <h5 class="card-title">${r.title}</h5>
                     <p class="card-text">${r.snippet}...</p>
+                    <a href="${r.path}" class="btn btn-secondary">Vai alla pagina</a>
                 </div>
             </div>
         </div>
@@ -65,9 +65,7 @@ const pagePaths = [
     "shopping-cart.html",
     "sign-up.html",
     "terms-and-conditions.html",
-    "wish-list.html",
-    "../posts/car-details_purchase-list.html",
-    "../posts/car-details_showroom.html"
+    "wish-list.html"
 ];
 let query;
 
