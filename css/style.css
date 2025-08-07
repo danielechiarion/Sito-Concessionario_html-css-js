@@ -12368,7 +12368,7 @@ body.dark-theme .collapse {
 }
 
 /* terms and conditions container */
-input[type=checkbox] {
+.simple-checkbox input[type=checkbox] {
   width: 15px !important;
   padding: 0 !important;
   margin: 0 !important;
