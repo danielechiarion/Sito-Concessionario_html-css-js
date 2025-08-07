@@ -12337,6 +12337,10 @@ body.dark-theme .table-striped > tbody > tr:nth-of-type(even) {
   background-color: #222 !important;
 }
 
+.dark-theme {
+  /* change even the bottons close
+  to file input */
+}
 .dark-theme a {
   color: #ffffff;
   transition: color 0.3s ease-in-out;
@@ -12370,8 +12374,33 @@ body.dark-theme .table-striped > tbody > tr:nth-of-type(even) {
 .dark-theme .modal-header button {
   filter: invert(1);
 }
-.dark-theme .accordion .accordion-item .accordion-collapse {
-  background-color: white !important;
+.dark-theme .accordion .accordion-header button, .dark-theme .accordion .accordion-item, .dark-theme .accordion .accordion-collapse {
+  background-color: #333 !important;
+  color: white !important;
+}
+.dark-theme .accordion-button:after {
+  filter: invert(1) !important;
+}
+.dark-theme input[type=text], .dark-theme input[type=text]::placeholder,
+.dark-theme input[type=number], .dark-theme input[type=number]::placeholder,
+.dark-theme input[type=file], .dark-theme input[type=file]::placeholder,
+.dark-theme input[type=password], .dark-theme input[type=password]::placeholder,
+.dark-theme textarea, .dark-theme textarea::placeholder,
+.dark-theme select, .dark-theme select::placeholder {
+  background-color: black;
+  color: white;
+}
+.dark-theme .input-group .input-group-text {
+  background-color: #333;
+  color: white;
+}
+.dark-theme input[type=file]::-webkit-file-upload-button {
+  background: #333 !important;
+  color: #fff !important;
+}
+.dark-theme input[type=file]::file-selector-button {
+  background: #333 !important;
+  color: #fff !important;
 }
 
 /* result page section */

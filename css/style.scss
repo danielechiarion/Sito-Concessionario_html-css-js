@@ -511,8 +511,42 @@ body.dark-theme .table-striped > tbody > tr:nth-of-type(even) {
         filter: invert(1);
     }
 
-    .accordion .accordion-item .accordion-collapse{
-        background-color: white !important;
+    .accordion .accordion-header button, .accordion .accordion-item, .accordion .accordion-collapse{
+        background-color: #333 !important;
+        color: white !important;
+    }
+
+    .accordion-button:after{
+        filter: invert(1) !important;
+    }
+
+    input[type="text"], input[type="text"]::placeholder, 
+    input[type="number"], input[type="number"]::placeholder,
+    input[type="file"], input[type="file"]::placeholder,
+    input[type="password"], input[type="password"]::placeholder,
+    textarea, textarea::placeholder,
+    select, select::placeholder{
+        background-color: black;
+        color: white;
+    }
+
+    .input-group .input-group-text{
+        background-color: #333;
+        color: white;
+    }
+
+    /* change even the bottons close
+    to file input */
+    // Works on Chrome, Edge and Safari
+    input[type="file"]::-webkit-file-upload-button {
+        background: #333 !important; 
+        color: #fff !important;
+    }
+
+    // Modern standard and works for Chrome, Firefox, Edge
+    input[type="file"]::file-selector-button {
+        background: #333 !important;
+        color: #fff !important;
     }
 }
 
