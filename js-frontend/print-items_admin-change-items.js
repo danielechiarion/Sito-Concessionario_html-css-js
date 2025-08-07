@@ -5,13 +5,17 @@ import Brand from '../js-backend/vehicle/Brand.js';
 import * as TemplateParts from './template-parts.js';
 import * as SliderTools from './slider-manager.js';
 import Slider from './slider-manager.js';
+import { useSyncExternalStore } from 'react';
 
 let showroom; 
 
 function printOptionals(){
     const outputOptional = showroom.getOptionalList().map(singleOptional => singleOptional.getName());
 
-    document.getElementById("optional-choice-optional").innerHTML = TemplateParts.getFormSelectOptions(outputOptional);
+    if(outputOptional.length !== 0)
+        document.getElementById("optional-choice-optional").innerHTML = TemplateParts.getFormSelectOptions(outputOptional);
+    else
+        document.getElementById("optional-change-alert").innerHTML = TemplateParts.getErrorMessage("Nessun optional ancora inserito");
     document.getElementById("car-optional-available").innerHTML = TemplateParts.getSwitchOption(showroom.getOptionalList().map(singleOptional => singleOptional.getName()), "car-single-optional");
 }
 
@@ -25,8 +29,15 @@ function printCarBrands(){
             carShowroomBrands.push(singleCar.getBrand());
     }
 
-    document.getElementById("brand-choice-brand").innerHTML = TemplateParts.getFormSelectOptions(outputBrands);
-    document.getElementById("car-choice-brand").innerHTML = TemplateParts.getFormSelectOptions(carShowroomBrands.map(singleBrand => singleBrand.getName()));
+    if(carShowroomBrands.length === 0)
+        document.getElementById("car-change-alert").innerHTML = TemplateParts.getErrorMessage("Nessuna auto ancora inserita");
+    else
+        document.getElementById("car-choice-brand").innerHTML = TemplateParts.getFormSelectOptions(carShowroomBrands.map(singleBrand => singleBrand.getName()));
+
+    if(outputBrands.length === 0)
+        document.getElementById("brand-change-alert").innerHTML = TemplateParts.getErrorMessage("Nessun marchio ancora inserito");
+    else
+        document.getElementById("brand-choice-brand").innerHTML = TemplateParts.getFormSelectOptions(outputBrands);
 }
 
 
