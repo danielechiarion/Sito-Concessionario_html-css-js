@@ -1225,7 +1225,7 @@ export function getHomeLinkPagesAdmin(){
 export function getResultGridView(elements, sizeMobile, sizeTablet, sizeDesktop){
   let output = "";
   for(const element of elements){
-    output += `<div class="col-sm-${sizeMobile} col-md-${sizeTablet} col-lg-${sizeDesktop} mb-3">
+    output += `<div class="col-sm-${sizeMobile} col-md-${sizeTablet} col-lg-${sizeDesktop} mb-3 d-flex justify-content-center align-items-center">
       ${element}
     </div>`
   }

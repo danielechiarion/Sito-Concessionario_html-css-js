@@ -1,14 +1,14 @@
 X Aggiusta carosello macchina lavorando solo con quelli effettivamente attivi. 
-2. Aggiungi termini e condizioni con testo vero. 
-3. Aggiungi il flag termini e condizioni quando crei un account. 
-4. Rimuovi macchina dei dettagli salvata e pagina precedente su localStorage quando si preme il pulsante indietro. 
-5. Dai la possibilità alle immagini del brand di utilizzare la possibilità di inversione nella modalità scuro. 
+X Aggiungi termini e condizioni con testo vero. 
+X Aggiungi il flag termini e condizioni quando crei un account. 
+X Rimuovi macchina dei dettagli salvata e pagina precedente su localStorage quando si preme il pulsante indietro. 
+X Dai la possibilità alle immagini del brand di utilizzare la possibilità di inversione nella modalità scuro. 
 6. Mostra nella home un messaggio di errore quando non è presente alcun brand o marchio. 
 X Aggiungi la pagina di guida con le indicazioni per l'utente e gli optional disponibili. 
 X Mostra messaggio di errore in caso di mancanza di optional, macchine o brand nella pagina delle modifiche. 
 X Metti una sezione fixed top per smarthone per la ricerca e correggi icona configuratore.
-?. Metti di nuovo al centro la card anteprima del brand nell'admin add items.
 11. Cambia grafica risultati della ricerca generica
 12. Prova cambio tema per tabelle
 13. Centra visione smartphone i risultati del configuratore
 14. Cambia immagine logo head quando il browser è nel tema scuro.
+X Pulisci le sezioni dopo un inserimento.
