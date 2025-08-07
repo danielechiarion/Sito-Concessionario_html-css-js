@@ -446,6 +446,27 @@ body.dark-theme .collapse{
     background-color:#333131 !important;
 }
 
+body.dark-theme table {
+  --bs-table-bg: #222 !important;
+  --bs-table-color: #fff !important;
+  --bs-table-border-color: #fff !important;
+}
+
+body.dark-theme table th,
+body.dark-theme table td {
+  color: #fff !important;
+}
+
+body.dark-theme .table-striped > tbody > tr:nth-of-type(odd) {
+  --bs-table-striped-bg: #333 !important;
+  background-color: #333 !important;
+}
+
+body.dark-theme .table-striped > tbody > tr:nth-of-type(even) {
+  --bs-table-striped-bg: #222 !important;
+  background-color: #222 !important;
+}
+
 @mixin dark-theme{
     a{
         color: $text-color-dark;
@@ -454,10 +475,6 @@ body.dark-theme .collapse{
 
     h1,h2,h4,h5,p, .normal-text, .small-text, li{
         color: $text-color-dark;
-    }
-
-    table li{
-        color: black;
     }
 
     .dropdown-menu{
@@ -524,4 +541,11 @@ body.dark-theme .collapse{
 
 #terms-and-conditions-container a{
   color: $secondary;
+}
+
+/* setting for tables */
+table{
+    border: 1px solid $primary;
+    overflow: hidden;
+    border-radius: 10px;
 }
