@@ -39,7 +39,7 @@ in the showroom */
 function printBrands(){
     const elements = showroom.getBrandList().map(brand => TemplateParts.getBrandCard(brand));
     if(elements.length === 0)
-        document.getElementById("brand-se tion").innerHTML = TemplateParts.getErrorMessage("Nessun marchio disponibile");
+        document.getElementById("brand-section").innerHTML = TemplateParts.getErrorMessage("Nessun marchio disponibile");
     else
         document.getElementById("brand-section").innerHTML = TemplateParts.getCarouselItems(elements, 1, 3, 4, "brands");
 }
