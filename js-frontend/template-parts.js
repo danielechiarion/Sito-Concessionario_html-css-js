@@ -1205,7 +1205,7 @@ export function getHomeLinkPagesAdmin(){
                   </div>
                   <div class="col-8">
                     <p class="card-text">Cambia o elimina macchine, marchi e optional al concessionario...</p>
-                    <a href="admin_add-items.html" class="btn btn-secondary">Visita</a>
+                    <a href="admin_change-items.html" class="btn btn-secondary">Visita</a>
                   </div>
                 </div>
               </div>
